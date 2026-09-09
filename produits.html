@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue Produits Officiels Forever Living | FARAHSAN ONLINE Djibouti</title>
+  <meta name="description" content="Catalogue complet des produits Forever Living Products à Djibouti : Pulpes d'Aloe Vera, soins de la peau, hygiène, produits de la ruche et pack détox Clean 9. Distributeur Agréé FARAHSAN ONLINE.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#2E7D32',
+              greenDark: '#1B5E20',
+              greenLight: '#E8F5E9',
+              greenHover: '#256629',
+              rose: '#D81B60',
+              roseDark: '#AD1457',
+              roseLight: '#FCE4EC',
+              gold: '#C5A059',
+              goldLight: '#FBF7EE',
+              bgLight: '#FDFCF9',
+              cardBg: '#FFFFFF',
+              dark: '#1C2826'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .card-shadow {
+      box-shadow: 0 8px 24px -4px rgba(46, 125, 50, 0.07);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-shadow:hover {
+      box-shadow: 0 18px 32px -4px rgba(46, 125, 50, 0.14);
+      transform: translateY(-4px);
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-brand-bgLight text-brand-dark font-sans antialiased selection:bg-brand-roseLight selection:text-brand-rose">
+
+  <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+  <aside aria-label="Bannière d'annonce" class="bg-gradient-to-r from-brand-green to-brand-greenDark text-white text-xs sm:text-sm py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center p-1 bg-white/20 rounded-full text-xs">🌿</span>
+        <span class="font-medium">Distributeur Indépendant Officiel Forever Living Products à Djibouti</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-semibold">
+        <span class="hidden sm:inline-flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-300 animate-ping"></span>
+          Paiement Waafi / D-Money / Livraison
+        </span>
+        <a href="tel:+25377297705" class="hover:underline flex items-center gap-1">📞 +253 77 29 77 05</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-gray-100 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center gap-3 group focus:outline-none" aria-label="Retour à l'accueil">
+          <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105">
+          <div class="flex flex-col">
+            <span class="font-serif font-bold text-xl sm:text-2xl tracking-wider text-brand-green">FARAHSAN</span>
+            <span class="text-[10px] tracking-[0.25em] font-semibold text-brand-gold -mt-1 uppercase">ONLINE • FOREVER LIVING</span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-700">
+          <a href="index.html" class="hover:text-brand-green transition-colors py-1">Accueil</a>
+          <a href="produits.html" class="text-brand-green font-bold border-b-2 border-brand-green py-1">Catalogue Forever</a>
+          <a href="index.html#bienfaits" class="hover:text-brand-green transition-colors py-1">Bienfaits & Certifications</a>
+          <a href="index.html#paiement" class="hover:text-brand-green transition-colors py-1">Paiement & Livraison</a>
+          <a href="index.html#contact" class="hover:text-brand-green transition-colors py-1">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <!-- Panier trigger -->
+          <button id="cartBtn" class="relative p-2.5 rounded-full bg-brand-greenLight hover:bg-emerald-100 text-brand-green transition-colors" aria-label="Voir le panier">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span id="cartCount" class="absolute -top-1 -right-1 bg-brand-rose text-white text-[11px] font-bold h-5 w-5 rounded-full flex items-center justify-center shadow">0</span>
+          </button>
+
+          <!-- WhatsApp Primary CTA -->
+          <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20des%20informations%20sur%20un%20produit%20Forever." 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold text-sm shadow transition-all">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none" aria-label="Menu principal">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div id="mobileMenu" class="hidden lg:hidden py-4 border-t border-gray-100 flex flex-col gap-3 font-medium text-gray-700">
+        <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight hover:text-brand-green">Accueil</a>
+        <a href="produits.html" class="px-3 py-2 rounded-lg bg-brand-greenLight text-brand-green font-bold">Catalogue Forever</a>
+        <a href="index.html#bienfaits" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight hover:text-brand-green">Bienfaits & Certifications</a>
+        <a href="index.html#paiement" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight hover:text-brand-green">Paiement & Livraison</a>
+        <a href="index.html#contact" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight hover:text-brand-green">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== CATALOGUE HEADER ==================== -->
+  <section class="bg-gradient-to-b from-brand-greenLight/60 via-brand-bgLight to-brand-bgLight py-10 sm:py-14 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-3 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold uppercase tracking-wider">
+            <span>🦅</span> Produits Officiels Forever Living Products (FLP)
+          </div>
+          <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Catalogue Complet Forever</h1>
+          <p class="text-gray-600 text-sm sm:text-base max-w-2xl">
+            Tous les produits originaux certifiés à base d'Aloe Vera pur, produits de la ruche, cosmétiques et compléments nutritionnels. Commandez directement en 1 clic par WhatsApp.
+          </p>
+        </div>
+
+        <!-- Quick return or Cart button -->
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-gray-200 text-gray-700 hover:border-brand-green hover:text-brand-green text-xs sm:text-sm font-semibold shadow-sm transition-all">
+            <span>← Retour Accueil</span>
+          </a>
+          <button onclick="toggleCartDrawer(true)" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-green text-white text-xs sm:text-sm font-bold shadow-md hover:bg-brand-greenDark transition-all">
+            <span>Panier (<span id="cartCountPill">0</span>)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Search & Sorter -->
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-12 gap-4">
+        <!-- Search input -->
+        <div class="md:col-span-8 relative">
+          <input type="text" id="searchInput" placeholder="Rechercher un produit Forever (ex: Bidon jaune, Toothgel, Propolis, C9, Réf...)" 
+                 class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-sm text-gray-800 shadow-sm transition-all">
+          <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+
+        <!-- Sort Select -->
+        <div class="md:col-span-4">
+          <select id="sortSelect" class="w-full py-3.5 px-4 rounded-2xl bg-white border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-sm text-gray-800 shadow-sm cursor-pointer">
+            <option value="default">Tri : Sélection Recommandée</option>
+            <option value="price-asc">Prix : Moins cher au plus cher</option>
+            <option value="price-desc">Prix : Plus cher au moins cher</option>
+            <option value="name">Ordre alphabétique (A-Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Categories Filter Tabs -->
+      <div class="mt-6 flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar" id="categoryTabs">
+        <button onclick="filterCategory('all', this)" class="cat-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-brand-green text-white shadow-sm shrink-0 transition-all">
+          Tous les Produits (<span id="totalCount">0</span>)
+        </button>
+        <button onclick="filterCategory('boissons', this)" class="cat-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
+          🥤 Boissons & Pulpes Aloe
+        </button>
+        <button onclick="filterCategory('soins', this)" class="cat-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
+          ✨ Soins Visage & Peau
+        </button>
+        <button onclick="filterCategory('hygiene', this)" class="cat-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
+          🧴 Hygiène & Quotidien
+        </button>
+        <button onclick="filterCategory('nutrition', this)" class="cat-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
+          🐝 Nutrition & Ruche
+        </button>
+        <button onclick="filterCategory('packs', this)" class="cat-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
+          📦 Programmes Détox & Minceur
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCTS LIST SECTION ==================== -->
+  <main class="py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Products Counter feedback -->
+      <div class="flex items-center justify-between mb-8">
+        <p class="text-xs sm:text-sm text-gray-500 font-medium">
+          Affichage de <span id="displayedCount" class="font-bold text-gray-900">0</span> produit(s) officiel(s) Forever
+        </p>
+        <div class="text-xs text-brand-green font-bold flex items-center gap-1">
+          <span>✓</span> Produits 100% authentiques en stock
+        </div>
+      </div>
+
+      <!-- Products Grid (Rendered Dynamically by JS) -->
+      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Rendered by JavaScript -->
+      </div>
+
+      <!-- Empty Results State -->
+      <div id="noResultsState" class="hidden py-16 text-center">
+        <div class="w-16 h-16 rounded-full bg-brand-greenLight text-brand-green text-2xl flex items-center justify-center mx-auto mb-4">
+          🔍
+        </div>
+        <h3 class="font-bold text-lg text-gray-900">Aucun produit ne correspond à votre recherche</h3>
+        <p class="text-sm text-gray-500 mt-1 mb-6">Essayez un autre mot-clé ou réinitialisez les filtres.</p>
+        <button onclick="resetFilters()" class="px-6 py-2.5 rounded-full bg-brand-green text-white font-bold text-xs sm:text-sm shadow">
+          Réinitialiser tous les filtres
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-12 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 w-auto object-contain bg-white rounded-lg p-1">
+            <div class="flex flex-col">
+              <span class="font-serif font-bold text-xl text-white tracking-wider">FARAHSAN</span>
+              <span class="text-[9px] tracking-[0.2em] font-semibold text-brand-gold uppercase">ONLINE • FOREVER LIVING</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Distributeur officiel agréé de la gamme <strong>Forever Living Products</strong> à Djibouti. Pureté garantie, livraison rapide à domicile et paiement à réception.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-emerald-400 font-semibold">
+            <span>🛡️</span> Licence et agrément de distribution officielle
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Catégories Forever</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#" onclick="filterCategory('boissons'); return false;" class="hover:text-white">Boissons Aloe Vera</a></li>
+            <li><a href="#" onclick="filterCategory('soins'); return false;" class="hover:text-white">Soins Peau & Visage</a></li>
+            <li><a href="#" onclick="filterCategory('hygiene'); return false;" class="hover:text-white">Hygiène & Quotidien</a></li>
+            <li><a href="#" onclick="filterCategory('nutrition'); return false;" class="hover:text-white">Nutrition & Ruche</a></li>
+            <li><a href="#" onclick="filterCategory('packs'); return false;" class="hover:text-white">Programme Minceur C9</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Modes de Paiement</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li class="flex items-center gap-2">
+              <span class="font-bold text-red-500">•</span> Waafi (Salaam African Bank / BAM)
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="font-bold text-blue-400">•</span> D-Money (Djibouti Telecom)
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="font-bold text-emerald-400">•</span> Paiement en espèces à la livraison
+            </li>
+            <li class="pt-2 text-xs text-gray-500">
+              Livraison partout à Djibouti-ville & Balbala en 24h ouvrées.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Contact & Commande</h4>
+          <div class="space-y-3 text-sm">
+            <p class="flex items-center gap-2">
+              <span class="text-brand-green font-bold">📞</span>
+              <a href="tel:+25377297705" class="hover:text-white font-semibold">+253 77 29 77 05</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="text-[#25D366] font-bold">💬</span>
+              <a href="https://wa.me/25377297705" target="_blank" rel="noopener noreferrer" class="hover:text-white font-semibold">WhatsApp : +253 77 29 77 05</a>
+            </p>
+            <p class="text-xs text-gray-400 pt-2">
+              Commandes traitées 7j/7 de 8h à 22h.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <p>© 2026 FARAHSAN ONLINE • Tous droits réservés.</p>
+        <p>Distributeur Indépendant Officiel Forever Living Products - Djibouti 🇩🇯</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+  <aside aria-label="Bouton d'action WhatsApp" class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div class="hidden sm:flex items-center bg-white text-gray-800 text-xs font-bold py-2 px-3.5 rounded-full shadow-xl border border-gray-100">
+      <span>Commandez sur WhatsApp 👋</span>
+    </div>
+    
+    <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20un%20produit%20Forever." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="relative w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 focus:outline-none"
+       aria-label="Contacter sur WhatsApp">
+      <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-40 animate-ping"></span>
+      <svg class="w-8 h-8 fill-current relative z-10" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+  </aside>
+
+  <!-- ==================== SHOPPING CART DRAWER ==================== -->
+  <div id="cartDrawerBackdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="cartDrawer" aria-label="Panier d'achat" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
+    
+    <div class="p-6 border-b border-gray-100 flex items-center justify-between bg-brand-bgLight">
+      <div class="flex items-center gap-2">
+        <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <h3 class="font-serif font-bold text-xl text-gray-900">Mon Panier Forever</h3>
+        <span id="drawerItemCountBadge" class="bg-brand-greenLight text-brand-green text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-full hover:bg-gray-200 text-gray-500 transition-colors" aria-label="Fermer le panier">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div id="cartItemsList" class="flex-1 overflow-y-auto p-6 space-y-4 no-scrollbar">
+      <!-- Dynamic cart items -->
+    </div>
+
+    <div id="cartEmptyState" class="hidden flex-1 flex flex-col items-center justify-center p-6 text-center">
+      <div class="w-20 h-20 rounded-full bg-brand-greenLight text-brand-green flex items-center justify-center text-3xl mb-4">
+        🌿
+      </div>
+      <h4 class="font-bold text-lg text-gray-900 mb-1">Votre panier est vide</h4>
+      <p class="text-sm text-gray-500 mb-6">Ajoutez des produits Forever Living pour commander.</p>
+    </div>
+
+    <div id="cartFooter" class="p-6 border-t border-gray-100 bg-brand-bgLight space-y-4">
+      <div class="flex items-center justify-between">
+        <span class="text-gray-600 font-medium text-sm">Total Estimé :</span>
+        <span id="cartTotalAmount" class="font-serif font-bold text-2xl text-brand-green">0 DJF</span>
+      </div>
+      <p class="text-xs text-gray-500">🚚 Livraison rapide à domicile à Djibouti.</p>
+      <div class="space-y-2">
+        <button onclick="checkoutViaWhatsApp()" class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow transition-all">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Commander le Panier via WhatsApp</span>
+        </button>
+        <button onclick="clearCart()" class="w-full text-center py-2 text-xs text-gray-500 hover:text-red-500 transition-colors">
+          Vider le panier
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toastNotification" class="fixed top-24 right-6 z-50 transform translate-y-[-20px] opacity-0 pointer-events-none transition-all duration-300 bg-white border border-brand-green/30 shadow-2xl rounded-2xl p-4 flex items-center gap-3">
+    <div class="w-8 h-8 rounded-full bg-brand-greenLight text-brand-green flex items-center justify-center font-bold text-sm">
+      ✓
+    </div>
+    <div>
+      <p class="font-bold text-xs sm:text-sm text-gray-900" id="toastTitle">Article ajouté !</p>
+      <p class="text-xs text-gray-500" id="toastMessage">Le produit a été ajouté à votre panier.</p>
+    </div>
+  </div>
+
+  <!-- ==================== VANILLA JAVASCRIPT & DATABASE ==================== -->
+  <script>
+    const CONFIG = {
+      phoneRaw: '25377297705',
+      currency: 'DJF'
+    };
+
+    // VRAIE BASE DE DONNÉES DES PRODUITS FOREVER LIVING PRODUCTS (FLP)
+    // MODIFIEZ LES PRIX OU DÉTAILS ICI SELON VOS BESOINS :
+    const FOREVER_PRODUCTS = [
+      // --- BOISSONS & PULPES ALOE VERA ---
+      {
+        id: 715,
+        ref: "715",
+        name: "Forever Aloe Vera Gel",
+        category: "boissons",
+        categoryLabel: "Boissons Aloe",
+        price: 7200,
+        volume: "1 Litre (Tetra Pak)",
+        badge: "Bestseller Mondial",
+        desc: "99.7% de gel pur d'Aloe Vera certifié IASC, sans conservateurs. Stimule la digestion, détoxifie et renforce l'immunité.",
+        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 734,
+        ref: "734",
+        name: "Forever Aloe Berry Nectar",
+        category: "boissons",
+        categoryLabel: "Boissons Aloe",
+        price: 7200,
+        volume: "1 Litre (Tetra Pak)",
+        badge: "Confort Féminin & Vitalité",
+        desc: "Gel d'Aloe Vera combiné aux bienfaits de la canneberge (cranberry) et de la pomme. Riche en antioxydants et soutien urinaire.",
+        image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 777,
+        ref: "777",
+        name: "Forever Aloe Peaches",
+        category: "boissons",
+        categoryLabel: "Boissons Aloe",
+        price: 7200,
+        volume: "1 Litre (Tetra Pak)",
+        badge: "Saveur Pêche Gourmande",
+        desc: "Délicieuse purée de pêches mûries au soleil infusée dans le gel d'Aloe Vera pur. Idéal pour toute la famille et les enfants.",
+        image: "https://images.unsplash.com/photo-1622597467836-f3285f2131b7?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 196,
+        ref: "196",
+        name: "Forever Freedom",
+        category: "boissons",
+        categoryLabel: "Boissons Aloe",
+        price: 9800,
+        volume: "1 Litre",
+        badge: "Mobilité & Articulations",
+        desc: "Aloe Vera pur enrichi en Glucosamine, Chondroïtine, Vitamine C et MSM pour préserver la souplesse et le confort des articulations.",
+        image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
+      },
+
+      // --- SOINS VISAGE & PEAU ---
+      {
+        id: 51,
+        ref: "051",
+        name: "Aloe Propolis Crème",
+        category: "soins",
+        categoryLabel: "Soin Réparateur",
+        price: 5900,
+        volume: "113 g",
+        badge: "Top Vente Réparation",
+        desc: "Merveilleux mélange d'Aloe Vera pur et de Propolis d'abeille avec camomille. Soin souverain pour peaux très sèches, gerçures et imperfections.",
+        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 61,
+        ref: "061",
+        name: "Aloe Vera Gelly (Gelée d'Aloès)",
+        category: "soins",
+        categoryLabel: "Gelée Pure",
+        price: 4500,
+        volume: "118 ml",
+        badge: "Indispensable Maison",
+        desc: "Gel translucide 100% pur Aloe Vera. Apaise instantanément les brûlures légères, coups de soleil, piqûres, démangeaisons et hydrate intensément.",
+        image: "https://images.unsplash.com/photo-1567928805192-d35d641494be?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 64,
+        ref: "064",
+        name: "Aloe Heat Lotion (Émulsion Thermogène)",
+        category: "soins",
+        categoryLabel: "Massage Musculaire",
+        price: 4800,
+        volume: "118 ml",
+        badge: "Relaxation Chauffante",
+        desc: "Lotion chauffante stimulante à l'Aloe Vera, eucalyptus et menthol. Idéale en massage pour soulager les tensions musculaires, le dos et les courbatures.",
+        image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 63,
+        ref: "063",
+        name: "Aloe Moisturizing Lotion",
+        category: "soins",
+        categoryLabel: "Émulsion Hydratante",
+        price: 4600,
+        volume: "118 ml",
+        badge: "Visage & Corps",
+        desc: "Lotion protectrice onctueuse au collagène et à l'élastine. Restaure l'élasticité de la peau exposée au vent, soleil et sécheresse de Djibouti.",
+        image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 613,
+        ref: "613",
+        name: "Forever Marine Collagen",
+        category: "soins",
+        categoryLabel: "Collagène Premium",
+        price: 24000,
+        volume: "Boîte de 30 sachets",
+        badge: "Anti-Âge Révolutionnaire",
+        desc: "Collagène marin hautement biodisponible combiné à l'extrait de poivre noir, baies de goji et vitamine C. Élasticité, fermeté et éclat de la peau.",
+        image: "https://images.unsplash.com/photo-1608248597359-009949647242?auto=format&fit=crop&w=600&q=80"
+      },
+
+      // --- HYGIÈNE & QUOTIDIEN ---
+      {
+        id: 28,
+        ref: "028",
+        name: "Forever Bright Toothgel",
+        category: "hygiene",
+        categoryLabel: "Hygiène Bucco-Dentaire",
+        price: 2500,
+        volume: "130 g",
+        badge: "Sans Fluor • Bestseller",
+        desc: "Dentifrice doux à l'Aloe Vera pur, Propolis d'abeille et chlorophylle. Apaise les gencives sensibles, blanchit en douceur sans abrasif.",
+        image: "https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 67,
+        ref: "067",
+        name: "Aloe Ever-Shield Deodorant",
+        category: "hygiene",
+        categoryLabel: "Déodorant Stick",
+        price: 2300,
+        volume: "92.1 g",
+        badge: "Sans Sels d'Aluminium",
+        desc: "Déodorant corporel sans sels d'aluminium ni alcool. Protection fraîche et efficace toute la journée sans tacher les vêtements.",
+        image: "https://images.unsplash.com/photo-1583445013765-46c20c4a6772?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 22,
+        ref: "022",
+        name: "Forever Aloe Lips au Jojoba",
+        category: "hygiene",
+        categoryLabel: "Soin Lèvres",
+        price: 1200,
+        volume: "4.25 g",
+        badge: "Format Poche",
+        desc: "Baume à lèvres à l'Aloe Vera, huile de jojoba et cire d'abeille. Protège contre les gerçures, le vent et la chaleur extrême.",
+        image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 633,
+        ref: "633",
+        name: "Aloe Liquid Soap",
+        category: "hygiene",
+        categoryLabel: "Nettoyant Doux",
+        price: 5400,
+        volume: "473 ml",
+        badge: "Savon Visage & Mains",
+        desc: "Savon liquide nacré formulé à base d'Aloe Vera pur et d'huile d'argan. Nettoie en profondeur sans agresser le film lipidique de la peau.",
+        image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 640,
+        ref: "640",
+        name: "Aloe-Jojoba Shampoo",
+        category: "hygiene",
+        categoryLabel: "Soin Cheveux",
+        price: 5200,
+        volume: "296 ml",
+        badge: "Brillance & Cuir Chevelu",
+        desc: "Shampoing hydratant sans sulfates à l'Aloe Vera et huile de jojoba pour fortifier les racines, éliminer les pellicules et redonner brillance.",
+        image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=600&q=80"
+      },
+
+      // --- NUTRITION & PRODUITS DE LA RUCHE ---
+      {
+        id: 376,
+        ref: "376",
+        name: "Forever Arctic Sea (Oméga-3)",
+        category: "nutrition",
+        categoryLabel: "Santé Cardiovasculaire",
+        price: 8900,
+        volume: "120 capsules",
+        badge: "Cœur & Cerveau",
+        desc: "Mélange exclusif d'huiles de poissons des mers froides et de calmar enrichi en huile d'olive. Riche en EPA et DHA pour le cœur, la mémoire et la vision.",
+        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 26,
+        ref: "026",
+        name: "Forever Bee Pollen",
+        category: "nutrition",
+        categoryLabel: "Produit de la Ruche",
+        price: 4800,
+        volume: "100 comprimés",
+        badge: "Énergie Naturelle",
+        desc: "Pollen d'abeille pur récolté dans les déserts sans pollution. Véritable concentré de vitamines, minéraux et acides aminés pour booster l'énergie.",
+        image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 27,
+        ref: "027",
+        name: "Forever Bee Propolis",
+        category: "nutrition",
+        categoryLabel: "Bouclier Immunitaire",
+        price: 9500,
+        volume: "60 comprimés",
+        badge: "Protection Ruche",
+        desc: "Substance protectrice naturelle des ruches d'abeilles, enrichie en gelée royale. Renforce les défenses naturelles de l'organisme.",
+        image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 36,
+        ref: "036",
+        name: "Forever Royal Jelly (Gelée Royale)",
+        category: "nutrition",
+        categoryLabel: "Élixir de Vitalité",
+        price: 9800,
+        volume: "60 comprimés",
+        badge: "Anti-Fatigue Souverain",
+        desc: "Nourriture exclusive de la reine des abeilles. Augmente la longévité, combat la fatigue physique et intellectuelle et stimule l'immunité.",
+        image: "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 439,
+        ref: "439",
+        name: "Forever Daily",
+        category: "nutrition",
+        categoryLabel: "Multi-Vitamines",
+        price: 5500,
+        volume: "60 comprimés",
+        badge: "55 Nutriments Clés",
+        desc: "Complexe de vitamines A, C, D, B, minéraux essentiels et mélange exclusif de 20 fruits et légumes breveté Forever AOS Complex.",
+        image: "https://images.unsplash.com/photo-1550572017-edd951aa8f72?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 48,
+        ref: "048",
+        name: "Forever Absorbent-C",
+        category: "nutrition",
+        categoryLabel: "Vitamine C & Avoine",
+        price: 5200,
+        volume: "100 comprimés",
+        badge: "Haute Assimilation",
+        desc: "Vitamine C liée au son d'avoine pour une libération progressive dans le corps. Puissant antioxydant anti-fatigue.",
+        image: "https://images.unsplash.com/photo-1577401239170-897942555fb3?auto=format&fit=crop&w=600&q=80"
+      },
+
+      // --- PROGRAMMES DÉTOX & MINCEUR ---
+      {
+        id: 475,
+        ref: "475",
+        name: "Programme Forever Clean 9 (C9)",
+        category: "packs",
+        categoryLabel: "Programme Minceur Détox",
+        price: 38000,
+        volume: "Pack Complet 9 jours",
+        badge: "N°1 Détox Mondial",
+        desc: "Le programme star de détoxification et perte de poids en 9 jours : 2 bidons d'Aloe Vera Gel + Forever Therm + Garcinia + Fiber + Ultra Lite Shake + Shaker et mètre ruban.",
+        image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 528,
+        ref: "528",
+        name: "Programme Forever F15",
+        category: "packs",
+        categoryLabel: "Remise en Forme 15 Jours",
+        price: 42000,
+        volume: "Pack 15 Jours",
+        badge: "Sculpter & Tonifier",
+        desc: "Suite logique du C9 pour consolider la perte de poids, tonifier le corps et adopter une hygiène de vie saine et durable.",
+        image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 456,
+        ref: "456",
+        name: "Forever Vital 5",
+        category: "packs",
+        categoryLabel: "Bien-Être Quotidien",
+        price: 46000,
+        volume: "Pack 5 Produits",
+        badge: "Vitalité Maximale",
+        desc: "L'autoroute nutritionnelle de Forever : 4 Pulpes d'Aloe Vera + Forever Daily + Active Pro-B (probiotiques) + Arctic Sea + ARGI+.",
+        image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    // State
+    let currentCategory = 'all';
+    let searchQuery = '';
+    let sortMethod = 'default';
+    let cart = JSON.parse(localStorage.getItem('farhasan_cart') || '[]');
+
+    // DOM Elements
+    const grid = document.getElementById('productsGrid');
+    const totalCountEl = document.getElementById('totalCount');
+    const displayedCountEl = document.getElementById('displayedCount');
+    const noResultsState = document.getElementById('noResultsState');
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const cartCountEl = document.getElementById('cartCount');
+    const cartCountPill = document.getElementById('cartCountPill');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartDrawerBackdrop = document.getElementById('cartDrawerBackdrop');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartEmptyState = document.getElementById('cartEmptyState');
+    const cartFooter = document.getElementById('cartFooter');
+    const cartTotalAmount = document.getElementById('cartTotalAmount');
+    const drawerItemCountBadge = document.getElementById('drawerItemCountBadge');
+
+    // Parse URL param for category on load
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = urlParams.get('cat');
+    if (catParam) {
+      currentCategory = catParam;
+    }
+
+    // Initialize
+    totalCountEl.textContent = FOREVER_PRODUCTS.length;
+    renderProducts();
+    saveAndRenderCart();
+
+    // Filter by Category
+    function filterCategory(cat, tabBtn) {
+      currentCategory = cat;
+      
+      // Update tab styles
+      document.querySelectorAll('.cat-tab').forEach(btn => {
+        btn.classList.remove('bg-brand-green', 'text-white');
+        btn.classList.add('bg-white', 'text-gray-700');
+      });
+      if (tabBtn) {
+        tabBtn.classList.remove('bg-white', 'text-gray-700');
+        tabBtn.classList.add('bg-brand-green', 'text-white');
+      }
+
+      renderProducts();
+    }
+
+    // Search & Sort Listeners
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      renderProducts();
+    });
+
+    sortSelect.addEventListener('change', (e) => {
+      sortMethod = e.target.value;
+      renderProducts();
+    });
+
+    function resetFilters() {
+      searchInput.value = '';
+      searchQuery = '';
+      sortSelect.value = 'default';
+      sortMethod = 'default';
+      currentCategory = 'all';
+      filterCategory('all', document.querySelector('.cat-tab'));
+    }
+
+    // Render Products Grid
+    function renderProducts() {
+      let filtered = FOREVER_PRODUCTS.filter(p => {
+        const matchesCategory = (currentCategory === 'all') || (p.category === currentCategory);
+        const matchesSearch = !searchQuery || 
+          p.name.toLowerCase().includes(searchQuery) || 
+          p.ref.toLowerCase().includes(searchQuery) || 
+          p.desc.toLowerCase().includes(searchQuery) ||
+          p.categoryLabel.toLowerCase().includes(searchQuery);
+        return matchesCategory && matchesSearch;
+      });
+
+      // Sorting
+      if (sortMethod === 'price-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortMethod === 'price-desc') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortMethod === 'name') {
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      displayedCountEl.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noResultsState.classList.remove('hidden');
+        return;
+      }
+
+      noResultsState.classList.add('hidden');
+      grid.innerHTML = filtered.map(p => {
+        const whatsappText = encodeURIComponent(`Bonjour FARAHSAN ONLINE, je souhaite commander le produit officiel Forever : ${p.name} (Réf. ${p.ref}) au prix de ${p.price.toLocaleString()} DJF.`);
+        const whatsappLink = `https://wa.me/${CONFIG.phoneRaw}?text=${whatsappText}`;
+
+        return `
+          <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-gray-100 flex flex-col justify-between group relative">
+            
+            <!-- Image & Badges -->
+            <div class="relative aspect-[4/3] bg-gray-50 overflow-hidden">
+              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              
+              <div class="absolute top-3 left-3 flex flex-col gap-1">
+                <span class="px-2.5 py-0.5 rounded-full bg-brand-green text-white text-[10px] font-extrabold uppercase tracking-wide shadow">
+                  Forever Living
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full bg-brand-rose text-white text-[10px] font-bold shadow">
+                  ${p.badge}
+                </span>
+              </div>
+
+              <div class="absolute bottom-2 right-3 bg-black/60 backdrop-blur-sm text-white px-2 py-0.5 rounded text-[10px] font-mono">
+                Réf. ${p.ref}
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+              <div>
+                <div class="flex items-center justify-between text-xs text-brand-gold font-bold mb-1">
+                  <span>${p.categoryLabel}</span>
+                  <span class="text-gray-400 font-normal">${p.volume}</span>
+                </div>
+                <h3 class="font-bold text-base text-gray-900 leading-snug group-hover:text-brand-green transition-colors">
+                  ${p.name}
+                </h3>
+                <p class="text-xs text-gray-600 mt-2 line-clamp-3 leading-relaxed">
+                  ${p.desc}
+                </p>
+              </div>
+
+              <!-- Price & Actions -->
+              <div class="pt-3 border-t border-gray-100">
+                <div class="flex items-baseline justify-between mb-3">
+                  <span class="text-[11px] text-gray-500">Prix unitaire</span>
+                  <span class="font-serif font-bold text-xl text-brand-green">
+                    ${p.price.toLocaleString()} <span class="text-xs font-sans font-semibold text-gray-600">DJF</span>
+                  </span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <!-- WhatsApp button -->
+                  <a href="${whatsappLink}" target="_blank" rel="noopener noreferrer" 
+                     class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs shadow transition-all">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>WhatsApp</span>
+                  </a>
+
+                  <!-- Add to cart -->
+                  <button onclick="addToCart('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}', '${p.ref}')"
+                          class="p-2.5 rounded-xl bg-brand-greenLight hover:bg-brand-green hover:text-white text-brand-green transition-colors"
+                          title="Ajouter au panier" aria-label="Ajouter ${p.name} au panier">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        `;
+      }).join('');
+    }
+
+    // ================= CART SYSTEM =================
+    function toggleCartDrawer(open) {
+      if (open) {
+        cartDrawerBackdrop.classList.remove('hidden');
+        cartDrawer.classList.remove('translate-x-full');
+        document.body.classList.add('overflow-hidden');
+      } else {
+        cartDrawerBackdrop.classList.add('hidden');
+        cartDrawer.classList.add('translate-x-full');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+
+    const cartBtn = document.getElementById('cartBtn');
+    if (cartBtn) cartBtn.addEventListener('click', () => toggleCartDrawer(true));
+
+    function addToCart(title, price, image, ref) {
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ title, price, image, ref: ref || '', quantity: 1 });
+      }
+      saveAndRenderCart();
+      showToast('Produit ajouté !', `${title} a été ajouté à votre panier.`);
+    }
+
+    function updateQty(index, delta) {
+      if (!cart[index]) return;
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) cart.splice(index, 1);
+      saveAndRenderCart();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      saveAndRenderCart();
+    }
+
+    function clearCart() {
+      cart = [];
+      saveAndRenderCart();
+    }
+
+    function saveAndRenderCart() {
+      localStorage.setItem('farhasan_cart', JSON.stringify(cart));
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+      cartCountEl.textContent = totalItems;
+      cartCountPill.textContent = totalItems;
+      drawerItemCountBadge.textContent = totalItems;
+      cartTotalAmount.textContent = `${totalPrice.toLocaleString()} ${CONFIG.currency}`;
+
+      if (cart.length === 0) {
+        cartItemsList.classList.add('hidden');
+        cartEmptyState.classList.remove('hidden');
+        cartFooter.classList.add('hidden');
+      } else {
+        cartItemsList.classList.remove('hidden');
+        cartEmptyState.classList.add('hidden');
+        cartFooter.classList.remove('hidden');
+
+        cartItemsList.innerHTML = cart.map((item, idx) => `
+          <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-2xl border border-gray-100">
+            <img src="${item.image}" alt="${item.title}" class="w-14 h-14 rounded-xl object-cover border border-gray-200">
+            <div class="flex-1">
+              <h4 class="font-bold text-xs sm:text-sm text-gray-900 leading-snug">${item.title}</h4>
+              <p class="text-xs text-brand-green font-bold mt-0.5">${(item.price * item.quantity).toLocaleString()} ${CONFIG.currency}</p>
+              <div class="flex items-center gap-2 mt-1.5">
+                <button onclick="updateQty(${idx}, -1)" class="w-5 h-5 rounded bg-white border border-gray-200 text-xs font-bold flex items-center justify-center">-</button>
+                <span class="text-xs font-bold">${item.quantity}</span>
+                <button onclick="updateQty(${idx}, 1)" class="w-5 h-5 rounded bg-white border border-gray-200 text-xs font-bold flex items-center justify-center">+</button>
+              </div>
+            </div>
+            <button onclick="removeFromCart(${idx})" class="p-1.5 text-gray-400 hover:text-red-500" aria-label="Supprimer ${item.title}">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+            </button>
+          </div>
+        `).join('');
+      }
+    }
+
+    function checkoutViaWhatsApp() {
+      if (cart.length === 0) return;
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      let msg = `Bonjour FARAHSAN ONLINE (Distributeur Forever), je souhaite valider la commande suivante :\n\n`;
+      cart.forEach(item => {
+        msg += `• ${item.quantity}x ${item.title} ${item.ref ? `(Réf. ${item.ref})` : ''} - ${(item.price * item.quantity).toLocaleString()} DJF\n`;
+      });
+      msg += `\n*TOTAL :* ${totalPrice.toLocaleString()} DJF\n`;
+      msg += `Moyen de paiement : (Waafi / D-Money / Espèces à la livraison)\n`;
+      msg += `Adresse de livraison : (ex: Quartier, Balbala, Héron, etc.)`;
+
+      window.open(`https://wa.me/${CONFIG.phoneRaw}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function showToast(title, message) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastMessage').textContent = message;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3000);
+    }
+
+    // Mobile nav toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+  </script>
+
+</body>
+</html>
