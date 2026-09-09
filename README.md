@@ -30,16 +30,6 @@ Farhasan-Online/
 └── README.md
 ```
 
----
-
-## 🚀 Déploiement sur GitHub Pages
-
-1. Rendez-vous dans les paramètres de votre dépôt GitHub (**Settings** > **Pages**).
-2. Sous **Build and deployment** :
-   - Source : `Deploy from a branch`
-   - Branch : `main` / `root`
-3. Cliquez sur **Save**. Votre site sera accessible sous :
-   `https://<username>.github.io/<nom-du-depot>/`
 
 ---
 
