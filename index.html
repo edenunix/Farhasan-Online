@@ -1,20 +1,35 @@
+<!--
+====================================================================
+* APPLICATION   : FARAHSAN ONLINE - Boutique Officielle Djibouti
+* DÉVELOPPEUR   : Aden.Code
+* VERSION       : 2.0.0 (Production Ready)
+* SÉCURITÉ      : CSP, Anti-XSS Sanitization, Anti-Clickjacking, Anti-Tabnabbing
+* I18N          : 5 Langues (FR, SO, AA, AR [RTL + Cairo Font], EN) + Persistance
+* POWERED BY    : Aden.Code | © 2026 FARAHSAN ONLINE. Tous droits réservés.
+====================================================================
+-->
 <!DOCTYPE html>
 <html lang="fr" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FARAHSAN ONLINE | Beauté Naturelle & Bien-Être à Djibouti</title>
-  <meta name="description" content="FARAHSAN ONLINE - Votre boutique de référence à Djibouti pour les soins d'exception à base d'Aloe Vera. Soins de la peau, cheveux et vitalité. Livraison rapide, paiement Waafi, D-Money et espèces.">
-  
-  <!-- Favicon -->
+  <meta name="description" content="Boutique officielle FARAHSAN ONLINE à Djibouti. Produits naturels d'Aloe Vera certifiés Forever Living Products. Soins de la peau, hygiène et compléments alimentaires.">
+
+  <!-- SÉCURITÉ & BLINDAGE (ANTI-HACK / ANTI-XSS / ANTI-CLICKJACKING) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
   <link rel="icon" type="image/png" href="assets/logo.png">
 
-  <!-- Google Fonts: Plus Jakarta Sans, Cairo (pour l'arabe) & Playfair Display -->
+  <!-- Google Fonts: Cairo (Arabe RTL), Plus Jakarta Sans & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS via CDN avec configuration -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,20 +40,18 @@
               green: '#2E7D32',
               greenDark: '#1B5E20',
               greenLight: '#E8F5E9',
-              greenHover: '#256629',
               rose: '#D81B60',
-              roseDark: '#AD1457',
               roseLight: '#FCE4EC',
-              gold: '#C5A059',
-              goldLight: '#FBF7EE',
-              bgLight: '#FDFCF9',
-              cardBg: '#FFFFFF',
-              dark: '#1C2826'
+              gold: '#D4AF37',
+              goldLight: '#FFF8E1',
+              dark: '#1F2937',
+              bgLight: '#F9FAFB'
             }
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '"Cairo"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            cairo: ['Cairo', 'sans-serif']
           }
         }
       }
@@ -55,24 +68,21 @@
       -webkit-backdrop-filter: blur(12px);
     }
     .hero-gradient {
-      background: radial-gradient(circle at 10% 20%, rgba(232, 245, 233, 0.7) 0%, rgba(253, 251, 247, 1) 90%);
+      background: radial-gradient(circle at top right, rgba(232, 245, 233, 0.8), transparent 60%),
+                  radial-gradient(circle at bottom left, rgba(252, 228, 236, 0.5), transparent 50%);
     }
     .card-shadow {
-      box-shadow: 0 10px 30px -5px rgba(46, 125, 50, 0.08);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
     }
     .card-shadow:hover {
-      box-shadow: 0 20px 35px -5px rgba(46, 125, 50, 0.16);
-      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -10px rgba(46, 125, 50, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
     }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="bg-brand-bgLight text-brand-dark font-sans antialiased selection:bg-brand-roseLight selection:text-brand-rose min-h-screen flex flex-col">
 
   <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
-  <aside aria-label="Bannière d'annonce" class="bg-gradient-to-r from-brand-green to-brand-greenDark text-white text-xs sm:text-sm py-2 px-4">
+  <aside aria-label="Bannière d'annonce" class="bg-gradient-to-r from-brand-green to-brand-greenDark text-white text-xs sm:text-sm py-2 px-4 border-b border-white/10 relative z-50">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="inline-flex items-center justify-center p-1 bg-white/20 rounded-full text-xs">🌿</span>
@@ -83,7 +93,7 @@
           <span class="w-2 h-2 rounded-full bg-emerald-300 animate-ping"></span>
           Waafi • D-Money • BCI Pay • Cash Delivery
         </span>
-        <a href="tel:+25377297705" class="hover:underline flex items-center gap-1">📞 +253 77 29 77 05</a>
+        <a href="tel:+25377297705" class="hover:underline flex items-center gap-1" rel="noopener noreferrer">📞 +253 77 29 77 05</a>
       </div>
     </div>
   </aside>
@@ -95,7 +105,7 @@
         
         <!-- Brand Logo -->
         <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none shrink-0" aria-label="Accueil FARAHSAN ONLINE">
-          <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+          <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='assets/logo.png';">
           <div class="flex flex-col">
             <span class="font-serif font-bold text-xl sm:text-2xl tracking-wider text-brand-green">FARAHSAN</span>
             <span class="text-[10px] tracking-[0.25em] font-semibold text-brand-gold -mt-1 uppercase">ONLINE • DJIBOUTI</span>
@@ -103,27 +113,26 @@
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-8 ml-6 font-medium text-sm text-gray-700">
+        <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-700">
           <a href="index.html" class="text-brand-green font-bold border-b-2 border-brand-green py-1" data-i18n="nav_home">
             Accueil
           </a>
-          <a href="produits.html" class="px-3.5 py-1.5 rounded-full bg-brand-greenLight text-brand-green font-bold hover:bg-brand-green hover:text-white transition-all shadow-sm flex items-center gap-1.5">
-            <span data-i18n="nav_products">Nos Produits</span>
-            <span class="text-xs rtl:rotate-180">→</span>
+          <a href="produits.html" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_products">
+            Nos Produits
           </a>
-          <a href="#valeurs" class="hover:text-brand-green transition-colors py-1" data-i18n="values_title">
+          <a href="index.html#valeurs" class="hover:text-brand-green transition-colors py-1" data-i18n="values_title">
             Pourquoi Choisir FARAHSAN ONLINE ?
           </a>
-          <a href="#paiement" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_payment">
+          <a href="index.html#paiement" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_payment">
             Paiement & Livraison
           </a>
-          <a href="#contact" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_contact">
+          <a href="index.html#contact" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_contact">
             Contact
           </a>
         </nav>
 
-        <!-- ZONE D'ACTION EN HAUT À DROITE (Sélecteur de langue + Panier + Bouton WhatsApp) -->
-        <div class="flex items-center gap-2.5 sm:gap-3.5">
+        <!-- Right Action Area : SÉLECTEUR DE LANGUE IMMÉDIATEMENT À CÔTÉ DU BOUTON WHATSAPP -->
+        <div class="flex items-center gap-3 sm:gap-4">
           
           <!-- SÉLECTEUR DE LANGUE STYLISÉ AVEC DROPDOWN -->
           <div class="relative inline-block text-left" id="langSelectorWrapper">
@@ -185,145 +194,117 @@
             </div>
           </div>
 
-          <!-- Cart trigger -->
-          <button id="cartBtn" class="relative p-2.5 rounded-full bg-brand-greenLight/70 hover:bg-brand-greenLight text-brand-green transition-colors" aria-label="Voir le panier">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-            </svg>
-            <span id="cartCount" class="absolute -top-1 -right-1 rtl:-right-auto rtl:-left-1 bg-brand-rose text-white text-[11px] font-bold h-5 w-5 rounded-full flex items-center justify-center shadow">0</span>
-          </button>
-
-          <!-- WhatsApp Primary CTA -->
+          <!-- BOUTON PRINCIPAL WHATSAPP (IMMÉDIATEMENT ADJACENT AU SÉLECTEUR DE LANGUE) -->
           <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander." 
              id="headerWhatsappBtn"
              target="_blank" 
              rel="noopener noreferrer"
-             class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm shadow hover:shadow-lg transition-all shrink-0">
+             class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm shadow hover:shadow-lg transition-all transform active:scale-95 shrink-0">
             <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
             <span id="headerWhatsappText" data-i18n="btn_whatsapp_nav">Commander WhatsApp</span>
           </a>
 
-          <!-- Mobile Toggle -->
-          <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100" aria-label="Menu principal">
+          <!-- Mobile Toggle Button -->
+          <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none" aria-label="Menu principal">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </button>
         </div>
-      </div>
 
-      <!-- Mobile Dropdown -->
-      <div id="mobileMenu" class="hidden lg:hidden py-4 border-t border-gray-100 flex flex-col gap-3 font-medium text-gray-700">
-        <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight font-bold text-brand-green" data-i18n="nav_home">Accueil</a>
-        <a href="produits.html" class="px-3 py-2 rounded-lg bg-brand-green text-white font-bold flex items-center justify-between">
-          <span data-i18n="nav_products">Nos Produits</span>
-          <span class="rtl:rotate-180">→</span>
-        </a>
-        <a href="#valeurs" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="values_title">Pourquoi Choisir FARAHSAN ONLINE ?</a>
-        <a href="#paiement" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_payment">Paiement & Livraison</a>
-        <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_contact">Contact</a>
-        
-        <!-- Sélecteur rapide mobile -->
-        <div class="pt-3 border-t border-gray-100">
-          <p class="text-xs text-gray-400 font-bold uppercase mb-2 px-3">Langue / Luqadda / Lughah</p>
-          <div class="grid grid-cols-5 gap-1 px-2">
-            <button onclick="changeLanguage('fr')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇫🇷 FR</button>
-            <button onclick="changeLanguage('so')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 SO</button>
-            <button onclick="changeLanguage('aa')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 AA</button>
-            <button onclick="changeLanguage('ar')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇸🇦 AR</button>
-            <button onclick="changeLanguage('en')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇬🇧 EN</button>
-          </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden py-4 border-t border-gray-100 flex flex-col gap-3 font-medium text-gray-700 bg-white/98 px-4 shadow-lg">
+      <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight bg-brand-greenLight text-brand-green font-bold" data-i18n="nav_home">Accueil</a>
+      <a href="produits.html" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight " data-i18n="nav_products">Nos Produits</a>
+      <a href="index.html#valeurs" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="values_title">Pourquoi Choisir FARAHSAN ONLINE ?</a>
+      <a href="index.html#paiement" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_payment">Paiement & Livraison</a>
+      <a href="index.html#contact" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_contact">Contact</a>
+      
+      <!-- Sélecteur rapide mobile -->
+      <div class="pt-3 border-t border-gray-100">
+        <p class="text-xs text-gray-400 font-bold uppercase mb-2 px-1">Langue / Luqadda / Lughah</p>
+        <div class="grid grid-cols-5 gap-1">
+          <button onclick="changeLanguage('fr')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇫🇷 FR</button>
+          <button onclick="changeLanguage('so')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 SO</button>
+          <button onclick="changeLanguage('aa')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 AA</button>
+          <button onclick="changeLanguage('ar')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇸🇦 AR</button>
+          <button onclick="changeLanguage('en')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇬🇧 EN</button>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ==================== HERO SECTION ==================== -->
-  <section id="accueil" class="relative overflow-hidden hero-gradient py-12 lg:py-20">
-    <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-greenLight/80 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-1/2 -right-24 w-96 h-96 bg-brand-roseLight/70 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <!-- ==================== HERO SECTION OFFICIELLE ==================== -->
+  <section class="relative overflow-hidden hero-gradient py-16 lg:py-24 border-b border-brand-green/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
-        <!-- Left Content -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left rtl:lg:text-right">
+        <div class="lg:col-span-7 space-y-6 text-left rtl:text-right">
           
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-greenLight text-brand-green text-xs sm:text-sm font-bold tracking-wide uppercase">
-            <span class="w-2 h-2 rounded-full bg-brand-green"></span>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-greenLight text-brand-green text-xs sm:text-sm font-semibold tracking-wide border border-brand-green/20">
+            <span>🌿</span>
             <span data-i18n="values_badge">NOTRE ENGAGEMENT</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse"></span>
           </div>
 
-          <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.15]">
-            <span id="heroTitle" data-i18n="hero_title">Beauté Naturelle & Bien-Être Réel</span>
+          <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.15]" data-i18n="hero_title">
+            Beauté Naturelle & Bien-Être Réel
           </h1>
 
-          <p id="heroSubtitle" class="text-gray-600 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mx-auto lg:mx-0" data-i18n="hero_subtitle">
+          <p class="text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed" data-i18n="hero_subtitle">
             Votre boutique de référence à Djibouti pour les soins d'exception à base d'Aloe Vera. Révélez l'éclat de votre peau, fortifiez vos cheveux et boostez votre vitalité.
           </p>
 
-          <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-            <!-- Bouton Découvrir -->
-            <a href="produits.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-brand-green hover:bg-brand-greenDark text-white font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-              <span id="heroBtnShop" data-i18n="hero_btn_shop">Découvrir la Boutique</span>
-              <svg class="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+            <a href="produits.html" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-brand-green hover:bg-brand-greenDark text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all transform active:scale-95 group">
+              <span data-i18n="hero_btn_shop">Découvrir la Boutique</span>
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-
-            <!-- Bouton Conseil WhatsApp -->
+            
             <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20un%20conseil%20personnalis%C3%A9." 
-               id="heroBtnContact"
                target="_blank" 
                rel="noopener noreferrer" 
-               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              <span id="heroBtnContactText" data-i18n="hero_btn_contact">Conseil WhatsApp</span>
+               class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-gray-50 text-gray-800 font-bold text-sm sm:text-base border border-gray-200 shadow-sm hover:shadow transition-all">
+              <svg class="w-5 h-5 fill-[#25D366]" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span data-i18n="hero_btn_contact">Conseil WhatsApp</span>
             </a>
           </div>
 
-          <!-- Badges de réassurance locale -->
-          <div class="pt-6 grid grid-cols-3 gap-3 border-t border-gray-200/80 text-left rtl:text-right">
+          <!-- 3 Piliers de Confiance -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200/60 max-w-xl">
             <div>
-              <p class="font-bold text-xs sm:text-sm text-gray-900">🌿 100% Naturel</p>
-              <p class="text-[11px] text-gray-500">Aloe Vera Pur</p>
+              <p class="font-bold text-gray-900 text-sm sm:text-base">100% Naturel</p>
+              <p class="text-xs text-gray-500">Aloe Vera Pur</p>
             </div>
             <div>
-              <p class="font-bold text-xs sm:text-sm text-gray-900">⚡ Livraison Rapide</p>
-              <p class="text-[11px] text-gray-500">Djibouti & Balbala</p>
+              <p class="font-bold text-gray-900 text-sm sm:text-base">Express</p>
+              <p class="text-xs text-gray-500">Djibouti-ville</p>
             </div>
             <div>
-              <p class="font-bold text-xs sm:text-sm text-gray-900">💳 Waafi & D-Money</p>
-              <p class="text-[11px] text-gray-500">Ou Espèces à l'arrivée</p>
+              <p class="font-bold text-gray-900 text-sm sm:text-base">Conseil 7j/7</p>
+              <p class="text-xs text-gray-500">WhatsApp Dédié</p>
             </div>
           </div>
+
         </div>
 
-        <!-- Right Visual Showcase -->
-        <div class="lg:col-span-5 relative">
-          <div class="relative mx-auto max-w-md lg:max-w-none">
-            <div class="aspect-square rounded-3xl bg-gradient-to-tr from-brand-green/20 to-brand-gold/30 p-3 shadow-2xl">
-              <div class="w-full h-full rounded-2xl overflow-hidden relative shadow-inner bg-white">
-                <img src="assets/hero_aloe.jpg" 
-                     alt="FARAHSAN ONLINE Soins Naturels Aloe Vera Djibouti" 
-                     class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
-                
-                <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-gray-100 shadow-lg flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-brand-greenLight flex items-center justify-center text-brand-green font-bold text-lg">
-                      🌿
-                    </div>
-                    <div>
-                      <p class="font-bold text-sm text-gray-900">FARAHSAN ONLINE</p>
-                      <p class="text-xs text-brand-green font-semibold">Djibouti Nature & Beauté</p>
-                    </div>
-                  </div>
-                  <span class="px-2.5 py-1 bg-brand-green text-white font-bold text-xs rounded-full shadow">
-                    Djibouti 🇩🇯
-                  </span>
-                </div>
+        <!-- Visuel Hero -->
+        <div class="lg:col-span-5 relative flex justify-center">
+          <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+            <img src="assets/hero_aloe.jpg" 
+                 alt="FARAHSAN ONLINE Soins Naturels Aloe Vera" 
+                 class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                 onerror="this.onerror=null;this.src='assets/logo.png';">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/40 flex items-center justify-between">
+              <div>
+                <p class="text-[10px] text-brand-green font-bold uppercase tracking-wider">Certifié & Conforme</p>
+                <p class="font-serif font-bold text-gray-900 text-sm sm:text-base">Aloe Vera d'Exception</p>
               </div>
-            </div>
-            
-            <div class="absolute -top-4 -right-4 rtl:-right-auto rtl:-left-4 bg-brand-rose text-white px-4 py-2 rounded-2xl shadow-xl font-bold text-xs sm:text-sm flex items-center gap-1.5 animate-bounce">
-              <span>✨</span> 100% Qualité & Service
+              <a href="produits.html" class="px-3.5 py-1.5 rounded-full bg-brand-green text-white text-xs font-bold hover:bg-brand-greenDark transition-colors">
+                Voir tout →
+              </a>
             </div>
           </div>
         </div>
@@ -332,14 +313,12 @@
     </div>
   </section>
 
-  <!-- ==================== NOUVELLE SECTION : POURQUOI CHOISIR FARAHSAN ONLINE ? ==================== -->
-  <section id="valeurs" class="py-16 sm:py-24 bg-white border-y border-gray-100">
+  <!-- ==================== SECTION IDENTITAIRE : POURQUOI CHOISIR FARAHSAN ONLINE ? ==================== -->
+  <section id="valeurs" class="py-16 sm:py-24 bg-white border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-        <span class="text-brand-rose font-bold text-xs sm:text-sm tracking-widest uppercase" data-i18n="values_badge">
-          NOTRE ENGAGEMENT
-        </span>
+        <span class="text-brand-green font-bold text-xs sm:text-sm tracking-widest uppercase" data-i18n="values_badge">NOTRE ENGAGEMENT</span>
         <h2 class="font-serif text-3xl sm:text-4xl font-bold text-gray-900" data-i18n="values_title">
           Pourquoi Choisir FARAHSAN ONLINE ?
         </h2>
@@ -366,7 +345,7 @@
 
         <!-- Carte 2 -->
         <div class="p-8 rounded-3xl bg-brand-bgLight border border-gray-100 hover:border-brand-green/30 transition-all card-shadow flex flex-col items-center text-center group">
-          <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-brand-greenLight text-brand-green text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
             🚚
           </div>
           <h3 class="font-bold text-lg text-gray-900 mb-2.5 group-hover:text-brand-green transition-colors" data-i18n="card2_title">
@@ -379,10 +358,10 @@
 
         <!-- Carte 3 -->
         <div class="p-8 rounded-3xl bg-brand-bgLight border border-gray-100 hover:border-brand-green/30 transition-all card-shadow flex flex-col items-center text-center group">
-          <div class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-brand-roseLight text-brand-rose text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
             💬
           </div>
-          <h3 class="font-bold text-lg text-gray-900 mb-2.5 group-hover:text-brand-green transition-colors" data-i18n="card3_title">
+          <h3 class="font-bold text-lg text-gray-900 mb-2.5 group-hover:text-brand-rose transition-colors" data-i18n="card3_title">
             Conseil & Accompagnement
           </h3>
           <p class="text-xs sm:text-sm text-gray-600 leading-relaxed" data-i18n="card3_desc">
@@ -392,14 +371,14 @@
 
         <!-- Carte 4 -->
         <div class="p-8 rounded-3xl bg-brand-bgLight border border-gray-100 hover:border-brand-green/30 transition-all card-shadow flex flex-col items-center text-center group">
-          <div class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-brand-goldLight text-brand-gold text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
             🛡️
           </div>
-          <h3 class="font-bold text-lg text-gray-900 mb-2.5 group-hover:text-brand-green transition-colors" data-i18n="card4_title">
+          <h3 class="font-bold text-lg text-gray-900 mb-2.5 group-hover:text-brand-gold transition-colors" data-i18n="card4_title">
             Paiement Local Sécurisé
           </h3>
           <p class="text-xs sm:text-sm text-gray-600 leading-relaxed" data-i18n="card4_desc">
-            Règlement à la livraison (Cash) ou via paiement mobile (Waafi / D-Money / BCI Pay).
+            Réglez en toute confiance par Waafi, D-Money ou simplement en espèces au moment de la livraison.
           </p>
         </div>
 
@@ -408,226 +387,120 @@
     </div>
   </section>
 
-  <!-- ==================== EXPLORATEUR DE CATÉGORIES ==================== -->
-  <section id="categories" class="py-16 sm:py-20 bg-brand-bgLight">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
-        <span class="text-brand-green font-bold text-xs uppercase tracking-widest" data-i18n="values_badge">NOTRE ENGAGEMENT</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-gray-900" data-i18n="catalog_title">Nos Produits Naturels</h2>
-        <p class="text-gray-600 text-sm sm:text-base" data-i18n="catalog_subtitle">
-          Explorez notre collection complète de soins et de nutrition naturelle disponible à Djibouti.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
-        
-        <!-- Boissons -->
-        <a href="produits.html" class="p-6 rounded-3xl bg-white hover:bg-brand-greenLight border border-gray-100 hover:border-brand-green/30 transition-all text-center group flex flex-col items-center card-shadow">
-          <div class="w-16 h-16 rounded-2xl bg-brand-greenLight shadow-sm flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-            🥤
-          </div>
-          <h3 class="font-bold text-sm sm:text-base text-gray-900 group-hover:text-brand-green" data-i18n="cat_drinks">Boissons & Pulpes</h3>
-        </a>
-
-        <!-- Soins -->
-        <a href="produits.html" class="p-6 rounded-3xl bg-white hover:bg-brand-roseLight border border-gray-100 hover:border-brand-rose/30 transition-all text-center group flex flex-col items-center card-shadow">
-          <div class="w-16 h-16 rounded-2xl bg-brand-roseLight shadow-sm flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-            ✨
-          </div>
-          <h3 class="font-bold text-sm sm:text-base text-gray-900 group-hover:text-brand-rose" data-i18n="cat_skincare">Soins de la Peau</h3>
-        </a>
-
-        <!-- Hygiène -->
-        <a href="produits.html" class="p-6 rounded-3xl bg-white hover:bg-brand-greenLight border border-gray-100 hover:border-brand-green/30 transition-all text-center group flex flex-col items-center card-shadow">
-          <div class="w-16 h-16 rounded-2xl bg-brand-greenLight shadow-sm flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-            🧴
-          </div>
-          <h3 class="font-bold text-sm sm:text-base text-gray-900 group-hover:text-brand-green" data-i18n="cat_hygiene">Hygiène & Corps</h3>
-        </a>
-
-        <!-- Nutrition -->
-        <a href="produits.html" class="p-6 rounded-3xl bg-white hover:bg-brand-goldLight border border-gray-100 hover:border-brand-gold/30 transition-all text-center group flex flex-col items-center card-shadow">
-          <div class="w-16 h-16 rounded-2xl bg-brand-goldLight shadow-sm flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-            🐝
-          </div>
-          <h3 class="font-bold text-sm sm:text-base text-gray-900 group-hover:text-brand-gold" data-i18n="cat_nutrition">Nutrition & Compléments</h3>
-        </a>
-
-        <!-- Packs & Programmes -->
-        <a href="produits.html" class="p-6 rounded-3xl bg-white hover:bg-emerald-50 border border-gray-100 hover:border-brand-green/30 transition-all text-center group flex flex-col items-center col-span-2 sm:col-span-1 card-shadow">
-          <div class="w-16 h-16 rounded-2xl bg-emerald-50 shadow-sm flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-            📦
-          </div>
-          <h3 class="font-bold text-sm sm:text-base text-gray-900 group-hover:text-brand-green" data-i18n="cat_packs">Packs & Programmes</h3>
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== BESTSELLERS DE FARAHSAN ONLINE ==================== -->
-  <section id="bestsellers" class="py-16 sm:py-24 bg-white border-b border-gray-100">
+  <!-- ==================== SECTION BEST-SELLERS PHARES ==================== -->
+  <section class="py-16 sm:py-24 bg-brand-bgLight border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
           <span class="text-brand-green font-bold text-xs sm:text-sm tracking-widest uppercase" data-i18n="values_badge">NOTRE ENGAGEMENT</span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mt-1" data-i18n="bestsellers_title">Les Bestsellers Incontournables</h2>
-          <p class="text-gray-600 text-sm sm:text-base mt-2 max-w-xl" data-i18n="bestsellers_subtitle">
-            Nos soins les plus demandés à Djibouti pour votre beauté, vitalité et bien-être quotidien.
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mt-1" data-i18n="bestsellers_title">Nos Produits Phares</h2>
+          <p class="text-gray-600 text-sm sm:text-base mt-2" data-i18n="bestsellers_subtitle">
+            Les soins et compléments Forever les plus plébiscités à Djibouti pour leur efficacité prouvée.
           </p>
         </div>
-
-        <a href="produits.html" class="inline-flex items-center gap-2 font-bold text-brand-green hover:text-brand-greenDark text-sm group">
-          <span data-i18n="bestsellers_all">Voir tous les Produits</span>
-          <span class="group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
+        <a href="produits.html" class="inline-flex items-center gap-2 text-brand-green hover:text-brand-greenDark font-bold text-sm">
+          <span data-i18n="hero_btn_shop">Découvrir la Boutique</span>
+          <span class="text-base rtl:rotate-180">→</span>
         </a>
       </div>
 
       <!-- 4 Top Cards avec photos officielles du dossier Image forever/ -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Bestseller 1 : Pulpe Aloe Vera Gel -->
+        <div class="bg-white rounded-3xl p-5 border border-gray-100 card-shadow flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[4/3] bg-gray-50 rounded-2xl overflow-hidden mb-4 p-3 flex items-center justify-center">
+              <img src="Image forever/Forever%20Aloe%20vera%20Gel%201%20Liter.jpg" 
+                   alt="Forever Aloe Vera Gel" 
+                   class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                   onerror="this.onerror=null;this.src='assets/logo.png';">
+            </div>
+            <span class="text-[11px] font-bold text-brand-green bg-brand-greenLight px-2.5 py-1 rounded-full uppercase tracking-wider" data-i18n="cat_drinks">Boissons & Pulpes</span>
+            <h3 class="font-bold text-base text-gray-900 mt-2.5 mb-1 group-hover:text-brand-green transition-colors">Forever Aloe Vera Gel</h3>
+            <p class="text-xs text-gray-500 mb-4">1 Liter</p>
+          </div>
+          <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20le%20produit%20:%20Forever%20Aloe%20Vera%20Gel%20(1%20Liter)" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow transition-all active:scale-95">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span data-i18n="btn_order">Commander via WhatsApp</span>
+          </a>
+        </div>
 
-        <!-- 1: Forever Aloe Vera Gel -->
-        <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-gray-100 flex flex-col justify-between group">
-          <div class="relative aspect-[4/3] bg-gray-50 flex items-center justify-center p-3 overflow-hidden">
-            <img src="Image forever/Forever%20Aloe%20vera%20Gel%201%20Liter.jpg" 
-                 alt="Forever Aloe Vera Gel" 
-                 class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                 onerror="this.onerror=null;this.src='assets/logo.png';">
-            <span class="absolute top-3 left-3 rtl:left-auto rtl:right-3 px-2.5 py-0.5 rounded-full bg-brand-green text-white text-[10px] font-bold shadow" data-i18n="cat_drinks">
-              Boissons & Pulpes
-            </span>
-          </div>
-          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-            <div>
-              <span class="text-[11px] font-bold text-brand-gold uppercase">1 Liter</span>
-              <h3 class="font-bold text-base text-gray-900 mt-1">Forever Aloe Vera Gel</h3>
-              <p class="text-xs text-gray-600 mt-1.5 line-clamp-2">
-                Gel d'Aloe Vera pur sans conservateurs pour la vitalité et le confort digestif.
-              </p>
+        <!-- Bestseller 2 : Forever Bright Toothgel -->
+        <div class="bg-white rounded-3xl p-5 border border-gray-100 card-shadow flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[4/3] bg-gray-50 rounded-2xl overflow-hidden mb-4 p-3 flex items-center justify-center">
+              <img src="Image forever/Forever%20Bright%20130%20g.jpg" 
+                   alt="Forever Bright Toothgel" 
+                   class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                   onerror="this.onerror=null;this.src='assets/logo.png';">
             </div>
-            <div class="pt-3 border-t border-gray-100 space-y-2">
-              <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20le%20produit%20:%20Forever%20Aloe%20Vera%20Gel%20(1%20Liter)" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="bestseller-order-btn w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs shadow transition-all"
-                 data-product="Forever Aloe Vera Gel (1 Liter)">
-                <span data-i18n="btn_order">Commander via WhatsApp</span>
-              </a>
-            </div>
+            <span class="text-[11px] font-bold text-brand-green bg-brand-greenLight px-2.5 py-1 rounded-full uppercase tracking-wider" data-i18n="cat_hygiene">Hygiène & Corps</span>
+            <h3 class="font-bold text-base text-gray-900 mt-2.5 mb-1 group-hover:text-brand-green transition-colors">Forever Bright Toothgel</h3>
+            <p class="text-xs text-gray-500 mb-4">130 g</p>
           </div>
-        </article>
+          <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20le%20produit%20:%20Forever%20Bright%20(130%20g)" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow transition-all active:scale-95">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span data-i18n="btn_order">Commander via WhatsApp</span>
+          </a>
+        </div>
 
-        <!-- 2: Forever Bright Toothgel -->
-        <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-gray-100 flex flex-col justify-between group">
-          <div class="relative aspect-[4/3] bg-gray-50 flex items-center justify-center p-3 overflow-hidden">
-            <img src="Image forever/Forever%20Bright%20130%20g.jpg" 
-                 alt="Forever Bright Toothgel" 
-                 class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                 onerror="this.onerror=null;this.src='assets/logo.png';">
-            <span class="absolute top-3 left-3 rtl:left-auto rtl:right-3 px-2.5 py-0.5 rounded-full bg-brand-green text-white text-[10px] font-bold shadow" data-i18n="cat_hygiene">
-              Hygiène & Corps
-            </span>
-          </div>
-          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-            <div>
-              <span class="text-[11px] font-bold text-brand-gold uppercase">130 g</span>
-              <h3 class="font-bold text-base text-gray-900 mt-1">Forever Bright Toothgel</h3>
-              <p class="text-xs text-gray-600 mt-1.5 line-clamp-2">
-                Soin dentaire naturel sans fluor à l'Aloe Vera et à la propolis d'abeille.
-              </p>
+        <!-- Bestseller 3 : Aloe Propolis Creme -->
+        <div class="bg-white rounded-3xl p-5 border border-gray-100 card-shadow flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[4/3] bg-gray-50 rounded-2xl overflow-hidden mb-4 p-3 flex items-center justify-center">
+              <img src="Image forever/Aloe%20Propolis%20Creme%20113%20g.jpg" 
+                   alt="Aloe Propolis Creme" 
+                   class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                   onerror="this.onerror=null;this.src='assets/logo.png';">
             </div>
-            <div class="pt-3 border-t border-gray-100 space-y-2">
-              <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20le%20produit%20:%20Forever%20Bright%20Toothgel%20(130%20g)" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="bestseller-order-btn w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs shadow transition-all"
-                 data-product="Forever Bright Toothgel (130 g)">
-                <span data-i18n="btn_order">Commander via WhatsApp</span>
-              </a>
-            </div>
+            <span class="text-[11px] font-bold text-brand-green bg-brand-greenLight px-2.5 py-1 rounded-full uppercase tracking-wider" data-i18n="cat_skincare">Soins de la Peau</span>
+            <h3 class="font-bold text-base text-gray-900 mt-2.5 mb-1 group-hover:text-brand-green transition-colors">Aloe Propolis Crème</h3>
+            <p class="text-xs text-gray-500 mb-4">113 g</p>
           </div>
-        </article>
+          <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20le%20produit%20:%20Aloe%20Propolis%20Creme%20(113%20g)" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow transition-all active:scale-95">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span data-i18n="btn_order">Commander via WhatsApp</span>
+          </a>
+        </div>
 
-        <!-- 3: Aloe Propolis Crème -->
-        <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-gray-100 flex flex-col justify-between group">
-          <div class="relative aspect-[4/3] bg-gray-50 flex items-center justify-center p-3 overflow-hidden">
-            <img src="Image forever/Aloe%20Propolis%20Creme%20113%20g.jpg" 
-                 alt="Aloe Propolis Crème" 
-                 class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                 onerror="this.onerror=null;this.src='assets/logo.png';">
-            <span class="absolute top-3 left-3 rtl:left-auto rtl:right-3 px-2.5 py-0.5 rounded-full bg-brand-green text-white text-[10px] font-bold shadow" data-i18n="cat_skincare">
-              Soins de la Peau
-            </span>
-          </div>
-          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-            <div>
-              <span class="text-[11px] font-bold text-brand-gold uppercase">113 g</span>
-              <h3 class="font-bold text-base text-gray-900 mt-1">Aloe Propolis Crème</h3>
-              <p class="text-xs text-gray-600 mt-1.5 line-clamp-2">
-                Crème apaisante et régénérante pour nourrir en profondeur les peaux sèches et sensibles.
-              </p>
+        <!-- Bestseller 4 : Clean 9 (C9) -->
+        <div class="bg-white rounded-3xl p-5 border border-gray-100 card-shadow flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[4/3] bg-gray-50 rounded-2xl overflow-hidden mb-4 p-3 flex items-center justify-center">
+              <img src="Image forever/C9%20%5ETM%20Set.jpg" 
+                   alt="Programme C9 Forever" 
+                   class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                   onerror="this.onerror=null;this.src='assets/logo.png';">
             </div>
-            <div class="pt-3 border-t border-gray-100 space-y-2">
-              <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20le%20produit%20:%20Aloe%20Propolis%20Cr%C3%A8me%20(113%20g)" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="bestseller-order-btn w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs shadow transition-all"
-                 data-product="Aloe Propolis Crème (113 g)">
-                <span data-i18n="btn_order">Commander via WhatsApp</span>
-              </a>
-            </div>
+            <span class="text-[11px] font-bold text-brand-green bg-brand-greenLight px-2.5 py-1 rounded-full uppercase tracking-wider" data-i18n="cat_packs">Packs & Programmes</span>
+            <h3 class="font-bold text-base text-gray-900 mt-2.5 mb-1 group-hover:text-brand-green transition-colors">Programme C9™ Détox</h3>
+            <p class="text-xs text-gray-500 mb-4">Set Complet</p>
           </div>
-        </article>
-
-        <!-- 4: Programme Clean 9 C9 -->
-        <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-brand-gold/40 flex flex-col justify-between group">
-          <div class="relative aspect-[4/3] bg-gray-50 flex items-center justify-center p-3 overflow-hidden">
-            <img src="Image forever/C9%20%5ETM%20Set.jpg" 
-                 alt="Programme Clean 9 C9" 
-                 class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                 onerror="this.onerror=null;this.src='assets/logo.png';">
-            <span class="absolute top-3 left-3 rtl:left-auto rtl:right-3 px-2.5 py-0.5 rounded-full bg-brand-green text-white text-[10px] font-bold shadow" data-i18n="cat_packs">
-              Packs & Programmes
-            </span>
-          </div>
-          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-            <div>
-              <span class="text-[11px] font-bold text-brand-gold uppercase">Set</span>
-              <h3 class="font-bold text-base text-gray-900 mt-1">Programme Clean 9 (C9)</h3>
-              <p class="text-xs text-gray-600 mt-1.5 line-clamp-2">
-                Le programme détox n°1 de 9 jours pour purifier l'organisme et affiner la silhouette.
-              </p>
-            </div>
-            <div class="pt-3 border-t border-gray-100 space-y-2">
-              <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20le%20produit%20:%20Programme%20Clean%209%20(C9)%20(Set)" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="bestseller-order-btn w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs shadow transition-all"
-                 data-product="Programme Clean 9 (C9) (Set)">
-                <span data-i18n="btn_order">Commander via WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        </article>
+          <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20le%20produit%20:%20C9%20(Set)" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow transition-all active:scale-95">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span data-i18n="btn_order">Commander via WhatsApp</span>
+          </a>
+        </div>
 
       </div>
 
-      <!-- BANDEAU D'APPEL VERS LE CATALOGUE -->
-      <div class="mt-12 rounded-3xl bg-gradient-to-r from-brand-green to-brand-greenDark text-white p-8 sm:p-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="space-y-2 text-center md:text-left rtl:md:text-right">
-          <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider" data-i18n="values_badge">
-            NOTRE ENGAGEMENT
-          </span>
-          <h3 class="font-serif text-2xl sm:text-3xl font-bold" data-i18n="catalog_title">Nos Produits Naturels</h3>
-          <p class="text-white/80 text-sm max-w-xl" data-i18n="catalog_subtitle">
-            Explorez notre collection complète de soins et de nutrition naturelle disponible à Djibouti.
-          </p>
-        </div>
-
-        <a href="produits.html" class="shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-brand-green font-extrabold text-sm sm:text-base shadow-lg hover:bg-brand-bgLight transition-all transform hover:scale-105">
+      <!-- Bouton d'accès au catalogue complet -->
+      <div class="mt-12 text-center">
+        <a href="produits.html" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-brand-green hover:bg-brand-greenDark text-white font-bold text-base shadow-md hover:shadow-lg transition-all transform active:scale-95">
           <span data-i18n="hero_btn_shop">Découvrir la Boutique</span>
           <svg class="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
@@ -684,7 +557,6 @@
           </div>
         </div>
 
-        
         <!-- BCI Pay -->
         <div class="rounded-3xl p-8 bg-white border border-amber-100 shadow-sm relative overflow-hidden flex flex-col justify-between">
           <div>
@@ -734,14 +606,14 @@
             <span class="px-3.5 py-1.5 rounded-full bg-white/20 text-white font-bold text-xs uppercase tracking-wider" data-i18n="card3_title">
               Conseil & Accompagnement
             </span>
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold" data-i18n="contact_title">Besoin d'un Conseil Personnalisé ?</h2>
-            <p class="text-white/80 text-sm sm:text-base leading-relaxed" data-i18n="contact_desc">
-              Notre équipe FARAHSAN ONLINE est à votre disposition sur WhatsApp 7j/7 pour vous guider.
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold" data-i18n="hero_btn_contact">Conseil WhatsApp</h2>
+            <p class="text-white/80 text-sm sm:text-base leading-relaxed" data-i18n="card3_desc">
+              Une écoute attentive sur WhatsApp pour vous guider vers la routine adaptée à vos objectifs.
             </p>
             <div class="pt-2 flex flex-col sm:flex-row gap-4 text-sm">
               <p class="flex items-center gap-2">
                 <span>📞</span>
-                <a href="tel:+25377297705" class="font-bold underline">+253 77 29 77 05</a>
+                <a href="tel:+25377297705" class="font-bold underline" rel="noopener noreferrer">+253 77 29 77 05</a>
               </p>
               <p class="flex items-center gap-2">
                 <span>💬 WhatsApp :</span>
@@ -754,12 +626,9 @@
             <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20un%20conseil%20personnalis%C3%A9." 
                target="_blank" 
                rel="noopener noreferrer" 
-               class="w-full inline-flex items-center justify-center gap-3 px-8 py-5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-base shadow-xl transition-all transform hover:scale-105">
+               class="w-full inline-flex items-center justify-center gap-3 px-8 py-5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-base shadow-xl transition-all transform hover:scale-105 active:scale-95">
               <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              <span data-i18n="contact_btn">Échanger sur WhatsApp</span>
-            </a>
-            <a href="produits.html" class="w-full text-center py-3 text-sm text-white/90 underline hover:text-white" data-i18n="hero_btn_shop">
-              Découvrir la Boutique
+              <span>Discuter sur WhatsApp</span>
             </a>
           </div>
         </div>
@@ -768,14 +637,15 @@
     </div>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== FOOTER OFFICIEL ==================== -->
   <footer class="bg-gray-900 text-gray-300 pt-16 pb-12 border-t border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
         
+        <!-- Colonne 1 : Marque -->
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 w-auto object-contain bg-white rounded-lg p-1">
+            <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 w-auto object-contain bg-white rounded-lg p-1" onerror="this.onerror=null;this.src='assets/logo.png';">
             <div class="flex flex-col">
               <span class="font-serif font-bold text-xl text-white tracking-wider">FARAHSAN</span>
               <span class="text-[9px] tracking-[0.2em] font-semibold text-brand-gold uppercase">ONLINE • DJIBOUTI</span>
@@ -786,116 +656,100 @@
           </p>
         </div>
 
+        <!-- Colonne 2 : Liens Rapides -->
         <div>
-          <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4" data-i18n="quick_links">Accès Rapide</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="index.html" class="hover:text-white" data-i18n="nav_home">Accueil</a></li>
-            <li><a href="produits.html" class="hover:text-white font-bold text-emerald-400" data-i18n="nav_products">Nos Produits</a></li>
-            <li><a href="#valeurs" class="hover:text-white" data-i18n="values_title">Pourquoi Choisir FARAHSAN ONLINE ?</a></li>
-            <li><a href="#paiement" class="hover:text-white" data-i18n="nav_payment">Paiement & Livraison</a></li>
-            <li><a href="#contact" class="hover:text-white" data-i18n="nav_contact">Contact</a></li>
+          <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-wider">Navigation</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="index.html" class="hover:text-brand-green transition-colors" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="produits.html" class="hover:text-brand-green transition-colors" data-i18n="nav_products">Nos Produits</a></li>
+            <li><a href="index.html#valeurs" class="hover:text-brand-green transition-colors" data-i18n="values_title">Pourquoi Choisir FARAHSAN ONLINE ?</a></li>
+            <li><a href="index.html#paiement" class="hover:text-brand-green transition-colors" data-i18n="nav_payment">Paiement & Livraison</a></li>
+            <li><a href="index.html#contact" class="hover:text-brand-green transition-colors" data-i18n="nav_contact">Contact</a></li>
           </ul>
         </div>
 
+        <!-- Colonne 3 : Contact Direct -->
         <div>
-          <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4" data-i18n="cat_title">Catégories</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="produits.html" class="hover:text-white" data-i18n="cat_drinks">Boissons & Pulpes</a></li>
-            <li><a href="produits.html" class="hover:text-white" data-i18n="cat_skincare">Soins de la Peau</a></li>
-            <li><a href="produits.html" class="hover:text-white" data-i18n="cat_hygiene">Hygiène & Corps</a></li>
-            <li><a href="produits.html" class="hover:text-white" data-i18n="cat_nutrition">Nutrition & Compléments</a></li>
-            <li><a href="produits.html" class="hover:text-white" data-i18n="cat_packs">Packs & Programmes</a></li>
-          </ul>
+          <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-wider" data-i18n="nav_contact">Contact</h4>
+          <div class="space-y-3 text-sm text-gray-400">
+            <p class="flex items-center gap-2">
+              <span>📍</span>
+              <span>Djibouti-ville, République de Djibouti</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <span>📞</span>
+              <a href="tel:+25377297705" class="hover:text-white font-semibold" rel="noopener noreferrer">+253 77 29 77 05</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <span>💬</span>
+              <a href="https://wa.me/25377297705" target="_blank" rel="noopener noreferrer" class="hover:text-[#25D366] font-semibold text-white">WhatsApp (+253 77 29 77 05)</a>
+            </p>
+            <p class="text-xs text-gray-500 pt-1">
+              Disponibilité 7j/7 pour vos commandes & conseils.
+            </p>
+          </div>
         </div>
 
+        <!-- Colonne 4 : Paiements Locaux Sécurisés -->
         <div>
-          <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4" data-i18n="customer_service">Service Client Djibouti</h4>
-          <div class="space-y-3 text-sm">
-            <p class="flex items-center gap-2">
-              <span class="text-brand-green font-bold">📞</span>
-              <a href="tel:+25377297705" class="hover:text-white font-semibold">+253 77 29 77 05</a>
+          <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-wider" data-i18n="payment_title">Paiement à Djibouti</h4>
+          <div class="space-y-2 text-xs text-gray-400">
+            <p class="flex items-center gap-2 bg-gray-800/80 p-2.5 rounded-xl border border-gray-700/50">
+              <span class="w-6 h-6 rounded-lg bg-red-600 text-white font-bold flex items-center justify-center text-[10px]">W</span>
+              <span class="font-medium text-gray-200">Waafi (Salaam African Bank)</span>
             </p>
-            <p class="flex items-center gap-2">
-              <span class="text-[#25D366] font-bold">💬</span>
-              <a href="https://wa.me/25377297705" target="_blank" rel="noopener noreferrer" class="hover:text-white font-semibold">WhatsApp : +253 77 29 77 05</a>
+            <p class="flex items-center gap-2 bg-gray-800/80 p-2.5 rounded-xl border border-gray-700/50">
+              <span class="w-6 h-6 rounded-lg bg-[#006699] text-white font-bold flex items-center justify-center text-[10px]">DM</span>
+              <span class="font-medium text-gray-200">D-Money (Djibouti Telecom)</span>
             </p>
-            <p class="text-xs text-gray-400" data-i18n="delivery_info">
-              Livraison rapide 7j/7 à Djibouti-ville et ses environs.
+            <p class="flex items-center gap-2 bg-gray-800/80 p-2.5 rounded-xl border border-gray-700/50">
+              <span class="w-6 h-6 rounded-lg bg-[#003366] text-white font-bold flex items-center justify-center text-[10px]">BCI</span>
+              <span class="font-medium text-gray-200">BCI Pay (BCI-MR)</span>
+            </p>
+            <p class="flex items-center gap-2 bg-gray-800/80 p-2.5 rounded-xl border border-gray-700/50">
+              <span class="w-6 h-6 rounded-lg bg-brand-green text-white font-bold flex items-center justify-center text-[10px]">💵</span>
+              <span class="font-medium text-gray-200" data-i18n="payment_cash">Espèces à la livraison</span>
             </p>
           </div>
         </div>
 
       </div>
 
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-        <p>© 2026 FARAHSAN ONLINE. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
-        <p>Djibouti 🇩🇯</p>
+      <!-- Bas de page avec signature développeur obligatoire -->
+      <div class="pt-8 text-center sm:flex sm:justify-between sm:items-center text-xs text-gray-400">
+        <p>
+          © 2026 FARAHSAN ONLINE. <span data-i18n="footer_rights">Tous droits réservés.</span>
+        </p>
+        <p class="text-xs text-gray-400 mt-2">
+          © 2026 FARAHSAN ONLINE. Powered by <span class="font-bold text-amber-400">Aden.Code</span>
+        </p>
       </div>
+
     </div>
   </footer>
 
-  <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
-  <aside aria-label="Bouton d'action WhatsApp" class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-    <div class="hidden sm:flex items-center bg-white text-gray-800 text-xs font-bold py-2 px-3.5 rounded-full shadow-xl border border-gray-100">
-      <span data-i18n="btn_order">Commander via WhatsApp</span>
-    </div>
-    
+  <!-- BOUTON FLOTTANT WHATSAPP SÉCURISÉ -->
+  <aside aria-label="Contact WhatsApp rapide" class="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 z-50">
     <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander." 
        target="_blank" 
-       rel="noopener noreferrer" 
-       class="relative w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 focus:outline-none"
-       aria-label="Contacter sur WhatsApp">
-      <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-40 animate-ping"></span>
-      <svg class="w-8 h-8 fill-current relative z-10" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+       rel="noopener noreferrer"
+       class="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-3 rounded-full shadow-2xl transition-all transform hover:scale-105 active:scale-95 group focus:outline-none">
+      <svg class="w-7 h-7 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span class="font-bold text-xs sm:text-sm hidden sm:inline" data-i18n="btn_order">Commander via WhatsApp</span>
     </a>
-  </aside>
-
-  <!-- ==================== SHOPPING CART DRAWER ==================== -->
-  <div id="cartDrawerBackdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <aside id="cartDrawer" aria-label="Panier d'achat" class="fixed top-0 right-0 rtl:right-auto rtl:left-0 h-full w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full rtl:-translate-x-full transition-transform duration-300">
-    <div class="p-6 border-b border-gray-100 flex items-center justify-between bg-brand-bgLight">
-      <div class="flex items-center gap-2">
-        <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
-        <h3 class="font-serif font-bold text-xl text-gray-900" data-i18n="cart_title">Mon Panier</h3>
-        <span id="drawerItemCountBadge" class="bg-brand-greenLight text-brand-green text-xs font-bold px-2 py-0.5 rounded-full">0</span>
-      </div>
-      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-full hover:bg-gray-200 text-gray-500" aria-label="Fermer le panier">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </div>
-
-    <div id="cartItemsList" class="flex-1 overflow-y-auto p-6 space-y-4 no-scrollbar"></div>
-
-    <div id="cartEmptyState" class="hidden flex-1 flex flex-col items-center justify-center p-6 text-center">
-      <div class="w-20 h-20 rounded-full bg-brand-greenLight text-brand-green flex items-center justify-center text-3xl mb-4">
-        🌿
-      </div>
-      <h4 class="font-bold text-lg text-gray-900 mb-1" data-i18n="cart_empty">Votre panier est vide</h4>
-      <p class="text-sm text-gray-500 mb-6" data-i18n="catalog_subtitle">Explorez notre collection complète de soins et de nutrition naturelle disponible à Djibouti.</p>
-      <a href="produits.html" class="px-6 py-2.5 rounded-full bg-brand-green text-white font-bold text-sm" data-i18n="hero_btn_shop">
-        Découvrir la Boutique
-      </a>
-    </div>
-
-    <div id="cartFooter" class="p-6 border-t border-gray-100 bg-brand-bgLight space-y-4">
-      <div class="flex items-center justify-between">
-        <span class="text-gray-600 font-medium text-sm" data-i18n="cart_total">Total Estimé :</span>
-        <span id="cartTotalAmount" class="font-serif font-bold text-2xl text-brand-green">0 DJF</span>
-      </div>
-      <button onclick="checkoutViaWhatsApp()" class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow transition-all">
-        <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-        <span data-i18n="cart_checkout">Commander le Panier via WhatsApp</span>
-      </button>
-      <button onclick="clearCart()" class="w-full text-center py-2 text-xs text-gray-500 hover:text-red-500" data-i18n="cart_clear">
-        Vider le panier
-      </button>
-    </div>
   </aside>
 
   <!-- ==================== BASE DE DONNÉES I18N & JAVASCRIPT ==================== -->
   <script>
+/**
+ * ====================================================================
+ * FARAHSAN ONLINE - Architecture & Moteur Principal
+ * Développeur : Aden.Code
+ * Sécurité    : Sanitization XSS, CSP Compliance, No-Opener Hardening
+ * © 2026 FARAHSAN ONLINE. Powered by Aden.Code
+ * ====================================================================
+ */
+
     const CONFIG = {
       phoneRaw: '25377297705',
       currency: 'DJF'
@@ -903,309 +757,244 @@
 
     // DICTIONNAIRE I18N INTÉGRAL (5 LANGUES)
     const i18n = {
-      fr: {
-        nav_home: "Accueil",
-        nav_products: "Nos Produits",
-        nav_payment: "Paiement & Livraison",
-        nav_contact: "Contact",
-        btn_whatsapp_nav: "Commander WhatsApp",
-        hero_title: "Beauté Naturelle & Bien-Être Réel",
-        hero_subtitle: "Votre boutique de référence à Djibouti pour les soins d'exception à base d'Aloe Vera. Révélez l'éclat de votre peau, fortifiez vos cheveux et boostez votre vitalité.",
-        hero_btn_shop: "Découvrir la Boutique",
-        hero_btn_contact: "Conseil WhatsApp",
-        values_badge: "NOTRE ENGAGEMENT",
-        values_title: "Pourquoi Choisir FARAHSAN ONLINE ?",
-        values_subtitle: "L'authenticité, l'efficacité naturelle et un service client dévoué à Djibouti.",
-        card1_title: "100% Beauté & Bien-Être Naturel",
-        card1_desc: "Une sélection rigoureuse de soins et compléments à l'Aloe Vera pour des résultats visibles et durables.",
-        card2_title: "Livraison Rapide à Djibouti",
-        card2_desc: "Réception rapide et soignée de vos commandes partout à Djibouti-ville et dans les environs.",
-        card3_title: "Conseil & Accompagnement",
-        card3_desc: "Une écoute attentive sur WhatsApp pour vous guider vers la routine adaptée à vos objectifs.",
-        card4_title: "Paiement Local Sécurisé",
-        card4_desc: "Règlement à la livraison (Cash) ou via paiement mobile (Waafi / D-Money / BCI Pay).",
-        catalog_title: "Nos Produits Naturels",
-        catalog_subtitle: "Explorez notre collection complète de soins et de nutrition naturelle disponible à Djibouti.",
-        search_placeholder: "Rechercher un produit...",
-        products_count: "Produit(s) disponible(s) :",
-        no_results: "Aucun produit trouvé pour votre recherche.",
-        all: "Tous",
-        cat_drinks: "Boissons & Pulpes",
-        cat_skincare: "Soins de la Peau",
-        cat_hygiene: "Hygiène & Corps",
-        cat_nutrition: "Nutrition & Compléments",
-        cat_packs: "Packs & Programmes",
-        btn_order: "Commander via WhatsApp",
-        payment_title: "Modes de Paiement à Djibouti",
-        payment_desc: "Commandez en ligne en quelques clics et payez en toute sécurité via votre moyen favori :",
-        payment_waafi: "Waafi",
-        payment_dmoney: "D-Money",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "Espèces à la livraison",
-        footer_tagline: "FARAHSAN ONLINE – Votre partenaire de confiance pour la beauté et le bien-être naturel à Djibouti.",
-        footer_rights: "Tous droits réservés.",
-        whatsapp_msg: "Bonjour FARAHSAN ONLINE, je souhaite commander le produit : ",
-        // Clés complémentaires pour traduction 100%
-        top_announcement: "Boutique Officielle FARAHSAN ONLINE – Soins Naturels & Bien-Être à Djibouti",
-        bestsellers_title: "Les Bestsellers Incontournables",
-        bestsellers_subtitle: "Nos soins les plus demandés à Djibouti pour votre beauté, vitalité et bien-être quotidien.",
-        bestsellers_all: "Voir tous les Produits",
-        contact_title: "Besoin d'un Conseil Personnalisé ?",
-        contact_desc: "Notre équipe FARAHSAN ONLINE est à votre disposition sur WhatsApp 7j/7 pour vous guider.",
-        contact_btn: "Échanger sur WhatsApp",
-        quick_links: "Accès Rapide",
-        customer_service: "Service Client Djibouti",
-        delivery_info: "Livraison rapide 7j/7 à Djibouti-ville et ses environs.",
-        cart_title: "Mon Panier",
-        cart_empty: "Votre panier est vide",
-        cart_checkout: "Commander le Panier via WhatsApp",
-        cart_clear: "Vider le panier",
-        cart_total: "Total Estimé :",
-        badge_currency: "DJF"
+      "fr": {
+            "top_announcement": "Boutique Officielle FARAHSAN ONLINE – Soins Naturels & Bien-Être à Djibouti",
+            "nav_home": "Accueil",
+            "nav_products": "Nos Produits",
+            "nav_payment": "Paiement & Livraison",
+            "nav_contact": "Contact",
+            "btn_whatsapp_nav": "Commander WhatsApp",
+            "hero_title": "Beauté Naturelle & Bien-Être Réel",
+            "hero_subtitle": "Votre boutique de référence à Djibouti pour les soins d'exception à base d'Aloe Vera. Révélez l'éclat de votre peau, fortifiez vos cheveux et boostez votre vitalité.",
+            "hero_btn_shop": "Découvrir la Boutique",
+            "hero_btn_contact": "Conseil WhatsApp",
+            "values_badge": "NOTRE ENGAGEMENT",
+            "values_title": "Pourquoi Choisir FARAHSAN ONLINE ?",
+            "values_subtitle": "L'authenticité, l'efficacité naturelle et un service client dévoué à Djibouti.",
+            "card1_title": "100% Beauté & Bien-Être Naturel",
+            "card1_desc": "Une sélection rigoureuse de soins et compléments à l'Aloe Vera pour des résultats visibles et durables.",
+            "card2_title": "Livraison Rapide à Djibouti",
+            "card2_desc": "Réception rapide et soignée de vos commandes partout à Djibouti-ville et dans les environs.",
+            "card3_title": "Conseil & Accompagnement",
+            "card3_desc": "Une écoute attentive sur WhatsApp pour vous guider vers la routine adaptée à vos objectifs.",
+            "card4_title": "Paiement Local Sécurisé",
+            "card4_desc": "Réglez en toute confiance par Waafi, D-Money ou simplement en espèces au moment de la livraison.",
+            "bestsellers_title": "Nos Produits Phares",
+            "bestsellers_subtitle": "Les soins et compléments Forever les plus plébiscités à Djibouti pour leur efficacité prouvée.",
+            "catalog_title": "Nos Produits Naturels",
+            "catalog_subtitle": "Explorez notre collection complète de soins et de nutrition naturelle disponible à Djibouti.",
+            "search_placeholder": "Rechercher un produit...",
+            "products_count": "Produit(s) disponible(s) :",
+            "no_results": "Aucun produit trouvé pour votre recherche.",
+            "all": "Tous",
+            "cat_drinks": "Boissons & Pulpes",
+            "cat_skincare": "Soins de la Peau",
+            "cat_hygiene": "Hygiène & Corps",
+            "cat_nutrition": "Nutrition & Compléments",
+            "cat_packs": "Packs & Programmes",
+            "btn_order": "Commander via WhatsApp",
+            "payment_title": "Modes de Paiement à Djibouti",
+            "payment_desc": "Commandez en ligne en quelques clics et payez en toute sécurité via votre moyen favori :",
+            "payment_waafi": "Waafi",
+            "payment_dmoney": "D-Money",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "Espèces à la livraison",
+            "footer_tagline": "FARAHSAN ONLINE – Votre partenaire de confiance pour la beauté et le bien-être naturel à Djibouti.",
+            "footer_rights": "Tous droits réservés.",
+            "whatsapp_msg": "Bonjour FARAHSAN ONLINE, je souhaite commander le produit : ",
+            "back_home": "Retour à l'Accueil"
       },
-
-      so: {
-        nav_home: "Bogga Hore",
-        nav_products: "Alaabooyinka",
-        nav_payment: "Bixinta & Gaarsiinta",
-        nav_contact: "Xiriirka",
-        btn_whatsapp_nav: "Ku dalbo WhatsApp",
-        hero_title: "Qurux Dabiici ah & Caafimaad Dhab ah",
-        hero_subtitle: "Dukaankaaga koowaad ee Jabuuti ee daryeelka tayada sare leh ee ku salaysan Aloe Vera. Dhalaali maqaarkaaga, xooji timahaaga oo sare u qaad tamartaada.",
-        hero_btn_shop: "Eeg Alaabooyinka",
-        hero_btn_contact: "Kala talow WhatsApp",
-        values_badge: "BALLANQAADKAYAGA",
-        values_title: "Maxaa Loo Doortaa FARAHSAN ONLINE ?",
-        values_subtitle: "Asalnimo, daryeel dabiici ah iyo adeeg hufan oo loogu talagalay macaamiisheena Jabuuti.",
-        card1_title: "100% Qurux & Caafimaad Dabiici ah",
-        card1_desc: "Alaabo daryeel iyo nafaqo oo tayo sare leh oo ku siinaya natiijooyin dhab ah oo muuqda.",
-        card2_title: "Gaarsiin Degdeg ah oo Jabuuti ah",
-        card2_desc: "Dalabkaaga si hufan oo degdeg ah ayaa lagugu keenayaa meel kasta oo Jabuuti ah.",
-        card3_title: "Talo Bixin & Hagid Gaar ah",
-        card3_desc: "Kula hadal khabiirkayaga WhatsApp si aad u hesho talo ku habboon baahidaada.",
-        card4_title: "Lacag-bixin Fudud & Aamin ah",
-        card4_desc: "Ku bixi lacag caddaan ah marka laguu keeno (Cash) ama lacagta mobaylka (Waafi / D-Money / BCI Pay).",
-        catalog_title: "Alaabooyinkayaga Dabiiciga ah",
-        catalog_subtitle: "Kala dooro alaabooyinka dabiiciga ah ee daryeelka iyo nafaqada ee diyaar ku ah Jabuuti.",
-        search_placeholder: "Raadi badeeco...",
-        products_count: "Badeecooyinka diyaar ah :",
-        no_results: "Wax badeeco ah lama helin.",
-        all: "Dhammaan",
-        cat_drinks: "Cabbitaannada & Dhuuxa",
-        cat_skincare: "Daryeelka Maqaarka",
-        cat_hygiene: "Nadaafadda & Jirka",
-        cat_nutrition: "Nafaqada & Dheellitirka",
-        cat_packs: "Xidhmooyinka & Barnaamijyada",
-        btn_order: "Ku dalbo WhatsApp",
-        payment_title: "Hababka Lacag-bixinta ee Jabuuti",
-        payment_desc: "Ku dalbo dhowr tallaabo oo fudud oo ku bixi habka aad jeceshahay :",
-        payment_waafi: "Waafi",
-        payment_dmoney: "D-Money",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "Lacag caddaan marka la keeno",
-        footer_tagline: "FARAHSAN ONLINE – Wehelkaaga dhabta ah ee quruxda iyo caafimaadka dabiiciga ah ee Jabuuti.",
-        footer_rights: "Xuquuqda oo dhan way dhowran yihiin.",
-        whatsapp_msg: "Nabadeey FARAHSAN ONLINE, waxaan rabaa inaan dalbado badeecadan : ",
-        top_announcement: "Dukaanka Rasmiga ah ee FARAHSAN ONLINE – Daryeelka Dabiiciga ah ee Jabuuti",
-        bestsellers_title: "Alaabta Ugu Iibka Badan",
-        bestsellers_subtitle: "Alaabtayada loogu jecelyahay Jabuuti ee quruxdaada, tamartaada iyo caafimaadkaaga.",
-        bestsellers_all: "Eeg Dhammaan Alaabta",
-        contact_title: "Ma u Baahan Tahay Talo Gaar ah ?",
-        contact_desc: "Kooxda FARAHSAN ONLINE waxay diyaar ku tahay WhatsApp 7 maalmood si ay kuu caawiso.",
-        contact_btn: "Kula hadal WhatsApp",
-        quick_links: "Xiriirrada Degdegga ah",
-        customer_service: "Adeegga Macaamiisha Jabuuti",
-        delivery_info: "Gaarsiin degdeg ah 7 maalmood Jabuuti iyo agagaarkeeda.",
-        cart_title: "Gaadhigayga",
-        cart_empty: "Gaadhigaagu waa faaruq",
-        cart_checkout: "Ku Dalbo Gaadhiga WhatsApp",
-        cart_clear: "Faaruqi gaadhiga",
-        cart_total: "Isugeyn :",
-        badge_currency: "DJF"
+      "so": {
+            "top_announcement": "Dukaanka Rasmiga ah ee FARAHSAN ONLINE – Daryeelka Dabiiciga & Caafimaadka ee Jabuuti",
+            "nav_home": "Bogga Hore",
+            "nav_products": "Alaabooyinka",
+            "nav_payment": "Bixinta & Gaarsiinta",
+            "nav_contact": "Xiriirka",
+            "btn_whatsapp_nav": "Ku dalbo WhatsApp",
+            "hero_title": "Qurux Dabiici ah & Caafimaad Dhab ah",
+            "hero_subtitle": "Dukaankaaga koowaad ee Jabuuti ee daryeelka tayada sare leh ee ku salaysan Aloe Vera. Dhalaali maqaarkaaga, xooji timahaaga oo sare u qaad tamartaada.",
+            "hero_btn_shop": "Eeg Alaabooyinka",
+            "hero_btn_contact": "Kala talow WhatsApp",
+            "values_badge": "BALLANQAADKAYAGA",
+            "values_title": "Maxaa Loo Doortaa FARAHSAN ONLINE ?",
+            "values_subtitle": "Asalnimo, daryeel dabiici ah iyo adeeg hufan oo loogu talagalay macaamiisheena Jabuuti.",
+            "card1_title": "100% Qurux & Caafimaad Dabiici ah",
+            "card1_desc": "Alaabo daryeel iyo nafaqo oo tayo sare leh oo ku siinaya natiijooyin dhab ah oo muuqda.",
+            "card2_title": "Gaarsiin Degdeg ah oo Jabuuti ah",
+            "card2_desc": "Dalabkaaga si hufan oo degdeg ah ayaa lagugu keenayaa meel kasta oo Jabuuti ah.",
+            "card3_title": "Talo Bixin & Hagid Gaar ah",
+            "card3_desc": "Kula hadal khabiirkayaga WhatsApp si aad u hesho talo ku habboon baahidaada.",
+            "card4_title": "Lacag-bixin Fudud & Aamin ah",
+            "card4_desc": "Ku bixi si fudud Waafi, D-Money ama lacag caddaan ah marka laguu keeno.",
+            "bestsellers_title": "Alaabooyinka Ugu Caansan",
+            "bestsellers_subtitle": "Alaabooyinka daryeelka iyo nafaqada ee Forever ee ugu caansan uguna tayada sarreeya Jabuuti.",
+            "catalog_title": "Alaabooyinkayaga Dabiiciga ah",
+            "catalog_subtitle": "Kala dooro alaabooyinka dabiiciga ah ee daryeelka iyo nafaqada ee diyaar ku ah Jabuuti.",
+            "search_placeholder": "Raadi badeeco...",
+            "products_count": "Badeecooyinka diyaar ah :",
+            "no_results": "Wax badeeco ah lama helin.",
+            "all": "Dhammaan",
+            "cat_drinks": "Cabbitaannada & Dhuuxa",
+            "cat_skincare": "Daryeelka Maqaarka",
+            "cat_hygiene": "Nadaafadda & Jirka",
+            "cat_nutrition": "Nafaqada & Dheellitirka",
+            "cat_packs": "Xidhmooyinka & Barnaamijyada",
+            "btn_order": "Ku dalbo WhatsApp",
+            "payment_title": "Hababka Lacag-bixinta ee Jabuuti",
+            "payment_desc": "Ku dalbo dhowr tallaabo oo fudud oo ku bixi habka aad jeceshahay :",
+            "payment_waafi": "Waafi",
+            "payment_dmoney": "D-Money",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "Lacag caddaan marka la keeno",
+            "footer_tagline": "FARAHSAN ONLINE – Wehelkaaga dhabta ah ee quruxda iyo caafimaadka dabiiciga ah ee Jabuuti.",
+            "footer_rights": "Xuquuqda oo dhan way dhowran yihiin.",
+            "whatsapp_msg": "Nabadeey FARAHSAN ONLINE, waxaan rabaa inaan dalbado badeecadan : ",
+            "back_home": "Ku noqo Bogga Hore"
       },
-
-      aa: {
-        nav_home: "Araca",
-        nav_products: "Ayroota",
-        nav_payment: "Bicisa kee Geysooma",
-        nav_contact: "Nallih Xayyoow",
-        btn_whatsapp_nav: "WhatsApp-al Dooleysi",
-        hero_title: "Dabiiciyan Bilqa kee Duqaysit Macaash",
-        hero_subtitle: "Yibuutil Aloe Vera-k bicinteh tan bilqa kee macaashih koorah buxah afo. Ku saqalah noor, ku migirih qaxmeeni kee doolat macaashah.",
-        hero_btn_shop: "Ayrootih Buug Fak",
-        hero_btn_contact: "WhatsApp-al Kassi Gura",
-        values_badge: "NANU NEL YAN AMMANA",
-        values_title: "Macah FARAHSAN ONLINE Doortaan ?",
-        values_subtitle: "Asliinane, dabiici qaxmeeniyya kee Yibuutil meqe garab-t-le oggol.",
-        card1_title: "100% Dabiici Bilqa kee Macaash",
-        card1_desc: "Aloe Vera-k bicinteh tan aslih ayrootay ku saqala kee ku caafimaadah meqe gaba-kal.",
-        card2_title: "Yibuutil Sissikuk Geysooma",
-        card2_desc: "Yibuutih magala kee addal ku doolatah yan ayroota sissikuk kok geysooman.",
-        card3_title: "Kassi kee Xayyoysiyya",
-        card3_desc: "WhatsApp-al meqe kassi kee xintu kok yantukkoomeh yan ayroot doortuh kok kalqan.",
-        card4_title: "Amman-le Lacag-Bixin",
-        card4_desc: "Amman-le gaba-kaltan (Cash) hiddon mobil lacag bicis (Waafi / D-Money / BCI Pay).",
-        catalog_title: "Nanu Nel Yan Dabiicik Yan Ayroota",
-        catalog_subtitle: "Macaash kee bilqah dabiicik yan ayroota Yibuutil gaba-kaltan.",
-        search_placeholder: "Ayroot gurusa...",
-        products_count: "Yantukkoomi Ayroota :",
-        no_results: "Ayroot mayan.",
-        all: "Inkoh",
-        cat_drinks: "Cabbiyya kee Dhuux",
-        cat_skincare: "Saqalat Qokol",
-        cat_hygiene: "Saytunnan kee Mogor",
-        cat_nutrition: "Macaash kee Qokol",
-        cat_packs: "Barnaamijit",
-        btn_order: "WhatsApp-al Dooleysi",
-        payment_title: "Yibuutil Lacag-Bixin Hiddoota",
-        payment_desc: "Koorah doolata Waafi, D-Money hiddon lacag caddaan gabat bicisa :",
-        payment_waafi: "Waafi",
-        payment_dmoney: "D-Money",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "Gabat caddaan lacag bixin",
-        footer_tagline: "FARAHSAN ONLINE – Yibuutil bilqa kee macaashih meqe garab.",
-        footer_rights: "Cakkik inkoh daban.",
-        whatsapp_msg: "Macaan FARAHSAN ONLINE, ta ayroot dooleysuh gura : ",
-        top_announcement: "FARAHSAN ONLINE Rasmik Yan Dukaana – Yibuutil Dabiici Bilqa",
-        bestsellers_title: "Baxsale Ayroota",
-        bestsellers_subtitle: "Ku fayya kee saqalah Yibuutil maggo ayroota.",
-        bestsellers_all: "Inkoh Ayroota Wagis",
-        contact_title: "Meqe Toxlo Gurtaa ?",
-        contact_desc: "FARAHSAN ONLINE-ih koox WhatsApp-al 7 ayro kok kalqoonuh diyaar le.",
-        contact_btn: "WhatsApp-al Kassi",
-        quick_links: "Sissik Geysooma",
-        customer_service: "Yibuutil Oggol Garab",
-        delivery_info: "Yibuutih magala kee addal sissikuk 7 ayro geysooman.",
-        cart_title: "Yi Sanduuq",
-        cart_empty: "Ku sanduuq doofan",
-        cart_checkout: "Sanduuq WhatsApp-al Dooleysi",
-        cart_clear: "Sanduuq baaji",
-        cart_total: "Inkoh Bicin :",
-        badge_currency: "DJF"
+      "aa": {
+            "top_announcement": "FARAHSAN ONLINE Aslih Dukan – Yibuutil Bilqa kee Macaashih Ayroota",
+            "nav_home": "Araca",
+            "nav_products": "Ayroota",
+            "nav_payment": "Bicisa kee Geysooma",
+            "nav_contact": "Nallih Xayyoow",
+            "btn_whatsapp_nav": "WhatsApp-al Dooleysi",
+            "hero_title": "Dabiiciyan Bilqa kee Duqaysit Macaash",
+            "hero_subtitle": "Yibuutil Aloe Vera-k bicinteh tan bilqa kee macaashih koorah buxah afo. Ku saqalah noor, ku migirih qaxmeeni kee doolat macaashah.",
+            "hero_btn_shop": "Ayrootih Buug Fak",
+            "hero_btn_contact": "WhatsApp-al Kassi Gura",
+            "values_badge": "NANU NEL YAN AMMANA",
+            "values_title": "Macah FARAHSAN ONLINE Doortaan ?",
+            "values_subtitle": "Asliinane, dabiici qaxmeeniyya kee Yibuutil meqe garab-t-le oggol.",
+            "card1_title": "100% Dabiici Bilqa kee Macaash",
+            "card1_desc": "Aloe Vera-k bicinteh tan aslih ayrootay ku saqala kee ku caafimaadah meqe gaba-kal.",
+            "card2_title": "Yibuutil Sissikuk Geysooma",
+            "card2_desc": "Yibuutih magala kee addal ku doolatah yan ayroota sissikuk kok geysooman.",
+            "card3_title": "Kassi kee Xayyoysiyya",
+            "card3_desc": "WhatsApp-al meqe kassi kee xintu kok yantukkoomeh yan ayroot doortuh kok kalqan.",
+            "card4_title": "Amman-le Lacag-Bixin",
+            "card4_desc": "Waafi, D-Money hiddon ayroota gaba-kaltan widdi lacag caddaan gabat bicisa.",
+            "bestsellers_title": "Nanu Nel Yan Qaxmeenit Ayroota",
+            "bestsellers_subtitle": "Yibuutil mangom doolatan Aloe Vera-k bilqa kee macaashih ayroota.",
+            "catalog_title": "Nanu Nel Yan Dabiicik Yan Ayroota",
+            "catalog_subtitle": "Macaash kee bilqah dabiicik yan ayroota Yibuutil gaba-kaltan.",
+            "search_placeholder": "Ayroot gurusa...",
+            "products_count": "Yantukkoomi Ayroota :",
+            "no_results": "Ayroot mayan.",
+            "all": "Inkoh",
+            "cat_drinks": "Cabbiyya kee Dhuux",
+            "cat_skincare": "Saqalat Qokol",
+            "cat_hygiene": "Saytunnan kee Mogor",
+            "cat_nutrition": "Macaash kee Qokol",
+            "cat_packs": "Barnaamijit",
+            "btn_order": "WhatsApp-al Dooleysi",
+            "payment_title": "Yibuutil Lacag-Bixin Hiddoota",
+            "payment_desc": "Koorah doolata Waafi, D-Money hiddon lacag caddaan gabat bicisa :",
+            "payment_waafi": "Waafi",
+            "payment_dmoney": "D-Money",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "Gabat caddaan lacag bixin",
+            "footer_tagline": "FARAHSAN ONLINE – Yibuutil bilqa kee macaashih meqe garab.",
+            "footer_rights": "Cakkik inkoh daban.",
+            "whatsapp_msg": "Macaan FARAHSAN ONLINE, ta ayroot dooleysuh gura : ",
+            "back_home": "Aracal Yewqe"
       },
-
-      ar: {
-        nav_home: "الرئيسية",
-        nav_products: "منتجاتنا",
-        nav_payment: "الدفع والتوصيل",
-        nav_contact: "اتصل بنا",
-        btn_whatsapp_nav: "طلب عبر واتساب",
-        hero_title: "جمال طبيعي وصحة حقيقية",
-        hero_subtitle: "وجهتكم الأولى في جيبوتي لمنتجات العناية الفائقة بخلاصة الألوفيرا. أشرقي بنضارة بشرتك، عززي كثافة شعرك واستعيدي حيويتك اليومية.",
-        hero_btn_shop: "تسوق الآن",
-        hero_btn_contact: "استشارة عبر واتساب",
-        values_badge: "التزامنا تجاهكم",
-        values_title: "لماذا تختار فرحسان أونلاين ؟",
-        values_subtitle: "الأصالة، والفعالية الطبيعية، وخدمة عملاء مميزة في جيبوتي.",
-        card1_title: "100% جمال وصحة طبيعية",
-        card1_desc: "مجموعة مختارة بعناية من مستحضرات العناية والمكملات لنتائج ملموسة وفعالة.",
-        card2_title: "توصيل سريع في جيبوتي",
-        card2_desc: "توصيل سريع وموثوق لطلباتكم في مدينة جيبوتي وكافة النواحي المجاورة.",
-        card3_title: "استشارات ومتابعة مخصصة",
-        card3_desc: "فريقنا متواجد عبر واتساب لإرشادكم واختيار الروتين الأنسب لاحتياجاتكم.",
-        card4_title: "دفع آمن وسهل",
-        card4_desc: "الدفع عند الاستلام (نقداً) أو عبر خدمات الدفع عبر الهاتف (وافي Waafi / دي-موني D-Money / BCI Pay).",
-        catalog_title: "منتجاتنا الطبيعية",
-        catalog_subtitle: "تصفح مجموعتنا الكاملة للعناية والتغذية الطبيعية المتوفرة في جيبوتي.",
-        search_placeholder: "ابحث عن منتج...",
-        products_count: "المنتجات المتوفرة :",
-        no_results: "لم يتم العثور على أي منتج مطابق لبحثك.",
-        all: "الكل",
-        cat_drinks: "المشروبات والهلام",
-        cat_skincare: "العناية بالبشرة",
-        cat_hygiene: "النظافة والعناية الشخصية",
-        cat_nutrition: "المكملات الغذائية",
-        cat_packs: "المجموعات والبرامج",
-        btn_order: "طلب عبر واتساب",
-        payment_title: "طرق الدفع المعتمدة في جيبوتي",
-        payment_desc: "اطلب أونلاين بخطوات سريعة وادفع بأمان عبر طريقتك المفضلة :",
-        payment_waafi: "وافي (Waafi)",
-        payment_dmoney: "دي موني (D-Money)",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "نقداً عند الاستلام",
-        footer_tagline: "فرحسان أونلاين – شريككم الموثوق للجمال والصحة الطبيعية في جيبوتي.",
-        footer_rights: "جميع الحقوق محفوظة.",
-        whatsapp_msg: "مرحباً فرحسان أونلاين، أرغب بطلب هذا المنتج : ",
-        top_announcement: "متجر فرحسان أونلاين الرسمي – العناية الطبيعية والصحة في جيبوتي",
-        bestsellers_title: "أفضل المنتجات مبيعاً",
-        bestsellers_subtitle: "أكثر منتجاتنا طلباً في جيبوتي لجمالكِ وحيويتكِ وصحتكِ اليومية.",
-        bestsellers_all: "عرض جميع المنتجات",
-        contact_title: "هل تحتاجين إلى استشارة مخصصة ؟",
-        contact_desc: "فريق فرحسان أونلاين في خدمتكم عبر واتساب طوال أيام الأسبوع لإرشادكم واختيار الأنسب لكم.",
-        contact_btn: "تواصل عبر واتساب",
-        quick_links: "روابط سريعة",
-        customer_service: "خدمة العملاء في جيبوتي",
-        delivery_info: "توصيل سريع طوال أيام الأسبوع في مدينة جيبوتي وضواحيها.",
-        cart_title: "سلة المشتريات",
-        cart_empty: "سلتك فارغة حالياً",
-        cart_checkout: "إرسال الطلب عبر واتساب",
-        cart_clear: "تفريغ السلة",
-        cart_total: "المجموع التقديري :",
-        badge_currency: "فرنك"
+      "ar": {
+            "top_announcement": "المتجر الرسمي فرحسان أونلاين – العناية الطبيعية والصحة في جيبوتي",
+            "nav_home": "الرئيسية",
+            "nav_products": "منتجاتنا",
+            "nav_payment": "الدفع والتوصيل",
+            "nav_contact": "اتصل بنا",
+            "btn_whatsapp_nav": "طلب عبر واتساب",
+            "hero_title": "جمال طبيعي وصحة حقيقية",
+            "hero_subtitle": "وجهتكم الأولى في جيبوتي لمنتجات العناية الفائقة بخلاصة الألوفيرا. أشرقي بنضارة بشرتك، عززي كثافة شعرك واستعيدي حيويتك اليومية.",
+            "hero_btn_shop": "تسوق الآن",
+            "hero_btn_contact": "استشارة عبر واتساب",
+            "values_badge": "التزامنا تجاهكم",
+            "values_title": "لماذا تختار فرحسان أونلاين ؟",
+            "values_subtitle": "الأصالة، والفعالية الطبيعية، وخدمة عملاء مميزة في جيبوتي.",
+            "card1_title": "100% جمال وصحة طبيعية",
+            "card1_desc": "مجموعة مختارة بعناية من مستحضرات العناية والمكملات لنتائج ملموسة وفعالة.",
+            "card2_title": "توصيل سريع في جيبوتي",
+            "card2_desc": "توصيل سريع وموثوق لطلباتكم في مدينة جيبوتي وكافة النواحي المجاورة.",
+            "card3_title": "استشارات ومتابعة مخصصة",
+            "card3_desc": "فريقنا متواجد عبر واتساب لإرشادكم واختيار الروتين الأنسب لاحتياجاتكم.",
+            "card4_title": "دفع آمن وسهل",
+            "card4_desc": "ادفع بكل مرونة عبر وافي (Waafi)، دي موني (D-Money) أو نقداً عند الاستلام.",
+            "bestsellers_title": "أفضل المنتجات مبيعاً",
+            "bestsellers_subtitle": "أكثر منتجات فوريفر طلباً ونال ثقة العملاء في جيبوتي بفضل نتائجها الفائقة.",
+            "catalog_title": "منتجاتنا الطبيعية",
+            "catalog_subtitle": "تصفح مجموعتنا الكاملة للعناية والتغذية الطبيعية المتوفرة في جيبوتي.",
+            "search_placeholder": "ابحث عن منتج...",
+            "products_count": "المنتجات المتوفرة :",
+            "no_results": "لم يتم العثور على أي منتج مطابق لبحثك.",
+            "all": "الكل",
+            "cat_drinks": "المشروبات والهلام",
+            "cat_skincare": "العناية بالبشرة",
+            "cat_hygiene": "النظافة والعناية الشخصية",
+            "cat_nutrition": "المكملات الغذائية",
+            "cat_packs": "المجموعات والبرامج",
+            "btn_order": "طلب عبر واتساب",
+            "payment_title": "طرق الدفع المعتمدة في جيبوتي",
+            "payment_desc": "اطلب أونلاين بخطوات سريعة وادفع بأمان عبر طريقتك المفضلة :",
+            "payment_waafi": "وافي (Waafi)",
+            "payment_dmoney": "دي موني (D-Money)",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "نقداً عند الاستلام",
+            "footer_tagline": "فرحسان أونلاين – شريككم الموثوق للجمال والصحة الطبيعية في جيبوتي.",
+            "footer_rights": "جميع الحقوق محفوظة.",
+            "whatsapp_msg": "مرحباً فرحسان أونلاين، أرغب بطلب هذا المنتج : ",
+            "back_home": "العودة للرئيسية"
       },
-
-      en: {
-        nav_home: "Home",
-        nav_products: "Products",
-        nav_payment: "Payment & Delivery",
-        nav_contact: "Contact",
-        btn_whatsapp_nav: "Order via WhatsApp",
-        hero_title: "Natural Beauty & Real Wellness",
-        hero_subtitle: "Your premier destination in Djibouti for pure Aloe Vera wellness and skincare. Reveal your glow, strengthen your hair, and revitalize your health.",
-        hero_btn_shop: "Shop Catalog",
-        hero_btn_contact: "WhatsApp Consultation",
-        values_badge: "OUR COMMITMENT",
-        values_title: "Why Choose FARAHSAN ONLINE?",
-        values_subtitle: "Purity, natural potency, and dedicated customer care in Djibouti.",
-        card1_title: "100% Natural Wellness & Beauty",
-        card1_desc: "Curated Aloe Vera supplements and personal care formulations for proven results.",
-        card2_title: "Fast Delivery Across Djibouti",
-        card2_desc: "Prompt and reliable delivery directly to your doorstep in Djibouti City and surroundings.",
-        card3_title: "Personal Guidance & Advice",
-        card3_desc: "Chat with us anytime on WhatsApp for personalized skincare and nutrition recommendations.",
-        card4_title: "Safe & Flexible Local Payment",
-        card4_desc: "Cash on Delivery or mobile payment (Waafi / D-Money / BCI Pay).",
-        catalog_title: "Our Natural Products",
-        catalog_subtitle: "Browse our complete collection of certified skincare and nutrition in Djibouti.",
-        search_placeholder: "Search for a product...",
-        products_count: "Available product(s):",
-        no_results: "No products matched your search.",
-        all: "All",
-        cat_drinks: "Drinks & Gels",
-        cat_skincare: "Skincare",
-        cat_hygiene: "Hygiene & Body Care",
-        cat_nutrition: "Nutrition & Supplements",
-        cat_packs: "Packs & Routines",
-        btn_order: "Order via WhatsApp",
-        payment_title: "Payment Methods in Djibouti",
-        payment_desc: "Order online in seconds and pay safely through your preferred method:",
-        payment_waafi: "Waafi",
-        payment_dmoney: "D-Money",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "Cash on Delivery",
-        footer_tagline: "FARAHSAN ONLINE – Your trusted partner for natural beauty and vitality in Djibouti.",
-        footer_rights: "All rights reserved.",
-        whatsapp_msg: "Hello FARAHSAN ONLINE, I would like to order: ",
-        top_announcement: "Official FARAHSAN ONLINE Store – Natural Skincare & Wellness in Djibouti",
-        bestsellers_title: "Essential Bestsellers",
-        bestsellers_subtitle: "Our most requested products in Djibouti for your daily beauty, wellness, and vitality.",
-        bestsellers_all: "View all Products",
-        contact_title: "Need Personalized Guidance?",
-        contact_desc: "Our FARAHSAN ONLINE team is available on WhatsApp 7 days a week to assist you.",
-        contact_btn: "Chat on WhatsApp",
-        quick_links: "Quick Links",
-        customer_service: "Customer Care Djibouti",
-        delivery_info: "Fast delivery 7 days a week across Djibouti City and surroundings.",
-        cart_title: "My Shopping Cart",
-        cart_empty: "Your cart is empty",
-        cart_checkout: "Checkout via WhatsApp",
-        cart_clear: "Clear cart",
-        cart_total: "Estimated Total:",
-        badge_currency: "DJF"
+      "en": {
+            "top_announcement": "Official FARAHSAN ONLINE Store – Natural Skincare & Wellness in Djibouti",
+            "nav_home": "Home",
+            "nav_products": "Products",
+            "nav_payment": "Payment & Delivery",
+            "nav_contact": "Contact",
+            "btn_whatsapp_nav": "Order via WhatsApp",
+            "hero_title": "Natural Beauty & Real Wellness",
+            "hero_subtitle": "Your premier destination in Djibouti for pure Aloe Vera wellness and skincare. Reveal your glow, strengthen your hair, and revitalize your health.",
+            "hero_btn_shop": "Shop Catalog",
+            "hero_btn_contact": "WhatsApp Consultation",
+            "values_badge": "OUR COMMITMENT",
+            "values_title": "Why Choose FARAHSAN ONLINE?",
+            "values_subtitle": "Purity, natural potency, and dedicated customer care in Djibouti.",
+            "card1_title": "100% Natural Wellness & Beauty",
+            "card1_desc": "Curated Aloe Vera supplements and personal care formulations for proven results.",
+            "card2_title": "Fast Delivery Across Djibouti",
+            "card2_desc": "Prompt and reliable delivery directly to your doorstep in Djibouti City and surroundings.",
+            "card3_title": "Personal Guidance & Advice",
+            "card3_desc": "Chat with us anytime on WhatsApp for personalized skincare and nutrition recommendations.",
+            "card4_title": "Safe & Flexible Local Payment",
+            "card4_desc": "Pay smoothly using Waafi, D-Money, or simply with Cash on Delivery.",
+            "bestsellers_title": "Our Best-Selling Essentials",
+            "bestsellers_subtitle": "The most trusted and acclaimed Aloe Vera wellness formulations in Djibouti.",
+            "catalog_title": "Our Natural Products",
+            "catalog_subtitle": "Browse our complete collection of certified skincare and nutrition in Djibouti.",
+            "search_placeholder": "Search for a product...",
+            "products_count": "Available product(s):",
+            "no_results": "No products matched your search.",
+            "all": "All",
+            "cat_drinks": "Drinks & Gels",
+            "cat_skincare": "Skincare",
+            "cat_hygiene": "Hygiene & Body Care",
+            "cat_nutrition": "Nutrition & Supplements",
+            "cat_packs": "Packs & Routines",
+            "btn_order": "Order via WhatsApp",
+            "payment_title": "Payment Methods in Djibouti",
+            "payment_desc": "Order online in seconds and pay safely through your preferred method:",
+            "payment_waafi": "Waafi",
+            "payment_dmoney": "D-Money",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "Cash on Delivery",
+            "footer_tagline": "FARAHSAN ONLINE – Your trusted partner for natural beauty and vitality in Djibouti.",
+            "footer_rights": "All rights reserved.",
+            "whatsapp_msg": "Hello FARAHSAN ONLINE, I would like to order: ",
+            "back_home": "Back to Home"
       }
-    };
+};
 
-    // Langues supportées & métadonnées d'affichage
+    // MÉTADONNÉES DES LANGUES
     const langInfo = {
       fr: { name: "Français", flag: "🇫🇷", dir: "ltr" },
       so: { name: "Soomaali", flag: "🇩🇯", dir: "ltr" },
@@ -1215,74 +1004,62 @@
     };
 
     // GESTION DU STOCKAGE DE LA LANGUE (preferred_lang requis)
-    let currentLang = localStorage.getItem('preferred_lang') || localStorage.getItem('farhasan_lang') || 'fr';
+    let currentLang = localStorage.getItem('preferred_lang') || 'fr';
     if (!i18n[currentLang]) currentLang = 'fr';
 
-    let cart = JSON.parse(localStorage.getItem('farhasan_cart') || '[]');
-
-    // ÉLÉMENTS DU SÉLECTEUR DE LANGUE
+    // ÉLÉMENTS DU DOM
     const langDropdown = document.getElementById('langDropdown');
-    const langMenuBtn = document.getElementById('langMenuBtn');
     const langChevron = document.getElementById('langChevron');
     const currentLangFlag = document.getElementById('currentLangFlag');
     const currentLangName = document.getElementById('currentLangName');
-
-    // INITIALISATION
-    window.addEventListener('DOMContentLoaded', () => {
-      applyLanguage(currentLang);
-      saveAndRenderCart();
-    });
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
     function toggleLangDropdown() {
-      const isExpanded = !langDropdown.classList.contains('hidden');
-      if (isExpanded) closeLangDropdown();
-      else openLangDropdown();
-    }
-
-    function openLangDropdown() {
-      langDropdown.classList.remove('hidden');
-      langMenuBtn.setAttribute('aria-expanded', 'true');
-      langChevron.classList.add('rotate-180');
+      if (!langDropdown) return;
+      const isHidden = langDropdown.classList.contains('hidden');
+      if (isHidden) {
+        langDropdown.classList.remove('hidden');
+        if (langChevron) langChevron.classList.add('rotate-180');
+      } else {
+        closeLangDropdown();
+      }
     }
 
     function closeLangDropdown() {
+      if (!langDropdown) return;
       langDropdown.classList.add('hidden');
-      langMenuBtn.setAttribute('aria-expanded', 'false');
-      langChevron.classList.remove('rotate-180');
+      if (langChevron) langChevron.classList.remove('rotate-180');
     }
 
-    document.addEventListener('click', (e) => {
+    window.addEventListener('click', (e) => {
       const wrapper = document.getElementById('langSelectorWrapper');
-      if (wrapper && !wrapper.contains(e.target)) closeLangDropdown();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLangDropdown();
+      if (wrapper && !wrapper.contains(e.target)) {
+        closeLangDropdown();
+      }
     });
 
     function changeLanguage(lang) {
       if (!i18n[lang]) return;
       currentLang = lang;
       localStorage.setItem('preferred_lang', lang);
-      localStorage.setItem('farhasan_lang', lang);
       closeLangDropdown();
       applyLanguage(lang);
-      saveAndRenderCart();
     }
 
     function applyLanguage(lang) {
       const texts = i18n[lang];
-      const info = langInfo[lang];
+      const info = langInfo[lang] || { dir: 'ltr', flag: '🇫🇷', name: 'Français' };
 
-      // Mise à jour de la balise HTML (lang et direction RTL pour arabe)
+      // Support RTL Arabe strict
       document.documentElement.setAttribute('lang', lang);
-      document.documentElement.setAttribute('dir', info.dir);
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
 
       // Bouton du sélecteur
-      currentLangFlag.textContent = info.flag;
-      currentLangName.textContent = info.name;
+      if (currentLangFlag) currentLangFlag.textContent = info.flag;
+      if (currentLangName) currentLangName.textContent = info.name;
 
-      // Badges de sélection dans le dropdown
+      // Badges du dropdown
       ['fr', 'so', 'aa', 'ar', 'en'].forEach(l => {
         const check = document.getElementById(`check-${l}`);
         if (check) {
@@ -1299,121 +1076,29 @@
         }
       });
 
-      // Mettre à jour les boutons de commande des bestsellers
-      document.querySelectorAll('.bestseller-order-btn').forEach(btn => {
-        const productInfo = btn.getAttribute('data-product');
-        const orderText = encodeURIComponent(`${texts.whatsapp_msg}${productInfo}`);
-        btn.href = `https://wa.me/${CONFIG.phoneRaw}?text=${orderText}`;
-      });
-
-      // Liens WhatsApp des boutons du Hero et contact
-      const heroBtnContact = document.getElementById('heroBtnContact');
-      if (heroBtnContact) {
-        const defaultHeroMsg = encodeURIComponent(texts.whatsapp_msg + "Forever Aloe Vera Gel (1 Liter)");
-        heroBtnContact.href = `https://wa.me/${CONFIG.phoneRaw}?text=${defaultHeroMsg}`;
-      }
-
+      // Bouton WhatsApp du Header
       const headerWhatsappText = document.getElementById('headerWhatsappText');
-      if (headerWhatsappText) headerWhatsappText.textContent = texts.btn_whatsapp_nav;
-    }
-
-    // ==================== GESTION DU PANIER ====================
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
-
-    function toggleCartDrawer(open) {
-      const drawer = document.getElementById('cartDrawer');
-      const backdrop = document.getElementById('cartDrawerBackdrop');
-      if (open) {
-        backdrop.classList.remove('hidden');
-        drawer.classList.remove('translate-x-full', 'rtl:-translate-x-full');
-        document.body.classList.add('overflow-hidden');
-      } else {
-        backdrop.classList.add('hidden');
-        drawer.classList.add('translate-x-full', 'rtl:-translate-x-full');
-        document.body.classList.remove('overflow-hidden');
+      if (headerWhatsappText && texts.btn_whatsapp_nav) {
+        headerWhatsappText.textContent = texts.btn_whatsapp_nav;
+      }
+      const headerWhatsappBtn = document.getElementById('headerWhatsappBtn');
+      if (headerWhatsappBtn) {
+        const defaultMsg = encodeURIComponent(`Bonjour FARAHSAN ONLINE, je souhaite commander.`);
+        headerWhatsappBtn.href = `https://wa.me/${CONFIG.phoneRaw}?text=${defaultMsg}`;
       }
     }
 
-    const cartBtn = document.getElementById('cartBtn');
-    if (cartBtn) cartBtn.addEventListener('click', () => toggleCartDrawer(true));
-
-    function updateQty(index, delta) {
-      if (!cart[index]) return;
-      cart[index].quantity += delta;
-      if (cart[index].quantity <= 0) cart.splice(index, 1);
-      saveAndRenderCart();
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      saveAndRenderCart();
-    }
-
-    function clearCart() {
-      cart = [];
-      saveAndRenderCart();
-    }
-
-    function saveAndRenderCart() {
-      localStorage.setItem('farhasan_cart', JSON.stringify(cart));
-      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      const texts = i18n[currentLang];
-
-      document.getElementById('cartCount').textContent = totalItems;
-      document.getElementById('drawerItemCountBadge').textContent = totalItems;
-      document.getElementById('cartTotalAmount').textContent = `${totalPrice.toLocaleString()} ${texts.badge_currency}`;
-
-      const list = document.getElementById('cartItemsList');
-      const empty = document.getElementById('cartEmptyState');
-      const footer = document.getElementById('cartFooter');
-
-      if (cart.length === 0) {
-        list.classList.add('hidden');
-        empty.classList.remove('hidden');
-        footer.classList.add('hidden');
-      } else {
-        list.classList.remove('hidden');
-        empty.classList.add('hidden');
-        footer.classList.remove('hidden');
-
-        list.innerHTML = cart.map((item, idx) => `
-          <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-2xl border border-gray-100">
-            <img src="${item.image}" alt="${item.title}" class="w-14 h-14 rounded-xl object-contain border border-gray-200 bg-white" onerror="this.onerror=null;this.src='assets/logo.png';">
-            <div class="flex-1">
-              <h4 class="font-bold text-xs sm:text-sm text-gray-900 leading-snug">${item.title}</h4>
-              <p class="text-xs text-brand-green font-bold mt-0.5">${(item.price * item.quantity).toLocaleString()} ${texts.badge_currency}</p>
-              <div class="flex items-center gap-2 mt-1.5">
-                <button onclick="updateQty(${idx}, -1)" class="w-5 h-5 rounded bg-white border border-gray-200 text-xs font-bold flex items-center justify-center">-</button>
-                <span class="text-xs font-bold">${item.quantity}</span>
-                <button onclick="updateQty(${idx}, 1)" class="w-5 h-5 rounded bg-white border border-gray-200 text-xs font-bold flex items-center justify-center">+</button>
-              </div>
-            </div>
-            <button onclick="removeFromCart(${idx})" class="p-1.5 text-gray-400 hover:text-red-500" aria-label="Supprimer ${item.title}">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-            </button>
-          </div>
-        `).join('');
-      }
-    }
-
-    function checkoutViaWhatsApp() {
-      if (cart.length === 0) return;
-      const texts = i18n[currentLang];
-      const totalPrice = cart.reduce((sum, item) => sum + item.quantity, 0);
-      let msg = `${texts.whatsapp_msg}\n\n`;
-      cart.forEach(item => {
-        msg += `• ${item.quantity}x ${item.title}\n`;
+    // Toggle menu mobile
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
       });
-      msg += `\nPaiement : (Waafi / D-Money / Espèces)\n`;
-      msg += `Adresse de livraison : (Quartier, Balbala, etc.)`;
-
-      window.open(`https://wa.me/${CONFIG.phoneRaw}?text=${encodeURIComponent(msg)}`, '_blank');
     }
+
+    // Initialisation au chargement
+    document.addEventListener('DOMContentLoaded', () => {
+      applyLanguage(currentLang);
+    });
   </script>
 
 </body>

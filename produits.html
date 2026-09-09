@@ -1,20 +1,35 @@
+<!--
+====================================================================
+* APPLICATION   : FARAHSAN ONLINE - Boutique Officielle Djibouti
+* DÉVELOPPEUR   : Aden.Code
+* VERSION       : 2.0.0 (Production Ready)
+* SÉCURITÉ      : CSP, Anti-XSS Sanitization, Anti-Clickjacking, Anti-Tabnabbing
+* I18N          : 5 Langues (FR, SO, AA, AR [RTL + Cairo Font], EN) + Persistance
+* POWERED BY    : Aden.Code | © 2026 FARAHSAN ONLINE. Tous droits réservés.
+====================================================================
+-->
 <!DOCTYPE html>
 <html lang="fr" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catalogue Produits Naturels | FARAHSAN ONLINE Djibouti</title>
-  <meta name="description" content="Catalogue officiel complet des soins et compléments nutritionnels à l'Aloe Vera de FARAHSAN ONLINE à Djibouti. Boissons, soins de la peau, hygiène, nutrition et packs détox.">
-  
-  <!-- Favicon -->
+  <title>FARAHSAN ONLINE | Catalogue des Produits Naturels à Djibouti</title>
+  <meta name="description" content="Catalogue complet des produits d'Aloe Vera à Djibouti par FARAHSAN ONLINE : boissons, soins visage, hygiène corporelle, compléments nutritionnels et packs.">
+
+  <!-- SÉCURITÉ & BLINDAGE (ANTI-HACK / ANTI-XSS / ANTI-CLICKJACKING) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
   <link rel="icon" type="image/png" href="assets/logo.png">
 
-  <!-- Google Fonts: Plus Jakarta Sans, Cairo (pour l'arabe) & Playfair Display -->
+  <!-- Google Fonts: Cairo (Arabe RTL), Plus Jakarta Sans & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS via CDN avec configuration -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,20 +40,18 @@
               green: '#2E7D32',
               greenDark: '#1B5E20',
               greenLight: '#E8F5E9',
-              greenHover: '#256629',
               rose: '#D81B60',
-              roseDark: '#AD1457',
               roseLight: '#FCE4EC',
-              gold: '#C5A059',
-              goldLight: '#FBF7EE',
-              bgLight: '#FDFCF9',
-              cardBg: '#FFFFFF',
-              dark: '#1C2826'
+              gold: '#D4AF37',
+              goldLight: '#FFF8E1',
+              dark: '#1F2937',
+              bgLight: '#F9FAFB'
             }
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '"Cairo"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            cairo: ['Cairo', 'sans-serif']
           }
         }
       }
@@ -54,22 +67,22 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
+    .hero-gradient {
+      background: radial-gradient(circle at top right, rgba(232, 245, 233, 0.8), transparent 60%),
+                  radial-gradient(circle at bottom left, rgba(252, 228, 236, 0.5), transparent 50%);
+    }
     .card-shadow {
-      box-shadow: 0 6px 20px -3px rgba(46, 125, 50, 0.08);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
     }
     .card-shadow:hover {
-      box-shadow: 0 16px 28px -3px rgba(46, 125, 50, 0.15);
-      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -10px rgba(46, 125, 50, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
     }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="bg-brand-bgLight text-brand-dark font-sans antialiased selection:bg-brand-roseLight selection:text-brand-rose min-h-screen flex flex-col">
 
   <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
-  <aside aria-label="Bannière d'annonce" class="bg-gradient-to-r from-brand-green to-brand-greenDark text-white text-xs sm:text-sm py-2 px-4">
+  <aside aria-label="Bannière d'annonce" class="bg-gradient-to-r from-brand-green to-brand-greenDark text-white text-xs sm:text-sm py-2 px-4 border-b border-white/10 relative z-50">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="inline-flex items-center justify-center p-1 bg-white/20 rounded-full text-xs">🌿</span>
@@ -80,7 +93,7 @@
           <span class="w-2 h-2 rounded-full bg-emerald-300 animate-ping"></span>
           Waafi • D-Money • BCI Pay • Cash Delivery
         </span>
-        <a href="tel:+25377297705" class="hover:underline flex items-center gap-1">📞 +253 77 29 77 05</a>
+        <a href="tel:+25377297705" class="hover:underline flex items-center gap-1" rel="noopener noreferrer">📞 +253 77 29 77 05</a>
       </div>
     </div>
   </aside>
@@ -90,16 +103,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
-        <!-- Logo -->
+        <!-- Brand Logo -->
         <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none shrink-0" aria-label="Accueil FARAHSAN ONLINE">
-          <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+          <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='assets/logo.png';">
           <div class="flex flex-col">
             <span class="font-serif font-bold text-xl sm:text-2xl tracking-wider text-brand-green">FARAHSAN</span>
             <span class="text-[10px] tracking-[0.25em] font-semibold text-brand-gold -mt-1 uppercase">ONLINE • DJIBOUTI</span>
           </div>
         </a>
 
-        <!-- Liens d'accès direct -->
+        <!-- Desktop Navigation Links -->
         <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-700">
           <a href="index.html" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_home">
             Accueil
@@ -110,7 +123,7 @@
           <a href="index.html#valeurs" class="hover:text-brand-green transition-colors py-1" data-i18n="values_title">
             Pourquoi Choisir FARAHSAN ONLINE ?
           </a>
-          <a href="#paiement" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_payment">
+          <a href="index.html#paiement" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_payment">
             Paiement & Livraison
           </a>
           <a href="index.html#contact" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_contact">
@@ -118,8 +131,8 @@
           </a>
         </nav>
 
-        <!-- ZONE D'ACTION EN HAUT À DROITE (Sélecteur de langue + Bouton WhatsApp) -->
-        <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Right Action Area : SÉLECTEUR DE LANGUE IMMÉDIATEMENT À CÔTÉ DU BOUTON WHATSAPP -->
+        <div class="flex items-center gap-3 sm:gap-4">
           
           <!-- SÉLECTEUR DE LANGUE STYLISÉ AVEC DROPDOWN -->
           <div class="relative inline-block text-left" id="langSelectorWrapper">
@@ -181,7 +194,7 @@
             </div>
           </div>
 
-          <!-- BOUTON PRINCIPAL WHATSAPP -->
+          <!-- BOUTON PRINCIPAL WHATSAPP (IMMÉDIATEMENT ADJACENT AU SÉLECTEUR DE LANGUE) -->
           <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander." 
              id="headerWhatsappBtn"
              target="_blank" 
@@ -191,519 +204,545 @@
             <span id="headerWhatsappText" data-i18n="btn_whatsapp_nav">Commander WhatsApp</span>
           </a>
 
-          <!-- Mobile Toggle -->
+          <!-- Mobile Toggle Button -->
           <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none" aria-label="Menu principal">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </button>
         </div>
-      </div>
 
-      <!-- Mobile Dropdown -->
-      <div id="mobileMenu" class="hidden lg:hidden py-4 border-t border-gray-100 flex flex-col gap-3 font-medium text-gray-700">
-        <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_home">Accueil</a>
-        <a href="produits.html" class="px-3 py-2 rounded-lg bg-brand-greenLight text-brand-green font-bold" data-i18n="nav_products">Nos Produits</a>
-        <a href="index.html#valeurs" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="values_title">Pourquoi Choisir FARAHSAN ONLINE ?</a>
-        <a href="#paiement" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_payment">Paiement & Livraison</a>
-        <a href="index.html#contact" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_contact">Contact</a>
-        
-        <!-- Sélecteur rapide mobile -->
-        <div class="pt-3 border-t border-gray-100">
-          <p class="text-xs text-gray-400 font-bold uppercase mb-2 px-3">Langue / Luqadda / Lughah</p>
-          <div class="grid grid-cols-5 gap-1 px-2">
-            <button onclick="changeLanguage('fr')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇫🇷 FR</button>
-            <button onclick="changeLanguage('so')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 SO</button>
-            <button onclick="changeLanguage('aa')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 AA</button>
-            <button onclick="changeLanguage('ar')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇸🇦 AR</button>
-            <button onclick="changeLanguage('en')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇬🇧 EN</button>
-          </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden py-4 border-t border-gray-100 flex flex-col gap-3 font-medium text-gray-700 bg-white/98 px-4 shadow-lg">
+      <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight " data-i18n="nav_home">Accueil</a>
+      <a href="produits.html" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight bg-brand-greenLight text-brand-green font-bold" data-i18n="nav_products">Nos Produits</a>
+      <a href="index.html#valeurs" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="values_title">Pourquoi Choisir FARAHSAN ONLINE ?</a>
+      <a href="index.html#paiement" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_payment">Paiement & Livraison</a>
+      <a href="index.html#contact" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_contact">Contact</a>
+      
+      <!-- Sélecteur rapide mobile -->
+      <div class="pt-3 border-t border-gray-100">
+        <p class="text-xs text-gray-400 font-bold uppercase mb-2 px-1">Langue / Luqadda / Lughah</p>
+        <div class="grid grid-cols-5 gap-1">
+          <button onclick="changeLanguage('fr')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇫🇷 FR</button>
+          <button onclick="changeLanguage('so')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 SO</button>
+          <button onclick="changeLanguage('aa')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 AA</button>
+          <button onclick="changeLanguage('ar')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇸🇦 AR</button>
+          <button onclick="changeLanguage('en')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇬🇧 EN</button>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ==================== BANNIÈRE & TITRE ==================== -->
-  <section class="bg-gradient-to-b from-brand-greenLight/60 via-brand-bgLight to-brand-bgLight pt-10 pb-6 border-b border-gray-100">
+  <!-- ==================== CATALOGUE HEADER BANNER ==================== -->
+  <section class="py-12 bg-white border-b border-gray-100 hero-gradient">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="space-y-2 text-center md:text-left rtl:md:text-right">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold uppercase tracking-wider">
-            <span>🌿</span> 
-            <span data-i18n="values_badge">NOTRE ENGAGEMENT</span>
-          </div>
-          <h1 id="pageTitle" class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900" data-i18n="catalog_title">
+      
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+        <div>
+          <span class="text-brand-green font-bold text-xs tracking-widest uppercase" data-i18n="values_badge">NOTRE ENGAGEMENT</span>
+          <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mt-1" data-i18n="catalog_title">
             Nos Produits Naturels
           </h1>
-          <p id="pageSubtitle" class="text-gray-600 text-sm sm:text-base max-w-2xl" data-i18n="catalog_subtitle">
+          <p class="text-gray-600 text-sm sm:text-base mt-2 max-w-2xl" data-i18n="catalog_subtitle">
             Explorez notre collection complète de soins et de nutrition naturelle disponible à Djibouti.
           </p>
         </div>
 
-        <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-gray-200 text-gray-700 hover:border-brand-green hover:text-brand-green text-xs sm:text-sm font-semibold shadow-sm transition-all shrink-0">
-          <span data-i18n="back_home">← Retour Accueil</span>
+        <a href="index.html" class="inline-flex items-center gap-2 self-start md:self-auto px-5 py-2.5 rounded-full bg-white hover:bg-gray-50 text-gray-700 font-bold text-xs sm:text-sm border border-gray-200 shadow-sm transition-all shrink-0">
+          <span class="rtl:rotate-180">←</span>
+          <span data-i18n="back_home">Retour à l'Accueil</span>
         </a>
       </div>
 
-      <!-- ==================== BARRE D'OUTILS DYNAMIQUE ==================== -->
-      <!-- Champ de recherche textuel réactif -->
-      <div class="mt-8">
-        <div class="relative max-w-3xl mx-auto">
+      <!-- Barre d'outils dynamique : Recherche & Filtres -->
+      <div class="space-y-6">
+        
+        <!-- Champ de recherche sécurisé Anti-XSS -->
+        <div class="relative max-w-2xl">
+          <div class="absolute inset-y-0 left-0 rtl:left-auto rtl:right-0 pl-4 rtl:pl-0 rtl:pr-4 flex items-center pointer-events-none text-gray-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
           <input type="text" 
-                 id="searchInput" 
+                 id="searchInput"
+                 autocomplete="off"
                  placeholder="Rechercher un produit..." 
-                 class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-sm sm:text-base text-gray-800 shadow-sm transition-all">
-          <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2 rtl:left-auto rtl:right-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
+                 class="w-full pl-11 rtl:pl-4 rtl:pr-11 pr-10 py-3.5 rounded-2xl bg-white border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 text-gray-800 text-sm sm:text-base shadow-sm transition-all placeholder:text-gray-400">
+          <button id="clearSearchBtn" 
+                  type="button" 
+                  class="hidden absolute inset-y-0 right-0 rtl:right-auto rtl:left-0 pr-3 rtl:pr-0 rtl:pl-3 flex items-center text-gray-400 hover:text-gray-600 focus:outline-none"
+                  aria-label="Effacer la recherche">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
         </div>
+
+        <!-- Boutons de filtrage par Catégorie -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar" id="categoryTabs">
+          <button type="button" data-cat="all" class="category-btn active px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all whitespace-nowrap bg-brand-green text-white shadow">
+            <span data-i18n="all">Tous</span>
+            <span id="allBadge" class="ml-1.5 opacity-80 font-normal">(102)</span>
+          </button>
+          <button type="button" data-cat="cat_drinks" class="category-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:border-brand-green hover:text-brand-green">
+            🍹 <span data-i18n="cat_drinks">Boissons & Pulpes</span>
+          </button>
+          <button type="button" data-cat="cat_skincare" class="category-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:border-brand-green hover:text-brand-green">
+            ✨ <span data-i18n="cat_skincare">Soins de la Peau</span>
+          </button>
+          <button type="button" data-cat="cat_hygiene" class="category-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:border-brand-green hover:text-brand-green">
+            🧴 <span data-i18n="cat_hygiene">Hygiène & Corps</span>
+          </button>
+          <button type="button" data-cat="cat_nutrition" class="category-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:border-brand-green hover:text-brand-green">
+            🐝 <span data-i18n="cat_nutrition">Nutrition & Compléments</span>
+          </button>
+          <button type="button" data-cat="cat_packs" class="category-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all whitespace-nowrap bg-white text-gray-700 border border-gray-200 hover:border-brand-green hover:text-brand-green">
+            📦 <span data-i18n="cat_packs">Packs & Programmes</span>
+          </button>
+        </div>
+
+        <!-- Compteur dynamique d'articles -->
+        <div class="flex items-center justify-between text-xs sm:text-sm text-gray-500 pt-2 border-t border-gray-100">
+          <p>
+            <span data-i18n="products_count">Produit(s) disponible(s) :</span>
+            <strong id="displayedCount" class="text-brand-green font-bold text-base ml-1">102</strong>
+          </p>
+          <p class="text-xs text-gray-400">
+            ✓ FARAHSAN ONLINE Djibouti 🇩🇯
+          </p>
+        </div>
+
       </div>
 
-      <!-- Boutons de filtre par catégorie (Traduits dynamiquement) -->
-      <div class="mt-6 flex items-center justify-center gap-2 overflow-x-auto pb-2 no-scrollbar" id="categoryTabs">
-        <button onclick="setCategory('all', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-brand-green text-white shadow-sm shrink-0 transition-all" data-cat="all">
-          <span data-i18n="all">Tous</span> (<span id="totalBadge">0</span>)
-        </button>
-        <button onclick="setCategory('cat_drinks', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="cat_drinks">
-          🥤 <span data-i18n="cat_drinks">Boissons & Pulpes</span>
-        </button>
-        <button onclick="setCategory('cat_skincare', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="cat_skincare">
-          ✨ <span data-i18n="cat_skincare">Soins de la Peau</span>
-        </button>
-        <button onclick="setCategory('cat_hygiene', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="cat_hygiene">
-          🧴 <span data-i18n="cat_hygiene">Hygiène & Corps</span>
-        </button>
-        <button onclick="setCategory('cat_nutrition', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="cat_nutrition">
-          🐝 <span data-i18n="cat_nutrition">Nutrition & Compléments</span>
-        </button>
-        <button onclick="setCategory('cat_packs', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="cat_packs">
-          📦 <span data-i18n="cat_packs">Packs & Programmes</span>
-        </button>
-      </div>
-
-      <!-- Compteur en temps réel -->
-      <div class="mt-4 flex items-center justify-between text-xs sm:text-sm text-gray-500 font-medium">
-        <p>
-          <span data-i18n="products_count">Produit(s) disponible(s) :</span> <span id="displayedCount" class="font-bold text-gray-900">0</span>
-        </p>
-        <span class="text-brand-green font-bold flex items-center gap-1">
-          <span>✓</span> FARAHSAN ONLINE Djibouti 🇩🇯
-        </span>
-      </div>
     </div>
   </section>
 
-  <!-- ==================== GRILLE DE PRODUITS RESPONSIVE ==================== -->
-  <main class="flex-1 py-10 sm:py-14">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Grille responsive : 1 col mobile, 2 cols tablette, 3 à 4 cols grand écran -->
-      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Rendu dynamique par JavaScript -->
-      </div>
-
-      <!-- État aucun résultat -->
-      <div id="noResultsState" class="hidden py-16 text-center">
-        <div class="w-16 h-16 rounded-full bg-brand-greenLight text-brand-green text-2xl flex items-center justify-center mx-auto mb-4">
-          🔍
-        </div>
-        <h3 class="font-bold text-lg text-gray-900" data-i18n="no_results">Aucun produit trouvé pour votre recherche.</h3>
-        <p class="text-sm text-gray-500 mt-1 mb-6" data-i18n="catalog_subtitle">Explorez notre collection complète de soins et de nutrition naturelle disponible à Djibouti.</p>
-        <button onclick="resetFilters()" class="px-6 py-2.5 rounded-full bg-brand-green text-white font-bold text-xs sm:text-sm shadow">
-          <span data-i18n="reset_filters">Réinitialiser les filtres</span>
-        </button>
-      </div>
-
+  <!-- ==================== GRILLE PRINCIPALE DES PRODUITS ==================== -->
+  <main class="flex-1 py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    
+    <!-- Grille Responsive -->
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Les cartes de produits seront générées dynamiquement par JavaScript -->
     </div>
+
+    <!-- État Aucun Résultat -->
+    <div id="noResultsState" class="hidden py-16 text-center space-y-4">
+      <div class="w-16 h-16 rounded-full bg-gray-100 text-gray-400 text-2xl flex items-center justify-center mx-auto">
+        🔍
+      </div>
+      <h3 class="text-lg font-bold text-gray-800" data-i18n="no_results">Aucun produit trouvé pour votre recherche.</h3>
+      <button onclick="resetSearch()" class="px-5 py-2 rounded-full bg-brand-green text-white font-bold text-xs hover:bg-brand-greenDark transition-colors">
+        Réinitialiser la recherche
+      </button>
+    </div>
+
   </main>
 
-  <!-- ==================== SECTION RÉASSURANCE PAIEMENT DJIBOUTI ==================== -->
-  <section id="paiement" class="py-12 bg-white border-t border-gray-100">
+  <!-- ==================== MODES DE PAIEMENT REASSURANCE ==================== -->
+  <section class="py-10 bg-white border-t border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
-        <span class="text-brand-green font-bold text-xs uppercase tracking-widest" data-i18n="values_badge">NOTRE ENGAGEMENT</span>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900" data-i18n="payment_title">
-          Modes de Paiement à Djibouti
-        </h2>
-        <p class="text-gray-500 text-xs sm:text-sm leading-relaxed" data-i18n="payment_desc">
-          Commandez en ligne en quelques clics et payez en toute sécurité via votre moyen favori :
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         
         <!-- Waafi -->
-        <div class="rounded-2xl p-6 bg-red-50/50 border border-red-100 flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center font-extrabold text-sm shadow shrink-0">
+        <div class="p-6 rounded-2xl bg-brand-bgLight border border-gray-100 flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center font-extrabold text-xs shadow-sm mb-3">
             WAAFI
           </div>
-          <div class="space-y-1">
-            <h3 class="font-bold text-base text-gray-900" data-i18n="payment_waafi">Waafi</h3>
-            <p class="text-xs text-gray-600">Salaam African Bank / BAM. Transfert instantané direct.</p>
-            <p class="font-mono text-xs font-bold text-red-600">+253 77 29 77 05</p>
-          </div>
+          <h3 class="font-bold text-base text-gray-900" data-i18n="payment_waafi">Waafi</h3>
+          <p class="text-xs text-gray-500 mt-1">Salaam African Bank / BAM</p>
+          <p class="font-mono text-xs font-bold text-red-600 mt-1">+253 77 29 77 05</p>
         </div>
 
         <!-- D-Money -->
-        <div class="rounded-2xl p-6 bg-blue-50/50 border border-blue-100 flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-[#006699] text-white flex items-center justify-center font-extrabold text-sm shadow shrink-0">
+        <div class="p-6 rounded-2xl bg-brand-bgLight border border-gray-100 flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-[#006699] text-white flex items-center justify-center font-extrabold text-xs shadow-sm mb-3">
             D-M
           </div>
-          <div class="space-y-1">
-            <h3 class="font-bold text-base text-gray-900" data-i18n="payment_dmoney">D-Money</h3>
-            <p class="text-xs text-gray-600">Djibouti Telecom. Transfert sécurisé en quelques secondes.</p>
-            <p class="font-mono text-xs font-bold text-[#006699]">77 29 77 05</p>
-          </div>
+          <h3 class="font-bold text-base text-gray-900" data-i18n="payment_dmoney">D-Money</h3>
+          <p class="text-xs text-gray-500 mt-1">Djibouti Telecom</p>
+          <p class="font-mono text-xs font-bold text-[#006699] mt-1">77 29 77 05</p>
         </div>
 
-        <!-- Cash à la livraison -->
-        <div class="rounded-2xl p-6 bg-emerald-50/50 border border-emerald-100 flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-brand-green text-white flex items-center justify-center text-xl shadow shrink-0">
+        <!-- BCI Pay -->
+        <div class="p-6 rounded-2xl bg-brand-bgLight border border-gray-100 flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-[#003366] text-white flex items-center justify-center font-extrabold text-xs shadow-sm mb-3">
+            BCI
+          </div>
+          <h3 class="font-bold text-base text-gray-900" data-i18n="payment_bcipay">BCI Pay</h3>
+          <p class="text-xs text-gray-500 mt-1">Banque BCI-MR</p>
+          <p class="font-mono text-xs font-bold text-[#003366] mt-1">BCI Pay / Virement</p>
+        </div>
+
+        <!-- Espèces à la livraison -->
+        <div class="p-6 rounded-2xl bg-brand-bgLight border border-gray-100 flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-brand-green text-white flex items-center justify-center text-xl shadow-sm mb-3">
             💵
           </div>
-          <div class="space-y-1">
-            <h3 class="font-bold text-base text-gray-900" data-i18n="payment_cash">Espèces à la livraison</h3>
-            <p class="text-xs text-gray-600">Paiement directement au livreur à votre porte.</p>
-            <p class="text-xs font-bold text-brand-green">Djibouti-ville & Balbala</p>
-          </div>
+          <h3 class="font-bold text-base text-gray-900" data-i18n="payment_cash">Espèces à la livraison</h3>
+          <p class="text-xs text-gray-500 mt-1">Paiement à la remise en mains propres</p>
+          <p class="text-xs font-bold text-brand-green mt-1">Djibouti-ville & Balbala</p>
         </div>
 
       </div>
-
     </div>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="bg-gray-900 text-gray-300 pt-12 pb-10 border-t border-gray-800">
+  <!-- ==================== FOOTER OFFICIEL ==================== -->
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-12 border-t border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-800">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
         
-        <div class="space-y-3">
+        <!-- Colonne 1 : Marque -->
+        <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-10 w-auto object-contain bg-white rounded-lg p-1">
+            <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 w-auto object-contain bg-white rounded-lg p-1" onerror="this.onerror=null;this.src='assets/logo.png';">
             <div class="flex flex-col">
-              <span class="font-serif font-bold text-lg text-white tracking-wider">FARAHSAN</span>
+              <span class="font-serif font-bold text-xl text-white tracking-wider">FARAHSAN</span>
               <span class="text-[9px] tracking-[0.2em] font-semibold text-brand-gold uppercase">ONLINE • DJIBOUTI</span>
             </div>
           </div>
-          <p class="text-xs text-gray-400 leading-relaxed" data-i18n="footer_tagline">
+          <p class="text-sm text-gray-400 leading-relaxed" data-i18n="footer_tagline">
             FARAHSAN ONLINE – Votre partenaire de confiance pour la beauté et le bien-être naturel à Djibouti.
           </p>
         </div>
 
+        <!-- Colonne 2 : Liens Rapides -->
         <div>
-          <h4 class="text-white font-bold text-xs tracking-wider uppercase mb-3" data-i18n="quick_links">Accès Rapide</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="index.html" class="hover:text-white" data-i18n="nav_home">Accueil</a></li>
-            <li><a href="produits.html" class="text-brand-green font-bold" data-i18n="nav_products">Nos Produits</a></li>
-            <li><a href="index.html#valeurs" class="hover:text-white" data-i18n="values_title">Pourquoi Choisir FARAHSAN ONLINE ?</a></li>
-            <li><a href="#paiement" class="hover:text-white" data-i18n="nav_payment">Paiement & Livraison</a></li>
-            <li><a href="index.html#contact" class="hover:text-white" data-i18n="nav_contact">Contact</a></li>
+          <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-wider">Navigation</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="index.html" class="hover:text-brand-green transition-colors" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="produits.html" class="hover:text-brand-green transition-colors" data-i18n="nav_products">Nos Produits</a></li>
+            <li><a href="index.html#valeurs" class="hover:text-brand-green transition-colors" data-i18n="values_title">Pourquoi Choisir FARAHSAN ONLINE ?</a></li>
+            <li><a href="index.html#paiement" class="hover:text-brand-green transition-colors" data-i18n="nav_payment">Paiement & Livraison</a></li>
+            <li><a href="index.html#contact" class="hover:text-brand-green transition-colors" data-i18n="nav_contact">Contact</a></li>
           </ul>
         </div>
 
+        <!-- Colonne 3 : Contact Direct -->
         <div>
-          <h4 class="text-white font-bold text-xs tracking-wider uppercase mb-3" data-i18n="customer_service">Commandes & Assistance</h4>
+          <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-wider" data-i18n="nav_contact">Contact</h4>
+          <div class="space-y-3 text-sm text-gray-400">
+            <p class="flex items-center gap-2">
+              <span>📍</span>
+              <span>Djibouti-ville, République de Djibouti</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <span>📞</span>
+              <a href="tel:+25377297705" class="hover:text-white font-semibold" rel="noopener noreferrer">+253 77 29 77 05</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <span>💬</span>
+              <a href="https://wa.me/25377297705" target="_blank" rel="noopener noreferrer" class="hover:text-[#25D366] font-semibold text-white">WhatsApp (+253 77 29 77 05)</a>
+            </p>
+            <p class="text-xs text-gray-500 pt-1">
+              Disponibilité 7j/7 pour vos commandes & conseils.
+            </p>
+          </div>
+        </div>
+
+        <!-- Colonne 4 : Paiements Locaux Sécurisés -->
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-wider" data-i18n="payment_title">Paiement à Djibouti</h4>
           <div class="space-y-2 text-xs text-gray-400">
-            <p class="flex items-center gap-2">
-              <span class="text-brand-green font-bold">📞</span>
-              <a href="tel:+25377297705" class="hover:text-white font-semibold">+253 77 29 77 05</a>
+            <p class="flex items-center gap-2 bg-gray-800/80 p-2.5 rounded-xl border border-gray-700/50">
+              <span class="w-6 h-6 rounded-lg bg-red-600 text-white font-bold flex items-center justify-center text-[10px]">W</span>
+              <span class="font-medium text-gray-200">Waafi (Salaam African Bank)</span>
             </p>
-            <p class="flex items-center gap-2">
-              <span class="text-[#25D366] font-bold">💬</span>
-              <a href="https://wa.me/25377297705" target="_blank" rel="noopener noreferrer" class="hover:text-white font-semibold">WhatsApp direct : +253 77 29 77 05</a>
+            <p class="flex items-center gap-2 bg-gray-800/80 p-2.5 rounded-xl border border-gray-700/50">
+              <span class="w-6 h-6 rounded-lg bg-[#006699] text-white font-bold flex items-center justify-center text-[10px]">DM</span>
+              <span class="font-medium text-gray-200">D-Money (Djibouti Telecom)</span>
             </p>
-            <p class="text-gray-500 pt-1" data-i18n="delivery_info">
-              Livraison rapide 7j/7 à Djibouti-ville et ses environs.
+            <p class="flex items-center gap-2 bg-gray-800/80 p-2.5 rounded-xl border border-gray-700/50">
+              <span class="w-6 h-6 rounded-lg bg-[#003366] text-white font-bold flex items-center justify-center text-[10px]">BCI</span>
+              <span class="font-medium text-gray-200">BCI Pay (BCI-MR)</span>
+            </p>
+            <p class="flex items-center gap-2 bg-gray-800/80 p-2.5 rounded-xl border border-gray-700/50">
+              <span class="w-6 h-6 rounded-lg bg-brand-green text-white font-bold flex items-center justify-center text-[10px]">💵</span>
+              <span class="font-medium text-gray-200" data-i18n="payment_cash">Espèces à la livraison</span>
             </p>
           </div>
         </div>
 
       </div>
 
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-        <p>© 2026 FARAHSAN ONLINE. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
-        <p>Djibouti 🇩🇯</p>
+      <!-- Bas de page avec signature développeur obligatoire -->
+      <div class="pt-8 text-center sm:flex sm:justify-between sm:items-center text-xs text-gray-400">
+        <p>
+          © 2026 FARAHSAN ONLINE. <span data-i18n="footer_rights">Tous droits réservés.</span>
+        </p>
+        <p class="text-xs text-gray-400 mt-2">
+          © 2026 FARAHSAN ONLINE. Powered by <span class="font-bold text-amber-400">Aden.Code</span>
+        </p>
       </div>
+
     </div>
   </footer>
 
-  <!-- ==================== BOUTON FLOTTANT FIXE WHATSAPP ==================== -->
-  <aside aria-label="Bouton d'action WhatsApp" class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-    <div class="hidden sm:flex items-center bg-white text-gray-800 text-xs font-bold py-2 px-3.5 rounded-full shadow-xl border border-gray-100">
-      <span data-i18n="btn_order">Commander via WhatsApp</span>
-    </div>
-    
+  <!-- BOUTON FLOTTANT WHATSAPP SÉCURISÉ -->
+  <aside aria-label="Contact WhatsApp rapide" class="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 z-50">
     <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander." 
        target="_blank" 
-       rel="noopener noreferrer" 
-       class="relative w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 focus:outline-none"
-       aria-label="Contacter sur WhatsApp">
-      <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-40 animate-ping"></span>
-      <svg class="w-8 h-8 fill-current relative z-10" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+       rel="noopener noreferrer"
+       class="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-3 rounded-full shadow-2xl transition-all transform hover:scale-105 active:scale-95 group focus:outline-none">
+      <svg class="w-7 h-7 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span class="font-bold text-xs sm:text-sm hidden sm:inline" data-i18n="btn_order">Commander via WhatsApp</span>
     </a>
   </aside>
 
-  <!-- ==================== BASE DE DONNÉES & LOGIQUE JAVASCRIPT ==================== -->
+  <!-- ==================== BASE DE DONNÉES I18N & JAVASCRIPT ==================== -->
   <script>
+/**
+ * ====================================================================
+ * FARAHSAN ONLINE - Architecture & Moteur Principal
+ * Développeur : Aden.Code
+ * Sécurité    : Sanitization XSS, CSP Compliance, No-Opener Hardening
+ * © 2026 FARAHSAN ONLINE. Powered by Aden.Code
+ * ====================================================================
+ */
+
     const CONFIG = {
       phoneRaw: '25377297705'
     };
 
     // DICTIONNAIRE I18N INTÉGRAL (5 LANGUES)
     const i18n = {
-      fr: {
-        nav_home: "Accueil",
-        nav_products: "Nos Produits",
-        nav_payment: "Paiement & Livraison",
-        nav_contact: "Contact",
-        btn_whatsapp_nav: "Commander WhatsApp",
-        hero_title: "Beauté Naturelle & Bien-Être Réel",
-        hero_subtitle: "Votre boutique de référence à Djibouti pour les soins d'exception à base d'Aloe Vera. Révélez l'éclat de votre peau, fortifiez vos cheveux et boostez votre vitalité.",
-        hero_btn_shop: "Découvrir la Boutique",
-        hero_btn_contact: "Conseil WhatsApp",
-        values_badge: "NOTRE ENGAGEMENT",
-        values_title: "Pourquoi Choisir FARAHSAN ONLINE ?",
-        values_subtitle: "L'authenticité, l'efficacité naturelle et un service client dévoué à Djibouti.",
-        card1_title: "100% Beauté & Bien-Être Naturel",
-        card1_desc: "Une sélection rigoureuse de soins et compléments à l'Aloe Vera pour des résultats visibles et durables.",
-        card2_title: "Livraison Rapide à Djibouti",
-        card2_desc: "Réception rapide et soignée de vos commandes partout à Djibouti-ville et dans les environs.",
-        card3_title: "Conseil & Accompagnement",
-        card3_desc: "Une écoute attentive sur WhatsApp pour vous guider vers la routine adaptée à vos objectifs.",
-        card4_title: "Paiement Local Sécurisé",
-        card4_desc: "Règlement à la livraison (Cash) ou via paiement mobile (Waafi / D-Money / BCI Pay).",
-        catalog_title: "Nos Produits Naturels",
-        catalog_subtitle: "Explorez notre collection complète de soins et de nutrition naturelle disponible à Djibouti.",
-        search_placeholder: "Rechercher un produit...",
-        products_count: "Produit(s) disponible(s) :",
-        no_results: "Aucun produit trouvé pour votre recherche.",
-        all: "Tous",
-        cat_drinks: "Boissons & Pulpes",
-        cat_skincare: "Soins de la Peau",
-        cat_hygiene: "Hygiène & Corps",
-        cat_nutrition: "Nutrition & Compléments",
-        cat_packs: "Packs & Programmes",
-        btn_order: "Commander via WhatsApp",
-        payment_title: "Modes de Paiement à Djibouti",
-        payment_desc: "Commandez en ligne en quelques clics et payez en toute sécurité via votre moyen favori :",
-        payment_waafi: "Waafi",
-        payment_dmoney: "D-Money",
-        payment_bcipay: "BCI Pay",
-        payment_bcipay: "BCI Pay",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "Espèces à la livraison",
-        footer_tagline: "FARAHSAN ONLINE – Votre partenaire de confiance pour la beauté et le bien-être naturel à Djibouti.",
-        footer_rights: "Tous droits réservés.",
-        whatsapp_msg: "Bonjour FARAHSAN ONLINE, je souhaite commander le produit : ",
-        top_announcement: "Boutique Officielle FARAHSAN ONLINE – Soins Naturels & Bien-Être à Djibouti",
-        back_home: "← Retour Accueil",
-        reset_filters: "Afficher tous les produits",
-        quick_links: "Accès Rapide",
-        customer_service: "Commandes & Assistance",
-        delivery_info: "Livraison rapide 7j/7 à Djibouti-ville et ses environs."
+      "fr": {
+            "top_announcement": "Boutique Officielle FARAHSAN ONLINE – Soins Naturels & Bien-Être à Djibouti",
+            "nav_home": "Accueil",
+            "nav_products": "Nos Produits",
+            "nav_payment": "Paiement & Livraison",
+            "nav_contact": "Contact",
+            "btn_whatsapp_nav": "Commander WhatsApp",
+            "hero_title": "Beauté Naturelle & Bien-Être Réel",
+            "hero_subtitle": "Votre boutique de référence à Djibouti pour les soins d'exception à base d'Aloe Vera. Révélez l'éclat de votre peau, fortifiez vos cheveux et boostez votre vitalité.",
+            "hero_btn_shop": "Découvrir la Boutique",
+            "hero_btn_contact": "Conseil WhatsApp",
+            "values_badge": "NOTRE ENGAGEMENT",
+            "values_title": "Pourquoi Choisir FARAHSAN ONLINE ?",
+            "values_subtitle": "L'authenticité, l'efficacité naturelle et un service client dévoué à Djibouti.",
+            "card1_title": "100% Beauté & Bien-Être Naturel",
+            "card1_desc": "Une sélection rigoureuse de soins et compléments à l'Aloe Vera pour des résultats visibles et durables.",
+            "card2_title": "Livraison Rapide à Djibouti",
+            "card2_desc": "Réception rapide et soignée de vos commandes partout à Djibouti-ville et dans les environs.",
+            "card3_title": "Conseil & Accompagnement",
+            "card3_desc": "Une écoute attentive sur WhatsApp pour vous guider vers la routine adaptée à vos objectifs.",
+            "card4_title": "Paiement Local Sécurisé",
+            "card4_desc": "Réglez en toute confiance par Waafi, D-Money ou simplement en espèces au moment de la livraison.",
+            "bestsellers_title": "Nos Produits Phares",
+            "bestsellers_subtitle": "Les soins et compléments Forever les plus plébiscités à Djibouti pour leur efficacité prouvée.",
+            "catalog_title": "Nos Produits Naturels",
+            "catalog_subtitle": "Explorez notre collection complète de soins et de nutrition naturelle disponible à Djibouti.",
+            "search_placeholder": "Rechercher un produit...",
+            "products_count": "Produit(s) disponible(s) :",
+            "no_results": "Aucun produit trouvé pour votre recherche.",
+            "all": "Tous",
+            "cat_drinks": "Boissons & Pulpes",
+            "cat_skincare": "Soins de la Peau",
+            "cat_hygiene": "Hygiène & Corps",
+            "cat_nutrition": "Nutrition & Compléments",
+            "cat_packs": "Packs & Programmes",
+            "btn_order": "Commander via WhatsApp",
+            "payment_title": "Modes de Paiement à Djibouti",
+            "payment_desc": "Commandez en ligne en quelques clics et payez en toute sécurité via votre moyen favori :",
+            "payment_waafi": "Waafi",
+            "payment_dmoney": "D-Money",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "Espèces à la livraison",
+            "footer_tagline": "FARAHSAN ONLINE – Votre partenaire de confiance pour la beauté et le bien-être naturel à Djibouti.",
+            "footer_rights": "Tous droits réservés.",
+            "whatsapp_msg": "Bonjour FARAHSAN ONLINE, je souhaite commander le produit : ",
+            "back_home": "Retour à l'Accueil"
       },
-
-      so: {
-        nav_home: "Bogga Hore",
-        nav_products: "Alaabooyinka",
-        nav_payment: "Bixinta & Gaarsiinta",
-        nav_contact: "Xiriirka",
-        btn_whatsapp_nav: "Ku dalbo WhatsApp",
-        hero_title: "Qurux Dabiici ah & Caafimaad Dhab ah",
-        hero_subtitle: "Dukaankaaga koowaad ee Jabuuti ee daryeelka tayada sare leh ee ku salaysan Aloe Vera. Dhalaali maqaarkaaga, xooji timahaaga oo sare u qaad tamartaada.",
-        hero_btn_shop: "Eeg Alaabooyinka",
-        hero_btn_contact: "Kala talow WhatsApp",
-        values_badge: "BALLANQAADKAYAGA",
-        values_title: "Maxaa Loo Doortaa FARAHSAN ONLINE ?",
-        values_subtitle: "Asalnimo, daryeel dabiici ah iyo adeeg hufan oo loogu talagalay macaamiisheena Jabuuti.",
-        card1_title: "100% Qurux & Caafimaad Dabiici ah",
-        card1_desc: "Alaabo daryeel iyo nafaqo oo tayo sare leh oo ku siinaya natiijooyin dhab ah oo muuqda.",
-        card2_title: "Gaarsiin Degdeg ah oo Jabuuti ah",
-        card2_desc: "Dalabkaaga si hufan oo degdeg ah ayaa lagugu keenayaa meel kasta oo Jabuuti ah.",
-        card3_title: "Talo Bixin & Hagid Gaar ah",
-        card3_desc: "Kula hadal khabiirkayaga WhatsApp si aad u hesho talo ku habboon baahidaada.",
-        card4_title: "Lacag-bixin Fudud & Aamin ah",
-        card4_desc: "Ku bixi lacag caddaan ah marka laguu keeno (Cash) ama lacagta mobaylka (Waafi / D-Money / BCI Pay).",
-        catalog_title: "Alaabooyinkayaga Dabiiciga ah",
-        catalog_subtitle: "Kala dooro alaabooyinka dabiiciga ah ee daryeelka iyo nafaqada ee diyaar ku ah Jabuuti.",
-        search_placeholder: "Raadi badeeco...",
-        products_count: "Badeecooyinka diyaar ah :",
-        no_results: "Wax badeeco ah lama helin.",
-        all: "Dhammaan",
-        cat_drinks: "Cabbitaannada & Dhuuxa",
-        cat_skincare: "Daryeelka Maqaarka",
-        cat_hygiene: "Nadaafadda & Jirka",
-        cat_nutrition: "Nafaqada & Dheellitirka",
-        cat_packs: "Xidhmooyinka & Barnaamijyada",
-        btn_order: "Ku dalbo WhatsApp",
-        payment_title: "Hababka Lacag-bixinta ee Jabuuti",
-        payment_desc: "Ku dalbo dhowr tallaabo oo fudud oo ku bixi habka aad jeceshahay :",
-        payment_waafi: "Waafi",
-        payment_dmoney: "D-Money",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "Lacag caddaan marka la keeno",
-        footer_tagline: "FARAHSAN ONLINE – Wehelkaaga dhabta ah ee quruxda iyo caafimaadka dabiiciga ah ee Jabuuti.",
-        footer_rights: "Xuquuqda oo dhan way dhowran yihiin.",
-        whatsapp_msg: "Nabadeey FARAHSAN ONLINE, waxaan rabaa inaan dalbado badeecadan : ",
-        top_announcement: "Dukaanka Rasmiga ah ee FARAHSAN ONLINE – Daryeelka Dabiiciga ah ee Jabuuti",
-        back_home: "← Ku noqo Bogga Hore",
-        reset_filters: "Muuji dhammaan alaabta",
-        quick_links: "Xiriirrada Degdegga ah",
-        customer_service: "Adeegga Macaamiisha",
-        delivery_info: "Gaarsiin degdeg ah 7 maalmood Jabuuti iyo agagaarkeeda."
+      "so": {
+            "top_announcement": "Dukaanka Rasmiga ah ee FARAHSAN ONLINE – Daryeelka Dabiiciga & Caafimaadka ee Jabuuti",
+            "nav_home": "Bogga Hore",
+            "nav_products": "Alaabooyinka",
+            "nav_payment": "Bixinta & Gaarsiinta",
+            "nav_contact": "Xiriirka",
+            "btn_whatsapp_nav": "Ku dalbo WhatsApp",
+            "hero_title": "Qurux Dabiici ah & Caafimaad Dhab ah",
+            "hero_subtitle": "Dukaankaaga koowaad ee Jabuuti ee daryeelka tayada sare leh ee ku salaysan Aloe Vera. Dhalaali maqaarkaaga, xooji timahaaga oo sare u qaad tamartaada.",
+            "hero_btn_shop": "Eeg Alaabooyinka",
+            "hero_btn_contact": "Kala talow WhatsApp",
+            "values_badge": "BALLANQAADKAYAGA",
+            "values_title": "Maxaa Loo Doortaa FARAHSAN ONLINE ?",
+            "values_subtitle": "Asalnimo, daryeel dabiici ah iyo adeeg hufan oo loogu talagalay macaamiisheena Jabuuti.",
+            "card1_title": "100% Qurux & Caafimaad Dabiici ah",
+            "card1_desc": "Alaabo daryeel iyo nafaqo oo tayo sare leh oo ku siinaya natiijooyin dhab ah oo muuqda.",
+            "card2_title": "Gaarsiin Degdeg ah oo Jabuuti ah",
+            "card2_desc": "Dalabkaaga si hufan oo degdeg ah ayaa lagugu keenayaa meel kasta oo Jabuuti ah.",
+            "card3_title": "Talo Bixin & Hagid Gaar ah",
+            "card3_desc": "Kula hadal khabiirkayaga WhatsApp si aad u hesho talo ku habboon baahidaada.",
+            "card4_title": "Lacag-bixin Fudud & Aamin ah",
+            "card4_desc": "Ku bixi si fudud Waafi, D-Money ama lacag caddaan ah marka laguu keeno.",
+            "bestsellers_title": "Alaabooyinka Ugu Caansan",
+            "bestsellers_subtitle": "Alaabooyinka daryeelka iyo nafaqada ee Forever ee ugu caansan uguna tayada sarreeya Jabuuti.",
+            "catalog_title": "Alaabooyinkayaga Dabiiciga ah",
+            "catalog_subtitle": "Kala dooro alaabooyinka dabiiciga ah ee daryeelka iyo nafaqada ee diyaar ku ah Jabuuti.",
+            "search_placeholder": "Raadi badeeco...",
+            "products_count": "Badeecooyinka diyaar ah :",
+            "no_results": "Wax badeeco ah lama helin.",
+            "all": "Dhammaan",
+            "cat_drinks": "Cabbitaannada & Dhuuxa",
+            "cat_skincare": "Daryeelka Maqaarka",
+            "cat_hygiene": "Nadaafadda & Jirka",
+            "cat_nutrition": "Nafaqada & Dheellitirka",
+            "cat_packs": "Xidhmooyinka & Barnaamijyada",
+            "btn_order": "Ku dalbo WhatsApp",
+            "payment_title": "Hababka Lacag-bixinta ee Jabuuti",
+            "payment_desc": "Ku dalbo dhowr tallaabo oo fudud oo ku bixi habka aad jeceshahay :",
+            "payment_waafi": "Waafi",
+            "payment_dmoney": "D-Money",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "Lacag caddaan marka la keeno",
+            "footer_tagline": "FARAHSAN ONLINE – Wehelkaaga dhabta ah ee quruxda iyo caafimaadka dabiiciga ah ee Jabuuti.",
+            "footer_rights": "Xuquuqda oo dhan way dhowran yihiin.",
+            "whatsapp_msg": "Nabadeey FARAHSAN ONLINE, waxaan rabaa inaan dalbado badeecadan : ",
+            "back_home": "Ku noqo Bogga Hore"
       },
-
-      aa: {
-        nav_home: "Araca",
-        nav_products: "Ayroota",
-        nav_payment: "Bicisa kee Geysooma",
-        nav_contact: "Nallih Xayyoow",
-        btn_whatsapp_nav: "WhatsApp-al Dooleysi",
-        hero_title: "Dabiiciyan Bilqa kee Duqaysit Macaash",
-        hero_subtitle: "Yibuutil Aloe Vera-k bicinteh tan bilqa kee macaashih koorah buxah afo. Ku saqalah noor, ku migirih qaxmeeni kee doolat macaashah.",
-        hero_btn_shop: "Ayrootih Buug Fak",
-        hero_btn_contact: "WhatsApp-al Kassi Gura",
-        values_badge: "NANU NEL YAN AMMANA",
-        values_title: "Macah FARAHSAN ONLINE Doortaan ?",
-        values_subtitle: "Asliinane, dabiici qaxmeeniyya kee Yibuutil meqe garab-t-le oggol.",
-        card1_title: "100% Dabiici Bilqa kee Macaash",
-        card1_desc: "Aloe Vera-k bicinteh tan aslih ayrootay ku saqala kee ku caafimaadah meqe gaba-kal.",
-        card2_title: "Yibuutil Sissikuk Geysooma",
-        card2_desc: "Yibuutih magala kee addal ku doolatah yan ayroota sissikuk kok geysooman.",
-        card3_title: "Kassi kee Xayyoysiyya",
-        card3_desc: "WhatsApp-al meqe kassi kee xintu kok yantukkoomeh yan ayroot doortuh kok kalqan.",
-        card4_title: "Amman-le Lacag-Bixin",
-        card4_desc: "Amman-le gaba-kaltan (Cash) hiddon mobil lacag bicis (Waafi / D-Money / BCI Pay).",
-        catalog_title: "Nanu Nel Yan Dabiicik Yan Ayroota",
-        catalog_subtitle: "Macaash kee bilqah dabiicik yan ayroota Yibuutil gaba-kaltan.",
-        search_placeholder: "Ayroot gurusa...",
-        products_count: "Yantukkoomi Ayroota :",
-        no_results: "Ayroot mayan.",
-        all: "Inkoh",
-        cat_drinks: "Cabbiyya kee Dhuux",
-        cat_skincare: "Saqalat Qokol",
-        cat_hygiene: "Saytunnan kee Mogor",
-        cat_nutrition: "Macaash kee Qokol",
-        cat_packs: "Barnaamijit",
-        btn_order: "WhatsApp-al Dooleysi",
-        payment_title: "Yibuutil Lacag-Bixin Hiddoota",
-        payment_desc: "Koorah doolata Waafi, D-Money hiddon lacag caddaan gabat bicisa :",
-        payment_waafi: "Waafi",
-        payment_dmoney: "D-Money",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "Gabat caddaan lacag bixin",
-        footer_tagline: "FARAHSAN ONLINE – Yibuutil bilqa kee macaashih meqe garab.",
-        footer_rights: "Cakkik inkoh daban.",
-        whatsapp_msg: "Macaan FARAHSAN ONLINE, ta ayroot dooleysuh gura : ",
-        top_announcement: "FARAHSAN ONLINE Rasmik Yan Dukaana – Yibuutil Dabiici Bilqa",
-        back_home: "← Aracal gaca",
-        reset_filters: "Inkoh ayroota wagis",
-        quick_links: "Sissik Geysooma",
-        customer_service: "Oggol Garab",
-        delivery_info: "Yibuutih magala kee addal sissikuk 7 ayro geysooman."
+      "aa": {
+            "top_announcement": "FARAHSAN ONLINE Aslih Dukan – Yibuutil Bilqa kee Macaashih Ayroota",
+            "nav_home": "Araca",
+            "nav_products": "Ayroota",
+            "nav_payment": "Bicisa kee Geysooma",
+            "nav_contact": "Nallih Xayyoow",
+            "btn_whatsapp_nav": "WhatsApp-al Dooleysi",
+            "hero_title": "Dabiiciyan Bilqa kee Duqaysit Macaash",
+            "hero_subtitle": "Yibuutil Aloe Vera-k bicinteh tan bilqa kee macaashih koorah buxah afo. Ku saqalah noor, ku migirih qaxmeeni kee doolat macaashah.",
+            "hero_btn_shop": "Ayrootih Buug Fak",
+            "hero_btn_contact": "WhatsApp-al Kassi Gura",
+            "values_badge": "NANU NEL YAN AMMANA",
+            "values_title": "Macah FARAHSAN ONLINE Doortaan ?",
+            "values_subtitle": "Asliinane, dabiici qaxmeeniyya kee Yibuutil meqe garab-t-le oggol.",
+            "card1_title": "100% Dabiici Bilqa kee Macaash",
+            "card1_desc": "Aloe Vera-k bicinteh tan aslih ayrootay ku saqala kee ku caafimaadah meqe gaba-kal.",
+            "card2_title": "Yibuutil Sissikuk Geysooma",
+            "card2_desc": "Yibuutih magala kee addal ku doolatah yan ayroota sissikuk kok geysooman.",
+            "card3_title": "Kassi kee Xayyoysiyya",
+            "card3_desc": "WhatsApp-al meqe kassi kee xintu kok yantukkoomeh yan ayroot doortuh kok kalqan.",
+            "card4_title": "Amman-le Lacag-Bixin",
+            "card4_desc": "Waafi, D-Money hiddon ayroota gaba-kaltan widdi lacag caddaan gabat bicisa.",
+            "bestsellers_title": "Nanu Nel Yan Qaxmeenit Ayroota",
+            "bestsellers_subtitle": "Yibuutil mangom doolatan Aloe Vera-k bilqa kee macaashih ayroota.",
+            "catalog_title": "Nanu Nel Yan Dabiicik Yan Ayroota",
+            "catalog_subtitle": "Macaash kee bilqah dabiicik yan ayroota Yibuutil gaba-kaltan.",
+            "search_placeholder": "Ayroot gurusa...",
+            "products_count": "Yantukkoomi Ayroota :",
+            "no_results": "Ayroot mayan.",
+            "all": "Inkoh",
+            "cat_drinks": "Cabbiyya kee Dhuux",
+            "cat_skincare": "Saqalat Qokol",
+            "cat_hygiene": "Saytunnan kee Mogor",
+            "cat_nutrition": "Macaash kee Qokol",
+            "cat_packs": "Barnaamijit",
+            "btn_order": "WhatsApp-al Dooleysi",
+            "payment_title": "Yibuutil Lacag-Bixin Hiddoota",
+            "payment_desc": "Koorah doolata Waafi, D-Money hiddon lacag caddaan gabat bicisa :",
+            "payment_waafi": "Waafi",
+            "payment_dmoney": "D-Money",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "Gabat caddaan lacag bixin",
+            "footer_tagline": "FARAHSAN ONLINE – Yibuutil bilqa kee macaashih meqe garab.",
+            "footer_rights": "Cakkik inkoh daban.",
+            "whatsapp_msg": "Macaan FARAHSAN ONLINE, ta ayroot dooleysuh gura : ",
+            "back_home": "Aracal Yewqe"
       },
-
-      ar: {
-        nav_home: "الرئيسية",
-        nav_products: "منتجاتنا",
-        nav_payment: "الدفع والتوصيل",
-        nav_contact: "اتصل بنا",
-        btn_whatsapp_nav: "طلب عبر واتساب",
-        hero_title: "جمال طبيعي وصحة حقيقية",
-        hero_subtitle: "وجهتكم الأولى في جيبوتي لمنتجات العناية الفائقة بخلاصة الألوفيرا. أشرقي بنضارة بشرتك، عززي كثافة شعرك واستعيدي حيويتك اليومية.",
-        hero_btn_shop: "تسوق الآن",
-        hero_btn_contact: "استشارة عبر واتساب",
-        values_badge: "التزامنا تجاهكم",
-        values_title: "لماذا تختار فرحسان أونلاين ؟",
-        values_subtitle: "الأصالة، والفعالية الطبيعية، وخدمة عملاء مميزة في جيبوتي.",
-        card1_title: "100% جمال وصحة طبيعية",
-        card1_desc: "مجموعة مختارة بعناية من مستحضرات العناية والمكملات لنتائج ملموسة وفعالة.",
-        card2_title: "توصيل سريع في جيبوتي",
-        card2_desc: "توصيل سريع وموثوق لطلباتكم في مدينة جيبوتي وكافة النواحي المجاورة.",
-        card3_title: "استشارات ومتابعة مخصصة",
-        card3_desc: "فريقنا متواجد عبر واتساب لإرشادكم واختيار الروتين الأنسب لاحتياجاتكم.",
-        card4_title: "دفع آمن وسهل",
-        card4_desc: "الدفع عند الاستلام (نقداً) أو عبر خدمات الدفع عبر الهاتف (وافي Waafi / دي-موني D-Money / BCI Pay).",
-        catalog_title: "منتجاتنا الطبيعية",
-        catalog_subtitle: "تصفح مجموعتنا الكاملة للعناية والتغذية الطبيعية المتوفرة في جيبوتي.",
-        search_placeholder: "ابحث عن منتج...",
-        products_count: "المنتجات المتوفرة :",
-        no_results: "لم يتم العثور على أي منتج مطابق لبحثك.",
-        all: "الكل",
-        cat_drinks: "المشروبات والهلام",
-        cat_skincare: "العناية بالبشرة",
-        cat_hygiene: "النظافة والعناية الشخصية",
-        cat_nutrition: "المكملات الغذائية",
-        cat_packs: "المجموعات والبرامج",
-        btn_order: "طلب عبر واتساب",
-        payment_title: "طرق الدفع المعتمدة في جيبوتي",
-        payment_desc: "اطلب أونلاين بخطوات سريعة وادفع بأمان عبر طريقتك المفضلة :",
-        payment_waafi: "وافي (Waafi)",
-        payment_dmoney: "دي موني (D-Money)",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "نقداً عند الاستلام",
-        footer_tagline: "فرحسان أونلاين – شريككم الموثوق للجمال والصحة الطبيعية في جيبوتي.",
-        footer_rights: "جميع الحقوق محفوظة.",
-        whatsapp_msg: "مرحباً فرحسان أونلاين، أرغب بطلب هذا المنتج : ",
-        top_announcement: "متجر فرحسان أونلاين الرسمي – العناية الطبيعية والصحة في جيبوتي",
-        back_home: "العودة للرئيسية ←",
-        reset_filters: "عرض جميع المنتجات",
-        quick_links: "روابط سريعة",
-        customer_service: "الطلبات وخدمة العملاء",
-        delivery_info: "توصيل سريع طوال أيام الأسبوع في مدينة جيبوتي وضواحيها."
+      "ar": {
+            "top_announcement": "المتجر الرسمي فرحسان أونلاين – العناية الطبيعية والصحة في جيبوتي",
+            "nav_home": "الرئيسية",
+            "nav_products": "منتجاتنا",
+            "nav_payment": "الدفع والتوصيل",
+            "nav_contact": "اتصل بنا",
+            "btn_whatsapp_nav": "طلب عبر واتساب",
+            "hero_title": "جمال طبيعي وصحة حقيقية",
+            "hero_subtitle": "وجهتكم الأولى في جيبوتي لمنتجات العناية الفائقة بخلاصة الألوفيرا. أشرقي بنضارة بشرتك، عززي كثافة شعرك واستعيدي حيويتك اليومية.",
+            "hero_btn_shop": "تسوق الآن",
+            "hero_btn_contact": "استشارة عبر واتساب",
+            "values_badge": "التزامنا تجاهكم",
+            "values_title": "لماذا تختار فرحسان أونلاين ؟",
+            "values_subtitle": "الأصالة، والفعالية الطبيعية، وخدمة عملاء مميزة في جيبوتي.",
+            "card1_title": "100% جمال وصحة طبيعية",
+            "card1_desc": "مجموعة مختارة بعناية من مستحضرات العناية والمكملات لنتائج ملموسة وفعالة.",
+            "card2_title": "توصيل سريع في جيبوتي",
+            "card2_desc": "توصيل سريع وموثوق لطلباتكم في مدينة جيبوتي وكافة النواحي المجاورة.",
+            "card3_title": "استشارات ومتابعة مخصصة",
+            "card3_desc": "فريقنا متواجد عبر واتساب لإرشادكم واختيار الروتين الأنسب لاحتياجاتكم.",
+            "card4_title": "دفع آمن وسهل",
+            "card4_desc": "ادفع بكل مرونة عبر وافي (Waafi)، دي موني (D-Money) أو نقداً عند الاستلام.",
+            "bestsellers_title": "أفضل المنتجات مبيعاً",
+            "bestsellers_subtitle": "أكثر منتجات فوريفر طلباً ونال ثقة العملاء في جيبوتي بفضل نتائجها الفائقة.",
+            "catalog_title": "منتجاتنا الطبيعية",
+            "catalog_subtitle": "تصفح مجموعتنا الكاملة للعناية والتغذية الطبيعية المتوفرة في جيبوتي.",
+            "search_placeholder": "ابحث عن منتج...",
+            "products_count": "المنتجات المتوفرة :",
+            "no_results": "لم يتم العثور على أي منتج مطابق لبحثك.",
+            "all": "الكل",
+            "cat_drinks": "المشروبات والهلام",
+            "cat_skincare": "العناية بالبشرة",
+            "cat_hygiene": "النظافة والعناية الشخصية",
+            "cat_nutrition": "المكملات الغذائية",
+            "cat_packs": "المجموعات والبرامج",
+            "btn_order": "طلب عبر واتساب",
+            "payment_title": "طرق الدفع المعتمدة في جيبوتي",
+            "payment_desc": "اطلب أونلاين بخطوات سريعة وادفع بأمان عبر طريقتك المفضلة :",
+            "payment_waafi": "وافي (Waafi)",
+            "payment_dmoney": "دي موني (D-Money)",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "نقداً عند الاستلام",
+            "footer_tagline": "فرحسان أونلاين – شريككم الموثوق للجمال والصحة الطبيعية في جيبوتي.",
+            "footer_rights": "جميع الحقوق محفوظة.",
+            "whatsapp_msg": "مرحباً فرحسان أونلاين، أرغب بطلب هذا المنتج : ",
+            "back_home": "العودة للرئيسية"
       },
-
-      en: {
-        nav_home: "Home",
-        nav_products: "Products",
-        nav_payment: "Payment & Delivery",
-        nav_contact: "Contact",
-        btn_whatsapp_nav: "Order via WhatsApp",
-        hero_title: "Natural Beauty & Real Wellness",
-        hero_subtitle: "Your premier destination in Djibouti for pure Aloe Vera wellness and skincare. Reveal your glow, strengthen your hair, and revitalize your health.",
-        hero_btn_shop: "Shop Catalog",
-        hero_btn_contact: "WhatsApp Consultation",
-        values_badge: "OUR COMMITMENT",
-        values_title: "Why Choose FARAHSAN ONLINE?",
-        values_subtitle: "Purity, natural potency, and dedicated customer care in Djibouti.",
-        card1_title: "100% Natural Wellness & Beauty",
-        card1_desc: "Curated Aloe Vera supplements and personal care formulations for proven results.",
-        card2_title: "Fast Delivery Across Djibouti",
-        card2_desc: "Prompt and reliable delivery directly to your doorstep in Djibouti City and surroundings.",
-        card3_title: "Personal Guidance & Advice",
-        card3_desc: "Chat with us anytime on WhatsApp for personalized skincare and nutrition recommendations.",
-        card4_title: "Safe & Flexible Local Payment",
-        card4_desc: "Cash on Delivery or mobile payment (Waafi / D-Money / BCI Pay).",
-        catalog_title: "Our Natural Products",
-        catalog_subtitle: "Browse our complete collection of certified skincare and nutrition in Djibouti.",
-        search_placeholder: "Search for a product...",
-        products_count: "Available product(s):",
-        no_results: "No products matched your search.",
-        all: "All",
-        cat_drinks: "Drinks & Gels",
-        cat_skincare: "Skincare",
-        cat_hygiene: "Hygiene & Body Care",
-        cat_nutrition: "Nutrition & Supplements",
-        cat_packs: "Packs & Routines",
-        btn_order: "Order via WhatsApp",
-        payment_title: "Payment Methods in Djibouti",
-        payment_desc: "Order online in seconds and pay safely through your preferred method:",
-        payment_waafi: "Waafi",
-        payment_dmoney: "D-Money",
-        payment_bcipay: "BCI Pay",
-        payment_cash: "Cash on Delivery",
-        footer_tagline: "FARAHSAN ONLINE – Your trusted partner for natural beauty and vitality in Djibouti.",
-        footer_rights: "All rights reserved.",
-        whatsapp_msg: "Hello FARAHSAN ONLINE, I would like to order: ",
-        top_announcement: "Official FARAHSAN ONLINE Store – Natural Skincare & Wellness in Djibouti",
-        back_home: "← Back to Home",
-        reset_filters: "Show all products",
-        quick_links: "Quick Links",
-        customer_service: "Orders & Support",
-        delivery_info: "Fast delivery 7 days a week across Djibouti City and surroundings."
+      "en": {
+            "top_announcement": "Official FARAHSAN ONLINE Store – Natural Skincare & Wellness in Djibouti",
+            "nav_home": "Home",
+            "nav_products": "Products",
+            "nav_payment": "Payment & Delivery",
+            "nav_contact": "Contact",
+            "btn_whatsapp_nav": "Order via WhatsApp",
+            "hero_title": "Natural Beauty & Real Wellness",
+            "hero_subtitle": "Your premier destination in Djibouti for pure Aloe Vera wellness and skincare. Reveal your glow, strengthen your hair, and revitalize your health.",
+            "hero_btn_shop": "Shop Catalog",
+            "hero_btn_contact": "WhatsApp Consultation",
+            "values_badge": "OUR COMMITMENT",
+            "values_title": "Why Choose FARAHSAN ONLINE?",
+            "values_subtitle": "Purity, natural potency, and dedicated customer care in Djibouti.",
+            "card1_title": "100% Natural Wellness & Beauty",
+            "card1_desc": "Curated Aloe Vera supplements and personal care formulations for proven results.",
+            "card2_title": "Fast Delivery Across Djibouti",
+            "card2_desc": "Prompt and reliable delivery directly to your doorstep in Djibouti City and surroundings.",
+            "card3_title": "Personal Guidance & Advice",
+            "card3_desc": "Chat with us anytime on WhatsApp for personalized skincare and nutrition recommendations.",
+            "card4_title": "Safe & Flexible Local Payment",
+            "card4_desc": "Pay smoothly using Waafi, D-Money, or simply with Cash on Delivery.",
+            "bestsellers_title": "Our Best-Selling Essentials",
+            "bestsellers_subtitle": "The most trusted and acclaimed Aloe Vera wellness formulations in Djibouti.",
+            "catalog_title": "Our Natural Products",
+            "catalog_subtitle": "Browse our complete collection of certified skincare and nutrition in Djibouti.",
+            "search_placeholder": "Search for a product...",
+            "products_count": "Available product(s):",
+            "no_results": "No products matched your search.",
+            "all": "All",
+            "cat_drinks": "Drinks & Gels",
+            "cat_skincare": "Skincare",
+            "cat_hygiene": "Hygiene & Body Care",
+            "cat_nutrition": "Nutrition & Supplements",
+            "cat_packs": "Packs & Routines",
+            "btn_order": "Order via WhatsApp",
+            "payment_title": "Payment Methods in Djibouti",
+            "payment_desc": "Order online in seconds and pay safely through your preferred method:",
+            "payment_waafi": "Waafi",
+            "payment_dmoney": "D-Money",
+            "payment_bcipay": "BCI Pay",
+            "payment_cash": "Cash on Delivery",
+            "footer_tagline": "FARAHSAN ONLINE – Your trusted partner for natural beauty and vitality in Djibouti.",
+            "footer_rights": "All rights reserved.",
+            "whatsapp_msg": "Hello FARAHSAN ONLINE, I would like to order: ",
+            "back_home": "Back to Home"
       }
-    };
+};
 
+    // MÉTADONNÉES DES LANGUES
     const langInfo = {
       fr: { name: "Français", flag: "🇫🇷", dir: "ltr" },
       so: { name: "Soomaali", flag: "🇩🇯", dir: "ltr" },
@@ -712,123 +751,647 @@
       en: { name: "English", flag: "🇬🇧", dir: "ltr" }
     };
 
-    // BASE DE DONNÉES OFFICIELLE DES PRODUITS NATURELS
+    // BASE DE DONNÉES DES PRODUITS OFFICIELS
     const products = [
-      // Boissons & Pulpes
-      { name: "Forever Aloe Vera Gel", size: "1 Liter", categoryKey: "cat_drinks", image: "Forever Aloe Vera Gel 1 Liter.jpg" },
-      { name: "Forever Aloe Berry Nectar", size: "1 Liter", categoryKey: "cat_drinks", image: "Forever Aloe Berry Nectar 1 Liter.jpg" },
-      { name: "Forever Aloe Mango", size: "1 Liter", categoryKey: "cat_drinks", image: "Forever Aloe Mango 1 Liter.jpg" },
-      { name: "Forever Aloe Peaches", size: "1 Liter", categoryKey: "cat_drinks", image: "Forever Aloe Peaches 1 Liter.jpg" },
-      { name: "Forever Freedom", size: "1 Liter", categoryKey: "cat_drinks", image: "Forever Freedom 1 Liter.jpg" },
-      { name: "330ml Forever Aloe Vera Gel", size: "12 x 330 ml", categoryKey: "cat_drinks", image: "330ml Forever Aloe Vera Gel 12 x 330 ml.jpg" },
-      { name: "330ml Forever Aloe Berry Nectar", size: "12 x 330 ml", categoryKey: "cat_drinks", image: "330ml Forever ALoe Berrt Nectar 12 x330 ml.jpg" },
-      { name: "330ml Forever Aloe Vera Gel & Argi+ Tripack", size: "Set", categoryKey: "cat_drinks", image: "330ml Forever Aloe Vera Gel & Argi+ Trip... Set.jpg" },
-      { name: "4-Pack Forever Aloe Vera Gel", size: "4x 1 Liter", categoryKey: "cat_drinks", image: "4-Pack Forever Aloe Vera Gel 4x 1 Liter.jpg" },
-      { name: "4-Pack Forever Aloe Berry Nectar", size: "4x 1 Liter", categoryKey: "cat_drinks", image: "4-Pack Forever Aloe Berry Nectar 4x 1 Liter.jpg" },
-      { name: "4-Pack Forever Aloe Mango", size: "4x 1 Liter", categoryKey: "cat_drinks", image: "4-Pack Forever Aloe Mango 4x 1 Liter.jpg" },
-      { name: "4-Pack Forever Aloe Peaches", size: "4x 1 Liter", categoryKey: "cat_drinks", image: "4-Pack Forever Aloe Peaches 4x 1 Liter.jpg" },
-      { name: "4-Pack Mix Forever Aloe Vera Gel", size: "4x 1 Liter", categoryKey: "cat_drinks", image: "4-Pack Mix Forever Aloe Vera Gel 4x 1 Liter.jpg" },
-      { name: "4-PACK FREEDOM", size: "4x 1 Liter", categoryKey: "cat_drinks", image: "4-PACK FREEDOM 4 x 1 Liter.jpg" },
-      { name: "FAB Forever Active Boost", size: "250 ml x 12", categoryKey: "cat_drinks", image: "FAB Forever Active Boost 250 ml x 12.jpg" },
-      { name: "FAB X Forever Active Boost", size: "12 x 250 ml", categoryKey: "cat_drinks", image: "FAB X Forever Active Boost 12 x 250 ml.jpg" },
-      { name: "Aloe Blossom Herbal Tea", size: "25 filter bags à 1,5g", categoryKey: "cat_drinks", image: "ALoe Blossom Herbal Tea 25 filter Bags a 1,5 g.jpg" },
+    {
+        "name": "Forever Aloe Vera Gel",
+        "size": "1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "Forever Aloe Vera Gel 1 Liter.jpg"
+    },
+    {
+        "name": "Forever Aloe Berry Nectar",
+        "size": "1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "Forever Aloe Berry Nectar 1 Liter.jpg"
+    },
+    {
+        "name": "Forever Aloe Mango",
+        "size": "1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "Forever Aloe Mango 1 Liter.jpg"
+    },
+    {
+        "name": "Forever Aloe Peaches",
+        "size": "1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "Forever Aloe Peaches 1 Liter.jpg"
+    },
+    {
+        "name": "Forever Freedom",
+        "size": "1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "Forever Freedom 1 Liter.jpg"
+    },
+    {
+        "name": "330ml Forever Aloe Vera Gel",
+        "size": "12 x 330 ml",
+        "categoryKey": "cat_drinks",
+        "image": "330ml Forever Aloe Vera Gel 12 x 330 ml.jpg"
+    },
+    {
+        "name": "330ml Forever Aloe Berry Nectar",
+        "size": "12 x 330 ml",
+        "categoryKey": "cat_drinks",
+        "image": "330ml Forever ALoe Berrt Nectar 12 x330 ml.jpg"
+    },
+    {
+        "name": "330ml Forever Aloe Vera Gel & Argi+ Tripack",
+        "size": "Set",
+        "categoryKey": "cat_drinks",
+        "image": "330ml Forever Aloe Vera Gel & Argi+ Trip... Set.jpg"
+    },
+    {
+        "name": "4-Pack Forever Aloe Vera Gel",
+        "size": "4x 1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "4-Pack Forever Aloe Vera Gel 4x 1 Liter.jpg"
+    },
+    {
+        "name": "4-Pack Forever Aloe Berry Nectar",
+        "size": "4x 1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "4-Pack Forever Aloe Berry Nectar 4x 1 Liter.jpg"
+    },
+    {
+        "name": "4-Pack Forever Aloe Mango",
+        "size": "4x 1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "4-Pack Forever Aloe Mango 4x 1 Liter.jpg"
+    },
+    {
+        "name": "4-Pack Forever Aloe Peaches",
+        "size": "4x 1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "4-Pack Forever Aloe Peaches 4x 1 Liter.jpg"
+    },
+    {
+        "name": "4-Pack Mix Forever Aloe Vera Gel",
+        "size": "4x 1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "4-Pack Mix Forever Aloe Vera Gel 4x 1 Liter.jpg"
+    },
+    {
+        "name": "4-PACK FREEDOM",
+        "size": "4x 1 Liter",
+        "categoryKey": "cat_drinks",
+        "image": "4-PACK FREEDOM 4 x 1 Liter.jpg"
+    },
+    {
+        "name": "FAB Forever Active Boost",
+        "size": "250 ml x 12",
+        "categoryKey": "cat_drinks",
+        "image": "FAB Forever Active Boost 250 ml x 12.jpg"
+    },
+    {
+        "name": "FAB X Forever Active Boost",
+        "size": "12 x 250 ml",
+        "categoryKey": "cat_drinks",
+        "image": "FAB X Forever Active Boost 12 x 250 ml.jpg"
+    },
+    {
+        "name": "Aloe Blossom Herbal Tea",
+        "size": "25 filter bags à 1,5g",
+        "categoryKey": "cat_drinks",
+        "image": "ALoe Blossom Herbal Tea 25 filter Bags a 1,5 g.jpg"
+    },
+    {
+        "name": "Aloe Vera Gelly",
+        "size": "118 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Aloe Vera Gelly 118 ml.jpg"
+    },
+    {
+        "name": "Aloe Propolis Creme",
+        "size": "113 g",
+        "categoryKey": "cat_skincare",
+        "image": "Aloe Propolis Creme 113 g.jpg"
+    },
+    {
+        "name": "Aloe First",
+        "size": "473 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Aloe First 473 ml.jpg"
+    },
+    {
+        "name": "Aloe Moisturizing Lotion",
+        "size": "118 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Aloe Moisturizing Lotion 118 ml.jpg"
+    },
+    {
+        "name": "Aloe Cooling Lotion",
+        "size": "118 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Aloe Cooling Lotion 118 ml.jpg"
+    },
+    {
+        "name": "Aloe MSM Gel",
+        "size": "118 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Aloe MSM Gel 118 ml.jpg"
+    },
+    {
+        "name": "Forever Aloe Scrub",
+        "size": "99 g",
+        "categoryKey": "cat_skincare",
+        "image": "Forever Aloe Scrub 99 g.jpg"
+    },
+    {
+        "name": "Deep Moisturizing Cream",
+        "size": "71 g",
+        "categoryKey": "cat_skincare",
+        "image": "Deep MOinsturizing Cream 71 g.jpg"
+    },
+    {
+        "name": "Hydrating Serum",
+        "size": "50 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Hydrating Serum 50 ml.jpg"
+    },
+    {
+        "name": "Replenishing Skin Oil",
+        "size": "30 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Replenishing Skin Oil 30 ml.jpg"
+    },
+    {
+        "name": "Renewing Skin Crème",
+        "size": "56,7 g",
+        "categoryKey": "cat_skincare",
+        "image": "Renewing Skin Creme 56,7 g.jpg"
+    },
+    {
+        "name": "Protecting Day Lotion",
+        "size": "60 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Protecting Day Lotion 60 ml.jpg"
+    },
+    {
+        "name": "Forever Vitamin C Brightening Facial Milk",
+        "size": "30 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Forever Vitamine C Brightening Facial Milk.jpg"
+    },
+    {
+        "name": "Forever Bakuchiol Nourishing Facial Milk",
+        "size": "30 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Forever Bakuchiol Nourishing Facial Milk 30 ml.jpg"
+    },
+    {
+        "name": "Aloe Bio-Cellulose Mask",
+        "size": "3 x 25 g",
+        "categoryKey": "cat_skincare",
+        "image": "Aloe Bio-Cellulose Mask 3 x 25 g.jpg"
+    },
+    {
+        "name": "Refining Gel Mask",
+        "size": "59 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Refining Gel Mask 59 ml.jpg"
+    },
+    {
+        "name": "Tightening Mask Powder",
+        "size": "29 g",
+        "categoryKey": "cat_skincare",
+        "image": "Tightening Mask Powder 29 g.jpg"
+    },
+    {
+        "name": "Logic by Forever Aloe Gel Cleanser",
+        "size": "88 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Logic by Forever Aloe Gel Cleanser 88 ml.jpg"
+    },
+    {
+        "name": "Logic by Forever Balancing Aloe Essence",
+        "size": "73 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Logic by Forever Balancing Aloe Essence 73 ml.jpg"
+    },
+    {
+        "name": "Logic by Forever Soothing Gel Moisturizer",
+        "size": "59 ml",
+        "categoryKey": "cat_skincare",
+        "image": "Logic by Forever Soothing Gel Moisturizer 59 ml.jpg"
+    },
+    {
+        "name": "Forever Bright",
+        "size": "130 g",
+        "categoryKey": "cat_hygiene",
+        "image": "Forever Bright 130 g.jpg"
+    },
+    {
+        "name": "Forever Aloe Lips",
+        "size": "4,25 g",
+        "categoryKey": "cat_hygiene",
+        "image": "Forever Aloe Lips 4,25 g.jpg"
+    },
+    {
+        "name": "Forever Aloe Lips (12x)",
+        "size": "12 x 4,25 g",
+        "categoryKey": "cat_hygiene",
+        "image": "Forever Aloe Lips (12x) 4,25 g.jpg"
+    },
+    {
+        "name": "Forever Aloe Ever-Shield",
+        "size": "92,1 g",
+        "categoryKey": "cat_hygiene",
+        "image": "Forever Aloe EVer-Shield 92,1 g.jpg"
+    },
+    {
+        "name": "Aloe Body Wash",
+        "size": "236 ml",
+        "categoryKey": "cat_hygiene",
+        "image": "Aloe Body Wash 236 ml.jpg"
+    },
+    {
+        "name": "Aloe Body Lotion",
+        "size": "236 ml",
+        "categoryKey": "cat_hygiene",
+        "image": "Aloe Body Lotion 236 ml.jpg"
+    },
+    {
+        "name": "Aloe Liquid Soap",
+        "size": "473 ml",
+        "categoryKey": "cat_hygiene",
+        "image": "Aloe Liquid Soap 473 ml.jpg"
+    },
+    {
+        "name": "Aloe Avocado Face & Body Soap",
+        "size": "142 g",
+        "categoryKey": "cat_hygiene",
+        "image": "Aloe Avocado Face & Body Soap 142 g.jpg"
+    },
+    {
+        "name": "Aloe-Jojoba Conditioner",
+        "size": "296 ml",
+        "categoryKey": "cat_hygiene",
+        "image": "Aloe-Jojoba conditionner 296 ml.png"
+    },
+    {
+        "name": "Nourishing Hair Oil",
+        "size": "30 ml",
+        "categoryKey": "cat_hygiene",
+        "image": "Nourishing Hair Oil 30 ml.jpg"
+    },
+    {
+        "name": "Gentleman's Pride",
+        "size": "118 ml",
+        "categoryKey": "cat_hygiene",
+        "image": "Getlement's Pride 118 ml.jpg"
+    },
+    {
+        "name": "Forever Hand Sanitizer",
+        "size": "59 ml",
+        "categoryKey": "cat_hygiene",
+        "image": "Forever Hand Sanitizer 59 ml.jpg"
+    },
+    {
+        "name": "Forever Alofa Fine Fragrance",
+        "size": "30 ml",
+        "categoryKey": "cat_hygiene",
+        "image": "Forever Alofa Fine Fragrance 30 ml.jpg"
+    },
+    {
+        "name": "Forever Malosi Fine Fragrance",
+        "size": "30 ml",
+        "categoryKey": "cat_hygiene",
+        "image": "Forever Maloai Fine Fragrance 30ml.jpg"
+    },
+    {
+        "name": "Forever ARGI+",
+        "size": "30 x 10 g",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever ARGI+ 30 x 10 g.jpg"
+    },
+    {
+        "name": "Forever Arctic Sea",
+        "size": "120 softgels",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Arctic Sea 120 softgels.jpg"
+    },
+    {
+        "name": "Forever Algal Omega",
+        "size": "120 softgel capsules",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Algal Omega 120 Softgel capsules.jpg"
+    },
+    {
+        "name": "Forever Marine Collagen",
+        "size": "30 packets à 15 ml",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Marine Collagen 30 packets a 15 ml.jpg"
+    },
+    {
+        "name": "Forever Active Pro-B",
+        "size": "30 capsules",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Active Pro-B 30 capsules.jpg"
+    },
+    {
+        "name": "Forever Active HA",
+        "size": "60 softgels",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Active HA 60 softgels.jpg"
+    },
+    {
+        "name": "Forever Absorbent-C",
+        "size": "100 chewable tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Absorbent-C 100 chewable tablets.jpg"
+    },
+    {
+        "name": "Forever Absorbent-D",
+        "size": "60 Chewable tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Absorbent-D 60 Chewable tablets.jpg"
+    },
+    {
+        "name": "Forever daily",
+        "size": "60 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever daily 60 tablets.jpg"
+    },
+    {
+        "name": "Forever Therm",
+        "size": "60 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Therm 60 tablets.jpg"
+    },
+    {
+        "name": "Forever Lean",
+        "size": "120 capsules",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Lean 12 capsules.jpg"
+    },
+    {
+        "name": "Forever Garcinia Plus",
+        "size": "70 softgels",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Garcinia Plus 70softgels.jpg"
+    },
+    {
+        "name": "Forever Nutra Q10",
+        "size": "30 packets à 3,5g",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Nutra Q10 30 x packets a 3,5 g.jpg"
+    },
+    {
+        "name": "Forever Calcium",
+        "size": "90 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Calcium 90 tablets.jpg"
+    },
+    {
+        "name": "Forever Nature-Min",
+        "size": "180 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Nature-Min 180 tablets.jpg"
+    },
+    {
+        "name": "Forever Garlic Thyme",
+        "size": "100 softgels",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Garlic Thyme 100 Softgels.jpg"
+    },
+    {
+        "name": "Forever Fields of Greens",
+        "size": "80 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Field of Greens 80 tablets.jpg"
+    },
+    {
+        "name": "Forever Lycium Plus",
+        "size": "100 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Lycium Plus 100 tablets.jpg"
+    },
+    {
+        "name": "Forever B12 Plus",
+        "size": "60 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever B12 Plus 60 tablets.jpg"
+    },
+    {
+        "name": "Forever Multi-Maca",
+        "size": "60 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Multi-Maca 60 tablets.jpg"
+    },
+    {
+        "name": "Forever Vit",
+        "size": "120 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Vit 120 tablets.jpg"
+    },
+    {
+        "name": "Forever ImmuBlend",
+        "size": "60 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever ImmuBlend 60 tablets.jpg"
+    },
+    {
+        "name": "Forever Immune Gummy",
+        "size": "60 Gummys",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Immune Gummy 60 Gummys.jpg"
+    },
+    {
+        "name": "Forever Sensatiable",
+        "size": "64 Chewable pellets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Sensatiable 64 Chewable pellets.jpg"
+    },
+    {
+        "name": "VITOLIZE Men",
+        "size": "60 softgels",
+        "categoryKey": "cat_nutrition",
+        "image": "VITOLIZE MEN 60 softgels.jpg"
+    },
+    {
+        "name": "VITOLIZE Women",
+        "size": "120 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "VITOLIZE Women 120 tablets.jpg"
+    },
+    {
+        "name": "FOREVER FIBER FUSION",
+        "size": "30 x 29 g",
+        "categoryKey": "cat_nutrition",
+        "image": "FOREVER FIBER FUSION 30 x 29 g.png"
+    },
+    {
+        "name": "Forever Fiber",
+        "size": "30 sachets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Fiber.jpg"
+    },
+    {
+        "name": "Forever Ultra Vanilla Shake Mix",
+        "size": "375 g",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Ultra Vanilla Shake Mix 375 g.jpg"
+    },
+    {
+        "name": "Forever Ultra Chocolate Shake Mix",
+        "size": "405 g",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Ultra Chocolate Shake Mix 405 g.jpg"
+    },
+    {
+        "name": "Forever Plant Protein",
+        "size": "390 g",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Plant Protein 390 g.jpg"
+    },
+    {
+        "name": "Forever Bee Pollen",
+        "size": "100 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Bee Pollen 100 tablets.jpg"
+    },
+    {
+        "name": "Forever Bee Propolis",
+        "size": "60 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Bee Propolis 60 tablets.jpg"
+    },
+    {
+        "name": "Forever Royal Jelly",
+        "size": "60 tablets",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Royal Jelly 60 tablets.jpg"
+    },
+    {
+        "name": "Forever Bee Honey",
+        "size": "500 g",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever Bee Honey 500 g.jpg"
+    },
+    {
+        "name": "Forever AloeTurm",
+        "size": "10 Lozenges",
+        "categoryKey": "cat_nutrition",
+        "image": "Forever AloeTurm 10 Lozenges.jpg"
+    },
+    {
+        "name": "10 x Forever AloeTurm",
+        "size": "10 x 10 Lozenges",
+        "categoryKey": "cat_nutrition",
+        "image": "10 x Forever AloeTurm 10 x 10 Lozenges.jpg"
+    },
+    {
+        "name": "C9™",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "C9 ^TM Set.jpg"
+    },
+    {
+        "name": "DX4",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "DX4 Set.jpg"
+    },
+    {
+        "name": "F15™",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "F15^TM Set.jpg"
+    },
+    {
+        "name": "13-Day-Fit-Program",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "13-Day-Fit-Program Set.jpg"
+    },
+    {
+        "name": "Vital5",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "Vital5 Set.jpg"
+    },
+    {
+        "name": "Vital5 Aloe Vera Gel",
+        "size": "1 pc.",
+        "categoryKey": "cat_packs",
+        "image": "Vital5 Aloe Vera Gel 1 pc..jpg"
+    },
+    {
+        "name": "Vital5 Berry",
+        "size": "1 pc.",
+        "categoryKey": "cat_packs",
+        "image": "Vital5 Berry 1 pc..jpg"
+    },
+    {
+        "name": "Vital5 Peaches",
+        "size": "1 pc.",
+        "categoryKey": "cat_packs",
+        "image": "Vital5 Peaches 1pc..jpg"
+    },
+    {
+        "name": "Vital5 Freedom",
+        "size": "1 pc.",
+        "categoryKey": "cat_packs",
+        "image": "Vital5 Freedom 1 pc..jpg"
+    },
+    {
+        "name": "Infinite By Forever",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "Infinite By Forever Set.jpg"
+    },
+    {
+        "name": "Logic by Forever Skincare Kit",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "Logic by Forever Skincare Kit Set.jpg"
+    },
+    {
+        "name": "Forever Day-to-Night Duo",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "Forever Day-to-Night Duo Set.jpg"
+    },
+    {
+        "name": "Gift set: Aloe Body Wash & Aloe Body Lotion",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "Gift set Aloe Body Wash & Aloe Body Lot Set.jpg"
+    },
+    {
+        "name": "Forever Test Touch",
+        "size": "Set",
+        "categoryKey": "cat_packs",
+        "image": "Forever Test Touch Set.jpg"
+    }
+];
 
-      // Soins de la Peau
-      { name: "Aloe Vera Gelly", size: "118 ml", categoryKey: "cat_skincare", image: "Aloe Vera Gelly 118 ml.jpg" },
-      { name: "Aloe Propolis Creme", size: "113 g", categoryKey: "cat_skincare", image: "Aloe Propolis Creme 113 g.jpg" },
-      { name: "Aloe First", size: "473 ml", categoryKey: "cat_skincare", image: "Aloe First 473 ml.jpg" },
-      { name: "Aloe Moisturizing Lotion", size: "118 ml", categoryKey: "cat_skincare", image: "Aloe Moisturizing Lotion 118 ml.jpg" },
-      { name: "Aloe Cooling Lotion", size: "118 ml", categoryKey: "cat_skincare", image: "Aloe Cooling Lotion 118 ml.jpg" },
-      { name: "Aloe MSM Gel", size: "118 ml", categoryKey: "cat_skincare", image: "Aloe MSM Gel 118 ml.jpg" },
-      { name: "Forever Aloe Scrub", size: "99 g", categoryKey: "cat_skincare", image: "Forever Aloe Scrub 99 g.jpg" },
-      { name: "Deep Moisturizing Cream", size: "71 g", categoryKey: "cat_skincare", image: "Deep MOinsturizing Cream 71 g.jpg" },
-      { name: "Hydrating Serum", size: "50 ml", categoryKey: "cat_skincare", image: "Hydrating Serum 50 ml.jpg" },
-      { name: "Replenishing Skin Oil", size: "30 ml", categoryKey: "cat_skincare", image: "Replenishing Skin Oil 30 ml.jpg" },
-      { name: "Renewing Skin Crème", size: "56,7 g", categoryKey: "cat_skincare", image: "Renewing Skin Creme 56,7 g.jpg" },
-      { name: "Protecting Day Lotion", size: "60 ml", categoryKey: "cat_skincare", image: "Protecting Day Lotion 60 ml.jpg" },
-      { name: "Forever Vitamin C Brightening Facial Milk", size: "30 ml", categoryKey: "cat_skincare", image: "Forever Vitamine C Brightening Facial Milk.jpg" },
-      { name: "Forever Bakuchiol Nourishing Facial Milk", size: "30 ml", categoryKey: "cat_skincare", image: "Forever Bakuchiol Nourishing Facial Milk 30 ml.jpg" },
-      { name: "Aloe Bio-Cellulose Mask", size: "3 x 25 g", categoryKey: "cat_skincare", image: "Aloe Bio-Cellulose Mask 3 x 25 g.jpg" },
-      { name: "Refining Gel Mask", size: "59 ml", categoryKey: "cat_skincare", image: "Refining Gel Mask 59 ml.jpg" },
-      { name: "Tightening Mask Powder", size: "29 g", categoryKey: "cat_skincare", image: "Tightening Mask Powder 29 g.jpg" },
-      { name: "Logic by Forever Aloe Gel Cleanser", size: "88 ml", categoryKey: "cat_skincare", image: "Logic by Forever Aloe Gel Cleanser 88 ml.jpg" },
-      { name: "Logic by Forever Balancing Aloe Essence", size: "73 ml", categoryKey: "cat_skincare", image: "Logic by Forever Balancing Aloe Essence 73 ml.jpg" },
-      { name: "Logic by Forever Soothing Gel Moisturizer", size: "59 ml", categoryKey: "cat_skincare", image: "Logic by Forever Soothing Gel Moisturizer 59 ml.jpg" },
+    // MAPPAGE DE SÉCURITÉ DES NOMS D'IMAGES (COMPATIBILITÉ LINUX / SERVEURS DE PRODUCTION)
+    const imageAliases = {
+      "Forever Aloe Vera Gel 1 Liter.jpg": "Forever Aloe vera Gel 1 Liter.jpg",
+      "Forever Aloe Berry Nectar 1 Liter.jpg": "Forever Aloe Berry Nectar 1 LIter.jpg",
+      "4-Pack Forever Aloe Berry Nectar 4x 1 Liter.jpg": "4-Pack Forever Aloe Berry Nectar 4x 1 LIter.jpg",
+      "4-Pack Forever Aloe Mango 4x 1 Liter.jpg": "4-PAck Forever Aloe Mango 4x 1 LIter.jpg",
+      "4-Pack Mix Forever Aloe Vera Gel 4x 1 Liter.jpg": "4-Pack Mix Forever Aloe Vera Gel 4x 1 LIter.jpg",
+      "Aloe Liquid Soap 473 ml.jpg": "ALoe Liquid Soap 473 ml.jpg",
+      "Forever daily 60 tablets.jpg": "Forever Daily 60 tablets.jpg"
+    };
 
-      // Hygiène & Corps
-      { name: "Forever Bright", size: "130 g", categoryKey: "cat_hygiene", image: "Forever Bright 130 g.jpg" },
-      { name: "Forever Aloe Lips", size: "4,25 g", categoryKey: "cat_hygiene", image: "Forever Aloe Lips 4,25 g.jpg" },
-      { name: "Forever Aloe Lips (12x)", size: "12 x 4,25 g", categoryKey: "cat_hygiene", image: "Forever Aloe Lips (12x) 4,25 g.jpg" },
-      { name: "Forever Aloe Ever-Shield", size: "92,1 g", categoryKey: "cat_hygiene", image: "Forever Aloe EVer-Shield 92,1 g.jpg" },
-      { name: "Aloe Body Wash", size: "236 ml", categoryKey: "cat_hygiene", image: "Aloe Body Wash 236 ml.jpg" },
-      { name: "Aloe Body Lotion", size: "236 ml", categoryKey: "cat_hygiene", image: "Aloe Body Lotion 236 ml.jpg" },
-      { name: "Aloe Liquid Soap", size: "473 ml", categoryKey: "cat_hygiene", image: "Aloe Liquid Soap 473 ml.jpg" },
-      { name: "Aloe Avocado Face & Body Soap", size: "142 g", categoryKey: "cat_hygiene", image: "Aloe Avocado Face & Body Soap 142 g.jpg" },
-      { name: "Aloe-Jojoba Conditioner", size: "296 ml", categoryKey: "cat_hygiene", image: "Aloe-Jojoba conditionner 296 ml.png" },
-      { name: "Nourishing Hair Oil", size: "30 ml", categoryKey: "cat_hygiene", image: "Nourishing Hair Oil 30 ml.jpg" },
-      { name: "Gentleman's Pride", size: "118 ml", categoryKey: "cat_hygiene", image: "Getlement's Pride 118 ml.jpg" },
-      { name: "Forever Hand Sanitizer", size: "59 ml", categoryKey: "cat_hygiene", image: "Forever Hand Sanitizer 59 ml.jpg" },
-      { name: "Forever Alofa Fine Fragrance", size: "30 ml", categoryKey: "cat_hygiene", image: "Forever Alofa Fine Fragrance 30 ml.jpg" },
-      { name: "Forever Malosi Fine Fragrance", size: "30 ml", categoryKey: "cat_hygiene", image: "Forever Maloai Fine Fragrance 30ml.jpg" },
+    // PROTOCOLE DE SANITIZATION ANTI-XSS
+    function sanitizeInput(str) {
+      if (typeof str !== 'string') return '';
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/\//g, '&#x2F;');
+    }
 
-      // Nutrition & Compléments
-      { name: "Forever ARGI+", size: "30 x 10 g", categoryKey: "cat_nutrition", image: "Forever ARGI+ 30 x 10 g.jpg" },
-      { name: "Forever Arctic Sea", size: "120 softgels", categoryKey: "cat_nutrition", image: "Forever Arctic Sea 120 softgels.jpg" },
-      { name: "Forever Algal Omega", size: "120 softgel capsules", categoryKey: "cat_nutrition", image: "Forever Algal Omega 120 Softgel capsules.jpg" },
-      { name: "Forever Marine Collagen", size: "30 packets à 15 ml", categoryKey: "cat_nutrition", image: "Forever Marine Collagen 30 packets a 15 ml.jpg" },
-      { name: "Forever Active Pro-B", size: "30 capsules", categoryKey: "cat_nutrition", image: "Forever Active Pro-B 30 capsules.jpg" },
-      { name: "Forever Active HA", size: "60 softgels", categoryKey: "cat_nutrition", image: "Forever Active HA 60 softgels.jpg" },
-      { name: "Forever Absorbent-C", size: "100 chewable tablets", categoryKey: "cat_nutrition", image: "Forever Absorbent-C 100 chewable tablets.jpg" },
-      { name: "Forever Absorbent-D", size: "60 Chewable tablets", categoryKey: "cat_nutrition", image: "Forever Absorbent-D 60 Chewable tablets.jpg" },
-      { name: "Forever daily", size: "60 tablets", categoryKey: "cat_nutrition", image: "Forever daily 60 tablets.jpg" },
-      { name: "Forever Therm", size: "60 tablets", categoryKey: "cat_nutrition", image: "Forever Therm 60 tablets.jpg" },
-      { name: "Forever Lean", size: "120 capsules", categoryKey: "cat_nutrition", image: "Forever Lean 12 capsules.jpg" },
-      { name: "Forever Garcinia Plus", size: "70 softgels", categoryKey: "cat_nutrition", image: "Forever Garcinia Plus 70softgels.jpg" },
-      { name: "Forever Nutra Q10", size: "30 packets à 3,5g", categoryKey: "cat_nutrition", image: "Forever Nutra Q10 30 x packets a 3,5 g.jpg" },
-      { name: "Forever Calcium", size: "90 tablets", categoryKey: "cat_nutrition", image: "Forever Calcium 90 tablets.jpg" },
-      { name: "Forever Nature-Min", size: "180 tablets", categoryKey: "cat_nutrition", image: "Forever Nature-Min 180 tablets.jpg" },
-      { name: "Forever Garlic Thyme", size: "100 softgels", categoryKey: "cat_nutrition", image: "Forever Garlic Thyme 100 Softgels.jpg" },
-      { name: "Forever Fields of Greens", size: "80 tablets", categoryKey: "cat_nutrition", image: "Forever Field of Greens 80 tablets.jpg" },
-      { name: "Forever Lycium Plus", size: "100 tablets", categoryKey: "cat_nutrition", image: "Forever Lycium Plus 100 tablets.jpg" },
-      { name: "Forever B12 Plus", size: "60 tablets", categoryKey: "cat_nutrition", image: "Forever B12 Plus 60 tablets.jpg" },
-      { name: "Forever Multi-Maca", size: "60 tablets", categoryKey: "cat_nutrition", image: "Forever Multi-Maca 60 tablets.jpg" },
-      { name: "Forever Vit", size: "120 tablets", categoryKey: "cat_nutrition", image: "Forever Vit 120 tablets.jpg" },
-      { name: "Forever ImmuBlend", size: "60 tablets", categoryKey: "cat_nutrition", image: "Forever ImmuBlend 60 tablets.jpg" },
-      { name: "Forever Immune Gummy", size: "60 Gummys", categoryKey: "cat_nutrition", image: "Forever Immune Gummy 60 Gummys.jpg" },
-      { name: "Forever Sensatiable", size: "64 Chewable pellets", categoryKey: "cat_nutrition", image: "Forever Sensatiable 64 Chewable pellets.jpg" },
-      { name: "VITOLIZE Men", size: "60 softgels", categoryKey: "cat_nutrition", image: "VITOLIZE MEN 60 softgels.jpg" },
-      { name: "VITOLIZE Women", size: "120 tablets", categoryKey: "cat_nutrition", image: "VITOLIZE Women 120 tablets.jpg" },
-      { name: "FOREVER FIBER FUSION", size: "30 x 29 g", categoryKey: "cat_nutrition", image: "FOREVER FIBER FUSION 30 x 29 g.png" },
-      { name: "Forever Fiber", size: "30 sachets", categoryKey: "cat_nutrition", image: "Forever Fiber.jpg" },
-      { name: "Forever Ultra Vanilla Shake Mix", size: "375 g", categoryKey: "cat_nutrition", image: "Forever Ultra Vanilla Shake Mix 375 g.jpg" },
-      { name: "Forever Ultra Chocolate Shake Mix", size: "405 g", categoryKey: "cat_nutrition", image: "Forever Ultra Chocolate Shake Mix 405 g.jpg" },
-      { name: "Forever Plant Protein", size: "390 g", categoryKey: "cat_nutrition", image: "Forever Plant Protein 390 g.jpg" },
-      { name: "Forever Bee Pollen", size: "100 tablets", categoryKey: "cat_nutrition", image: "Forever Bee Pollen 100 tablets.jpg" },
-      { name: "Forever Bee Propolis", size: "60 tablets", categoryKey: "cat_nutrition", image: "Forever Bee Propolis 60 tablets.jpg" },
-      { name: "Forever Royal Jelly", size: "60 tablets", categoryKey: "cat_nutrition", image: "Forever Royal Jelly 60 tablets.jpg" },
-      { name: "Forever Bee Honey", size: "500 g", categoryKey: "cat_nutrition", image: "Forever Bee Honey 500 g.jpg" },
-      { name: "Forever AloeTurm", size: "10 Lozenges", categoryKey: "cat_nutrition", image: "Forever AloeTurm 10 Lozenges.jpg" },
-      { name: "10 x Forever AloeTurm", size: "10 x 10 Lozenges", categoryKey: "cat_nutrition", image: "10 x Forever AloeTurm 10 x 10 Lozenges.jpg" },
-
-      // Packs & Programmes
-      { name: "C9™", size: "Set", categoryKey: "cat_packs", image: "C9 ^TM Set.jpg" },
-      { name: "DX4", size: "Set", categoryKey: "cat_packs", image: "DX4 Set.jpg" },
-      { name: "F15™", size: "Set", categoryKey: "cat_packs", image: "F15^TM Set.jpg" },
-      { name: "13-Day-Fit-Program", size: "Set", categoryKey: "cat_packs", image: "13-Day-Fit-Program Set.jpg" },
-      { name: "Vital5", size: "Set", categoryKey: "cat_packs", image: "Vital5 Set.jpg" },
-      { name: "Vital5 Aloe Vera Gel", size: "1 pc.", categoryKey: "cat_packs", image: "Vital5 Aloe Vera Gel 1 pc..jpg" },
-      { name: "Vital5 Berry", size: "1 pc.", categoryKey: "cat_packs", image: "Vital5 Berry 1 pc..jpg" },
-      { name: "Vital5 Peaches", size: "1 pc.", categoryKey: "cat_packs", image: "Vital5 Peaches 1pc..jpg" },
-      { name: "Vital5 Freedom", size: "1 pc.", categoryKey: "cat_packs", image: "Vital5 Freedom 1 pc..jpg" },
-      { name: "Infinite By Forever", size: "Set", categoryKey: "cat_packs", image: "Infinite By Forever Set.jpg" },
-      { name: "Logic by Forever Skincare Kit", size: "Set", categoryKey: "cat_packs", image: "Logic by Forever Skincare Kit Set.jpg" },
-      { name: "Forever Day-to-Night Duo", size: "Set", categoryKey: "cat_packs", image: "Forever Day-to-Night Duo Set.jpg" },
-      { name: "Gift set: Aloe Body Wash & Aloe Body Lotion", size: "Set", categoryKey: "cat_packs", image: "Gift set Aloe Body Wash & Aloe Body Lot Set.jpg" },
-      { name: "Forever Test Touch", size: "Set", categoryKey: "cat_packs", image: "Forever Test Touch Set.jpg" }
-    ];
-
-    // GESTION DU STOCKAGE DE LA LANGUE (preferred_lang requis)
-    let currentLang = localStorage.getItem('preferred_lang') || localStorage.getItem('farhasan_lang') || 'fr';
+    // ÉTATS GLOBAUX
+    let currentLang = localStorage.getItem('preferred_lang') || 'fr';
     if (!i18n[currentLang]) currentLang = 'fr';
 
     let selectedCategory = 'all';
@@ -836,56 +1399,46 @@
 
     // ÉLÉMENTS DU DOM
     const grid = document.getElementById('productsGrid');
-    const totalBadge = document.getElementById('totalBadge');
     const displayedCountEl = document.getElementById('displayedCount');
-    const noResultsState = document.getElementById('noResultsState');
     const searchInput = document.getElementById('searchInput');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const noResultsState = document.getElementById('noResultsState');
+    const categoryTabs = document.getElementById('categoryTabs');
     const langDropdown = document.getElementById('langDropdown');
-    const langMenuBtn = document.getElementById('langMenuBtn');
     const langChevron = document.getElementById('langChevron');
     const currentLangFlag = document.getElementById('currentLangFlag');
     const currentLangName = document.getElementById('currentLangName');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    // INITIALISATION
-    window.addEventListener('DOMContentLoaded', () => {
-      applyLanguage(currentLang);
-      totalBadge.textContent = products.length;
-      renderProducts();
-    });
-
-    // GESTION DU SÉLECTEUR DE LANGUE
     function toggleLangDropdown() {
-      const isExpanded = !langDropdown.classList.contains('hidden');
-      if (isExpanded) closeLangDropdown();
-      else openLangDropdown();
-    }
-
-    function openLangDropdown() {
-      langDropdown.classList.remove('hidden');
-      langMenuBtn.setAttribute('aria-expanded', 'true');
-      langChevron.classList.add('rotate-180');
+      if (!langDropdown) return;
+      const isHidden = langDropdown.classList.contains('hidden');
+      if (isHidden) {
+        langDropdown.classList.remove('hidden');
+        if (langChevron) langChevron.classList.add('rotate-180');
+      } else {
+        closeLangDropdown();
+      }
     }
 
     function closeLangDropdown() {
+      if (!langDropdown) return;
       langDropdown.classList.add('hidden');
-      langMenuBtn.setAttribute('aria-expanded', 'false');
-      langChevron.classList.remove('rotate-180');
+      if (langChevron) langChevron.classList.remove('rotate-180');
     }
 
-    document.addEventListener('click', (e) => {
+    window.addEventListener('click', (e) => {
       const wrapper = document.getElementById('langSelectorWrapper');
-      if (wrapper && !wrapper.contains(e.target)) closeLangDropdown();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLangDropdown();
+      if (wrapper && !wrapper.contains(e.target)) {
+        closeLangDropdown();
+      }
     });
 
     function changeLanguage(lang) {
       if (!i18n[lang]) return;
       currentLang = lang;
       localStorage.setItem('preferred_lang', lang);
-      localStorage.setItem('farhasan_lang', lang);
       closeLangDropdown();
       applyLanguage(lang);
       renderProducts();
@@ -893,17 +1446,17 @@
 
     function applyLanguage(lang) {
       const texts = i18n[lang];
-      const info = langInfo[lang];
+      const info = langInfo[lang] || { dir: 'ltr', flag: '🇫🇷', name: 'Français' };
 
-      // Mise à jour de la balise HTML (lang et direction RTL pour arabe)
+      // Support RTL Arabe strict
       document.documentElement.setAttribute('lang', lang);
-      document.documentElement.setAttribute('dir', info.dir);
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
 
       // Bouton du sélecteur
-      currentLangFlag.textContent = info.flag;
-      currentLangName.textContent = info.name;
+      if (currentLangFlag) currentLangFlag.textContent = info.flag;
+      if (currentLangName) currentLangName.textContent = info.name;
 
-      // Badges de sélection dans le dropdown
+      // Badges du dropdown
       ['fr', 'so', 'aa', 'ar', 'en'].forEach(l => {
         const check = document.getElementById(`check-${l}`);
         if (check) {
@@ -920,54 +1473,34 @@
         }
       });
 
-      // Mettre à jour le placeholder de recherche
+      // Placeholder de recherche
       if (searchInput) {
         searchInput.placeholder = texts.search_placeholder;
       }
 
       // Bouton WhatsApp du Header
       const headerWhatsappText = document.getElementById('headerWhatsappText');
-      if (headerWhatsappText) headerWhatsappText.textContent = texts.btn_whatsapp_nav;
-    }
-
-    // ==================== FILTRES & RECHERCHE ====================
-    function setCategory(catKey, btn) {
-      selectedCategory = catKey;
-      document.querySelectorAll('.cat-btn').forEach(b => {
-        b.classList.remove('bg-brand-green', 'text-white');
-        b.classList.add('bg-white', 'text-gray-700');
-      });
-      if (btn) {
-        btn.classList.remove('bg-white', 'text-gray-700');
-        btn.classList.add('bg-brand-green', 'text-white');
+      if (headerWhatsappText && texts.btn_whatsapp_nav) {
+        headerWhatsappText.textContent = texts.btn_whatsapp_nav;
       }
-      renderProducts();
+      const headerWhatsappBtn = document.getElementById('headerWhatsappBtn');
+      if (headerWhatsappBtn) {
+        const defaultMsg = encodeURIComponent(`Bonjour FARAHSAN ONLINE, je souhaite commander.`);
+        headerWhatsappBtn.href = `https://wa.me/${CONFIG.phoneRaw}?text=${defaultMsg}`;
+      }
     }
 
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value.toLowerCase().trim();
-      renderProducts();
-    });
-
-    function resetFilters() {
-      searchInput.value = '';
-      searchQuery = '';
-      selectedCategory = 'all';
-      const firstBtn = document.querySelector('.cat-btn');
-      setCategory('all', firstBtn);
-    }
-
-    // ==================== RENDU DYNAMIQUE DES PRODUITS ====================
     function renderProducts() {
       const texts = i18n[currentLang];
+      const safeSearch = sanitizeInput(searchQuery).toLowerCase().trim();
 
       const filtered = products.filter(p => {
         const matchCat = (selectedCategory === 'all') || (p.categoryKey === selectedCategory);
-        const translatedCat = texts[p.categoryKey] || '';
-        const matchSearch = !searchQuery || 
-          p.name.toLowerCase().includes(searchQuery) || 
-          p.size.toLowerCase().includes(searchQuery) ||
-          translatedCat.toLowerCase().includes(searchQuery);
+        const translatedCat = (texts[p.categoryKey] || '').toLowerCase();
+        const matchSearch = !safeSearch || 
+          p.name.toLowerCase().includes(safeSearch) || 
+          p.size.toLowerCase().includes(safeSearch) ||
+          translatedCat.includes(safeSearch);
         return matchCat && matchSearch;
       });
 
@@ -982,20 +1515,11 @@
       noResultsState.classList.add('hidden');
 
       grid.innerHTML = filtered.map(product => {
-        // Chemin d'image strictement conforme
-        const imageAliases = {
-          "Forever Aloe Vera Gel 1 Liter.jpg": "Forever Aloe vera Gel 1 Liter.jpg",
-          "Forever Aloe Berry Nectar 1 Liter.jpg": "Forever Aloe Berry Nectar 1 LIter.jpg",
-          "4-Pack Forever Aloe Berry Nectar 4x 1 Liter.jpg": "4-Pack Forever Aloe Berry Nectar 4x 1 LIter.jpg",
-          "4-Pack Forever Aloe Mango 4x 1 Liter.jpg": "4-PAck Forever Aloe Mango 4x 1 LIter.jpg",
-          "4-Pack Mix Forever Aloe Vera Gel 4x 1 Liter.jpg": "4-Pack Mix Forever Aloe Vera Gel 4x 1 LIter.jpg",
-          "Aloe Liquid Soap 473 ml.jpg": "ALoe Liquid Soap 473 ml.jpg",
-          "Forever daily 60 tablets.jpg": "Forever Daily 60 tablets.jpg"
-        };
+        // Résolution de sécurité de l'image
         const resolvedImage = imageAliases[product.image] || product.image;
         const imagePath = `Image forever/${encodeURIComponent(resolvedImage)}`;
         
-        // Texte WhatsApp multilingue
+        // Message WhatsApp pré-rempli
         const orderText = encodeURIComponent(`${texts.whatsapp_msg}${product.name} (${product.size})`);
         const whatsappUrl = `https://wa.me/${CONFIG.phoneRaw}?text=${orderText}`;
 
@@ -1005,36 +1529,30 @@
         return `
           <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-gray-100 flex flex-col justify-between group transition-all">
             
-            <!-- Image & Repli avec assets/logo.png -->
+            <!-- Visuel Produit avec repli sécurisé -->
             <div class="relative aspect-[4/3] bg-gray-50 flex items-center justify-center p-3 overflow-hidden">
               <img src="${imagePath}" 
                    alt="${product.name}" 
-                   class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" 
+                   class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" 
                    loading="lazy"
                    onerror="this.onerror=null;this.src='assets/logo.png';">
-              
-              <!-- Badges de catégorie & contenance -->
-              <span class="absolute top-3 left-3 rtl:left-auto rtl:right-3 px-2.5 py-0.5 rounded-full bg-brand-green/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">
+              <span class="absolute top-3 left-3 rtl:left-auto rtl:right-3 bg-white/90 backdrop-blur-sm text-brand-green font-bold text-[10px] px-2.5 py-1 rounded-full shadow-sm border border-gray-100">
                 ${translatedCategory}
               </span>
             </div>
 
-            <!-- Détails du produit -->
+            <!-- Détails de l'article -->
             <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
               <div>
-                <div class="flex items-center justify-between text-xs text-gray-500 font-medium mb-1.5">
-                  <span class="px-2 py-0.5 rounded-md bg-gray-100 text-gray-700 font-semibold">${product.size}</span>
-                  <span class="text-brand-green font-bold flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>
-                    ${currentLang === 'ar' ? 'متوفر' : currentLang === 'so' ? 'Diyaar ah' : currentLang === 'aa' ? 'Geytimta' : 'En stock'}
-                  </span>
+                <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
+                  ${product.size}
                 </div>
-                <h3 class="font-bold text-sm sm:text-base text-gray-900 leading-snug group-hover:text-brand-green transition-colors">
+                <h3 class="font-bold text-gray-900 text-sm sm:text-base leading-snug group-hover:text-brand-green transition-colors line-clamp-2">
                   ${product.name}
                 </h3>
               </div>
 
-              <!-- Bouton de commande direct WhatsApp -->
+              <!-- Bouton de commande direct WhatsApp avec rel='noopener noreferrer' -->
               <div class="pt-3 border-t border-gray-100">
                 <a href="${whatsappUrl}" 
                    target="_blank" 
@@ -1053,12 +1571,62 @@
       }).join('');
     }
 
-    // Menu Mobile
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    // Filtres de catégories
+    if (categoryTabs) {
+      categoryTabs.addEventListener('click', (e) => {
+        const btn = e.target.closest('.category-btn');
+        if (!btn) return;
+        const cat = btn.getAttribute('data-cat');
+        selectedCategory = cat;
+
+        document.querySelectorAll('.category-btn').forEach(b => {
+          b.classList.remove('active', 'bg-brand-green', 'text-white', 'shadow');
+          b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+        });
+        btn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+        btn.classList.add('active', 'bg-brand-green', 'text-white', 'shadow');
+
+        renderProducts();
+      });
     }
+
+    // Champ de recherche avec Anti-XSS
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        if (clearSearchBtn) {
+          if (searchQuery.length > 0) clearSearchBtn.classList.remove('hidden');
+          else clearSearchBtn.classList.add('hidden');
+        }
+        renderProducts();
+      });
+    }
+
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener('click', () => {
+        resetSearch();
+      });
+    }
+
+    function resetSearch() {
+      searchQuery = '';
+      if (searchInput) searchInput.value = '';
+      if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
+      renderProducts();
+    }
+
+    // Toggle menu mobile
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      applyLanguage(currentLang);
+      renderProducts();
+    });
   </script>
 
 </body>
