@@ -1,0 +1,27 @@
+{
+  "name": "farhasan-online",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Farhasan Online - Monorepo E-commerce Platform",
+  "author": "Farhasan Online Team",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @farhasan/* run dev",
+    "dev:backend": "pnpm --filter @farhasan/backend run dev",
+    "dev:web": "pnpm --filter @farhasan/web run dev",
+    "build": "pnpm --recursive run build",
+    "lint": "pnpm --recursive run lint",
+    "typecheck": "pnpm --recursive run typecheck",
+    "db:generate": "pnpm --filter @farhasan/database run db:generate",
+    "db:push": "pnpm --filter @farhasan/database run db:push",
+    "clean": "pnpm --recursive exec rimraf dist .next node_modules"
+  },
+  "packageManager": "pnpm@11.24.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4"
+  }
+}
