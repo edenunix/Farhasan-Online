@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Produits Officiels Forever Living | FARAHSAN ONLINE Djibouti</title>
-  <meta name="description" content="Catalogue officiel complet des produits Forever Living Products à Djibouti. Boissons & Pulpes Aloe Vera, Soins de la Peau, Hygiène, Nutrition & Compléments, Packs & Programmes. Commande directe WhatsApp.">
+  <meta name="description" content="Catalogue officiel complet des produits Forever Living Products à Djibouti. Boissons Aloe Vera, Soins de la Peau, Hygiène, Nutrition & Compléments, Packs & Programmes. Commande directe WhatsApp.">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo.png">
 
-  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+  <!-- Google Fonts: Plus Jakarta Sans, Cairo (pour l'arabe) & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -37,7 +37,7 @@
             }
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', '"Cairo"', 'sans-serif'],
             serif: ['"Playfair Display"', 'serif'],
           }
         }
@@ -46,6 +46,9 @@
   </script>
 
   <style>
+    [dir="rtl"] {
+      font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+    }
     .glass-nav {
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
@@ -66,23 +69,23 @@
 <body class="bg-brand-bgLight text-brand-dark font-sans antialiased selection:bg-brand-roseLight selection:text-brand-rose min-h-screen flex flex-col">
 
   <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
-  <aside aria-label="Bannière d'annonce" class="bg-gradient-to-r from-brand-green to-brand-greenDark text-white text-xs sm:text-sm py-2.5 px-4">
+  <aside aria-label="Bannière d'annonce" class="bg-gradient-to-r from-brand-green to-brand-greenDark text-white text-xs sm:text-sm py-2 px-4">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="inline-flex items-center justify-center p-1 bg-white/20 rounded-full text-xs">🦅</span>
         <span class="font-medium">Distributeur Indépendant Officiel Agréé Forever Living Products à Djibouti</span>
       </div>
       <div class="flex items-center gap-4 text-xs font-semibold">
-        <span class="hidden sm:inline-flex items-center gap-1.5">
+        <span class="hidden md:inline-flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-emerald-300 animate-ping"></span>
-          Paiement : Waafi • D-Money • Espèces à la livraison
+          Waafi • D-Money • Cash Delivery
         </span>
         <a href="tel:+25377297705" class="hover:underline flex items-center gap-1">📞 +253 77 29 77 05</a>
       </div>
     </div>
   </aside>
 
-  <!-- ==================== HEADER ==================== -->
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
   <header class="sticky top-0 z-40 glass-nav border-b border-gray-100 transition-all shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
@@ -97,30 +100,93 @@
         </a>
 
         <!-- Liens d'accès direct épurés et bien espacés -->
-        <nav class="hidden lg:flex items-center gap-8 ml-10 font-medium text-sm text-gray-700">
-          <a href="index.html" class="hover:text-brand-green transition-colors py-1">
+        <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-700">
+          <a href="index.html" id="navLinkHome" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_home">
             Accueil
           </a>
-          <a href="produits.html" class="text-brand-green font-bold border-b-2 border-brand-green py-1">
-            Produits
+          <a href="produits.html" id="navLinkProducts" class="text-brand-green font-bold border-b-2 border-brand-green py-1" data-i18n="nav_products">
+            Nos Produits
           </a>
-          <a href="index.html#contact" class="hover:text-brand-green transition-colors py-1">
+          <a href="index.html#contact" id="navLinkContact" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_contact">
             Contact
           </a>
         </nav>
 
-        <!-- CTA WhatsApp Header -->
-        <div class="flex items-center gap-3">
-          <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20avoir%20des%20informations%20sur%20vos%20produits%20Forever." 
+        <!-- ZONE D'ACTION EN HAUT À DROITE (Sélecteur de langue + Bouton WhatsApp) -->
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          
+          <!-- SÉLECTEUR DE LANGUE STYLISÉ AVEC DROPDOWN -->
+          <div class="relative inline-block text-left" id="langSelectorWrapper">
+            <button id="langMenuBtn" 
+                    type="button" 
+                    onclick="toggleLangDropdown()"
+                    class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:border-brand-green hover:text-brand-green font-bold text-xs sm:text-sm shadow-sm transition-all focus:outline-none active:scale-95"
+                    aria-haspopup="true" 
+                    aria-expanded="false"
+                    aria-label="Sélectionner la langue">
+              <span id="currentLangFlag" class="text-base sm:text-lg">🇫🇷</span>
+              <span id="currentLangName" class="hidden sm:inline text-xs font-semibold">Français</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 transition-transform" id="langChevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+
+            <!-- Menu déroulant des 5 langues -->
+            <div id="langDropdown" 
+                 class="hidden absolute right-0 mt-2 w-48 rounded-2xl bg-white shadow-2xl border border-gray-100 py-2 z-50 transition-all origin-top-right">
+              <div class="px-3 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100 mb-1">
+                Langue / Luqadda / Lughah
+              </div>
+              <button onclick="changeLanguage('fr')" class="w-full text-left px-3.5 py-2 text-xs sm:text-sm font-semibold text-gray-700 hover:bg-brand-greenLight hover:text-brand-green flex items-center justify-between transition-colors">
+                <span class="flex items-center gap-2.5">
+                  <span class="text-base">🇫🇷</span>
+                  <span>Français</span>
+                </span>
+                <span id="check-fr" class="text-brand-green font-bold">✓</span>
+              </button>
+              <button onclick="changeLanguage('so')" class="w-full text-left px-3.5 py-2 text-xs sm:text-sm font-semibold text-gray-700 hover:bg-brand-greenLight hover:text-brand-green flex items-center justify-between transition-colors">
+                <span class="flex items-center gap-2.5">
+                  <span class="text-base">🇩🇯</span>
+                  <span>Soomaali</span>
+                </span>
+                <span id="check-so" class="text-brand-green font-bold hidden">✓</span>
+              </button>
+              <button onclick="changeLanguage('aa')" class="w-full text-left px-3.5 py-2 text-xs sm:text-sm font-semibold text-gray-700 hover:bg-brand-greenLight hover:text-brand-green flex items-center justify-between transition-colors">
+                <span class="flex items-center gap-2.5">
+                  <span class="text-base">🇩🇯</span>
+                  <span>Qafar</span>
+                </span>
+                <span id="check-aa" class="text-brand-green font-bold hidden">✓</span>
+              </button>
+              <button onclick="changeLanguage('ar')" class="w-full text-left px-3.5 py-2 text-xs sm:text-sm font-semibold text-gray-700 hover:bg-brand-greenLight hover:text-brand-green flex items-center justify-between transition-colors">
+                <span class="flex items-center gap-2.5">
+                  <span class="text-base">🇸🇦</span>
+                  <span>العربية</span>
+                </span>
+                <span id="check-ar" class="text-brand-green font-bold hidden">✓</span>
+              </button>
+              <button onclick="changeLanguage('en')" class="w-full text-left px-3.5 py-2 text-xs sm:text-sm font-semibold text-gray-700 hover:bg-brand-greenLight hover:text-brand-green flex items-center justify-between transition-colors">
+                <span class="flex items-center gap-2.5">
+                  <span class="text-base">🇬🇧</span>
+                  <span>English</span>
+                </span>
+                <span id="check-en" class="text-brand-green font-bold hidden">✓</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- BOUTON PRINCIPAL WHATSAPP -->
+          <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20des%20produits%20Forever%20Living." 
+             id="headerWhatsappBtn"
              target="_blank" 
              rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm shadow hover:shadow-lg transition-all">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            <span>Commander WhatsApp</span>
+             class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm shadow hover:shadow-lg transition-all transform active:scale-95 shrink-0">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span id="headerWhatsappText" data-i18n="btn_whatsapp_nav">Commander WhatsApp</span>
           </a>
 
           <!-- Mobile Toggle -->
-          <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100" aria-label="Menu principal">
+          <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none" aria-label="Menu principal">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </button>
         </div>
@@ -128,9 +194,21 @@
 
       <!-- Mobile Dropdown -->
       <div id="mobileMenu" class="hidden lg:hidden py-4 border-t border-gray-100 flex flex-col gap-3 font-medium text-gray-700">
-        <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight">Accueil</a>
-        <a href="produits.html" class="px-3 py-2 rounded-lg bg-brand-greenLight text-brand-green font-bold">Produits</a>
-        <a href="index.html#contact" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight">Contact</a>
+        <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_home">Accueil</a>
+        <a href="produits.html" class="px-3 py-2 rounded-lg bg-brand-greenLight text-brand-green font-bold" data-i18n="nav_products">Nos Produits</a>
+        <a href="index.html#contact" class="px-3 py-2 rounded-lg hover:bg-brand-greenLight" data-i18n="nav_contact">Contact</a>
+        
+        <!-- Sélecteur rapide mobile -->
+        <div class="pt-3 border-t border-gray-100">
+          <p class="text-xs text-gray-400 font-bold uppercase mb-2 px-3">Langue / Luqadda / Lughah</p>
+          <div class="grid grid-cols-5 gap-1 px-2">
+            <button onclick="changeLanguage('fr')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇫🇷 FR</button>
+            <button onclick="changeLanguage('so')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 SO</button>
+            <button onclick="changeLanguage('aa')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇩🇯 AA</button>
+            <button onclick="changeLanguage('ar')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇸🇦 AR</button>
+            <button onclick="changeLanguage('en')" class="py-2 text-center rounded-lg border text-xs font-bold hover:bg-brand-greenLight hover:text-brand-green">🇬🇧 EN</button>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -141,16 +219,19 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="space-y-2 text-center md:text-left">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold uppercase tracking-wider">
-            <span>🦅</span> Catalogue Officiel Forever Living Products
+            <span>🦅</span> 
+            <span id="badgeOfficial">Catalogue Officiel Forever Living Products</span>
           </div>
-          <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Nos Produits Forever</h1>
-          <p class="text-gray-600 text-sm sm:text-base max-w-2xl">
-            Découvrez notre sélection exclusive de produits certifiés Forever Living à Djibouti. Cliquez sur <strong>Commander WhatsApp</strong> sur n'importe quel article pour valider votre commande instantanément.
+          <h1 id="pageTitle" class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900" data-i18n="nav_products">
+            Nos Produits
+          </h1>
+          <p id="pageSubtitle" class="text-gray-600 text-sm sm:text-base max-w-2xl">
+            Retrouvez tous les produits authentiques Forever Living à Djibouti. Cliquez pour commander directement par WhatsApp.
           </p>
         </div>
 
         <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-gray-200 text-gray-700 hover:border-brand-green hover:text-brand-green text-xs sm:text-sm font-semibold shadow-sm transition-all shrink-0">
-          <span>← Retour Accueil</span>
+          <span id="backHomeText">← Retour Accueil</span>
         </a>
       </div>
 
@@ -158,42 +239,46 @@
       <!-- Champ de recherche textuel réactif -->
       <div class="mt-8">
         <div class="relative max-w-3xl mx-auto">
-          <input type="text" id="searchInput" placeholder="Rechercher un produit Forever (ex: Aloe Vera Gel, Toothgel, Propolis, C9, Argi+...)" 
+          <input type="text" 
+                 id="searchInput" 
+                 placeholder="Rechercher un produit..." 
                  class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-sm sm:text-base text-gray-800 shadow-sm transition-all">
-          <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
         </div>
       </div>
 
-      <!-- Boutons de filtre par catégorie -->
+      <!-- Boutons de filtre par catégorie (Dynamiquement traduits) -->
       <div class="mt-6 flex items-center justify-center gap-2 overflow-x-auto pb-2 no-scrollbar" id="categoryTabs">
-        <button onclick="setCategory('all', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-brand-green text-white shadow-sm shrink-0 transition-all">
-          Tous (<span id="totalBadge">0</span>)
+        <button onclick="setCategory('all', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-brand-green text-white shadow-sm shrink-0 transition-all" data-cat="all">
+          <span class="cat-label" data-i18n="all">Tous</span> (<span id="totalBadge">0</span>)
         </button>
-        <button onclick="setCategory('Boissons & Pulpes', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
-          🥤 Boissons & Pulpes
+        <button onclick="setCategory('Boissons & Pulpes', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="Boissons & Pulpes">
+          🥤 <span class="cat-label" data-i18n="cat_drinks">Boissons & Pulpes</span>
         </button>
-        <button onclick="setCategory('Soins de la Peau', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
-          ✨ Soins de la Peau
+        <button onclick="setCategory('Soins de la Peau', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="Soins de la Peau">
+          ✨ <span class="cat-label" data-i18n="cat_skincare">Soins de la Peau</span>
         </button>
-        <button onclick="setCategory('Hygiène & Corps', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
-          🧴 Hygiène & Corps
+        <button onclick="setCategory('Hygiène & Corps', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="Hygiène & Corps">
+          🧴 <span class="cat-label" data-i18n="cat_hygiene">Hygiène & Corps</span>
         </button>
-        <button onclick="setCategory('Nutrition & Compléments', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
-          🐝 Nutrition & Compléments
+        <button onclick="setCategory('Nutrition & Compléments', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="Nutrition & Compléments">
+          🐝 <span class="cat-label" data-i18n="cat_nutrition">Nutrition & Compléments</span>
         </button>
-        <button onclick="setCategory('Packs & Programmes', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all">
-          📦 Packs & Programmes
+        <button onclick="setCategory('Packs & Programmes', this)" class="cat-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 shrink-0 transition-all" data-cat="Packs & Programmes">
+          📦 <span class="cat-label" data-i18n="cat_packs">Packs & Programmes</span>
         </button>
       </div>
 
       <!-- Compteur en temps réel -->
       <div class="mt-4 flex items-center justify-between text-xs sm:text-sm text-gray-500 font-medium">
         <p>
-          Affichage de <span id="displayedCount" class="font-bold text-gray-900">0</span> article(s) trouvé(s)
+          <span id="displayedCountLabel">Article(s) trouvé(s) :</span> <span id="displayedCount" class="font-bold text-gray-900">0</span>
         </p>
-        <span class="text-brand-green font-bold">✓ Catalogue officiel Forever Living</span>
+        <span class="text-brand-green font-bold flex items-center gap-1">
+          <span>✓</span> Forever Living Products Djibouti 🇩🇯
+        </span>
       </div>
     </div>
   </section>
@@ -212,10 +297,10 @@
         <div class="w-16 h-16 rounded-full bg-brand-greenLight text-brand-green text-2xl flex items-center justify-center mx-auto mb-4">
           🔍
         </div>
-        <h3 class="font-bold text-lg text-gray-900">Aucun produit ne correspond à votre recherche</h3>
-        <p class="text-sm text-gray-500 mt-1 mb-6">Essayez avec un autre mot-clé ou réinitialisez les filtres.</p>
+        <h3 id="noResultsTitle" class="font-bold text-lg text-gray-900">Aucun produit ne correspond à votre recherche</h3>
+        <p id="noResultsSubtitle" class="text-sm text-gray-500 mt-1 mb-6">Essayez avec un autre mot-clé ou réinitialisez les filtres.</p>
         <button onclick="resetFilters()" class="px-6 py-2.5 rounded-full bg-brand-green text-white font-bold text-xs sm:text-sm shadow">
-          Afficher tous les articles
+          <span data-i18n="all">Tous</span> les produits
         </button>
       </div>
 
@@ -226,10 +311,14 @@
   <section class="py-12 bg-white border-t border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-2xl mx-auto mb-8 space-y-1">
+      <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
         <span class="text-brand-green font-bold text-xs uppercase tracking-widest">Confiance & Simplicité</span>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">Modes de Paiement à Djibouti</h2>
-        <p class="text-gray-500 text-xs sm:text-sm">Réglez facilement via votre application préférée ou en espèces à la livraison.</p>
+        <h2 id="paymentTitle" class="font-serif text-2xl sm:text-3xl font-bold text-gray-900" data-i18n="payment_title">
+          Moyens de Paiement Sécurisés à Djibouti
+        </h2>
+        <p id="paymentDesc" class="text-gray-500 text-xs sm:text-sm leading-relaxed" data-i18n="payment_desc">
+          Commandez en ligne et réglez facilement via Waafi, D-Money ou au moment de la livraison en espèces.
+        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -241,7 +330,7 @@
           </div>
           <div class="space-y-1">
             <h3 class="font-bold text-base text-gray-900">Paiement WAAFI</h3>
-            <p class="text-xs text-gray-600">Salaam African Bank / BAM. Paiement direct par transfert.</p>
+            <p class="text-xs text-gray-600">Salaam African Bank / BAM. Transfert instantané direct.</p>
             <p class="font-mono text-xs font-bold text-red-600">+253 77 29 77 05</p>
           </div>
         </div>
@@ -296,9 +385,9 @@
         <div>
           <h4 class="text-white font-bold text-xs tracking-wider uppercase mb-3">Navigation</h4>
           <ul class="space-y-2 text-xs">
-            <li><a href="index.html" class="hover:text-white">Accueil</a></li>
-            <li><a href="produits.html" class="text-brand-green font-bold">Catalogue Produits Forever</a></li>
-            <li><a href="index.html#contact" class="hover:text-white">Contact</a></li>
+            <li><a href="index.html" class="hover:text-white" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="produits.html" class="text-brand-green font-bold" data-i18n="nav_products">Nos Produits</a></li>
+            <li><a href="index.html#contact" class="hover:text-white" data-i18n="nav_contact">Contact</a></li>
           </ul>
         </div>
 
@@ -314,7 +403,7 @@
               <a href="https://wa.me/25377297705" target="_blank" rel="noopener noreferrer" class="hover:text-white font-semibold">WhatsApp direct : +253 77 29 77 05</a>
             </p>
             <p class="text-gray-500 pt-1">
-              Livraison rapide à domicile 7j/7.
+              Livraison express 7j/7 à Djibouti.
             </p>
           </div>
         </div>
@@ -328,15 +417,16 @@
     </div>
   </footer>
 
-  <!-- ==================== BOUTON D'ACTION FLOTTANT WHATSAPP ==================== -->
+  <!-- ==================== BOUTON FLOTTANT FIXE WHATSAPP ==================== -->
   <aside aria-label="Bouton d'action WhatsApp" class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
     <div class="hidden sm:flex items-center bg-white text-gray-800 text-xs font-bold py-2 px-3.5 rounded-full shadow-xl border border-gray-100">
-      <span>Commandez sur WhatsApp 👋</span>
+      <span id="floatingWhatsappBadge" data-i18n="btn_order">Commander via WhatsApp</span>
     </div>
     
     <a href="https://wa.me/25377297705?text=Bonjour%20FARAHSAN%20ONLINE,%20je%20souhaite%20commander%20un%20produit%20Forever." 
+       id="floatingWhatsappLink"
        target="_blank" 
-       rel="noopener noreferrer"
+       rel="noopener noreferrer" 
        class="relative w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 focus:outline-none"
        aria-label="Contacter sur WhatsApp">
       <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-40 animate-ping"></span>
@@ -344,13 +434,125 @@
     </a>
   </aside>
 
-  <!-- ==================== BASE DE DONNÉES & LOGIQUE JAVASCRIPT ==================== -->
+  <!-- ==================== DICTIONNAIRE I18N & JAVASCRIPT ==================== -->
   <script>
     const CONFIG = {
       phoneRaw: '25377297705'
     };
 
-    // BASE DE DONNÉES EXACTE DES ARTICLES FOREVER LIVING
+    // DICTIONNAIRE MULTILINGUE OFFICIEL (FR, SO, AA, AR, EN)
+    const i18n = {
+      fr: {
+        nav_home: "Accueil",
+        nav_products: "Nos Produits",
+        nav_contact: "Contact",
+        btn_whatsapp_nav: "Commander WhatsApp",
+        search_placeholder: "Rechercher un produit...",
+        all: "Tous",
+        cat_drinks: "Boissons & Pulpes",
+        cat_skincare: "Soins de la Peau",
+        cat_hygiene: "Hygiène & Corps",
+        cat_nutrition: "Nutrition & Compléments",
+        cat_packs: "Packs & Programmes",
+        btn_order: "Commander via WhatsApp",
+        payment_title: "Moyens de Paiement Sécurisés à Djibouti",
+        payment_desc: "Commandez en ligne et réglez facilement via Waafi, D-Money ou au moment de la livraison en espèces.",
+        badge_currency: "DJF",
+        msg_prefix: "Bonjour FARAHSAN ONLINE, je souhaite commander le produit : "
+      },
+      so: {
+        nav_home: "Bogga Hore",
+        nav_products: "Alaabooyinka",
+        nav_contact: "Xiriirka",
+        btn_whatsapp_nav: "Ku dalbo WhatsApp",
+        search_placeholder: "Raadi badeeco...",
+        all: "Dhammaan",
+        cat_drinks: "Cabbitaannada & Dhuuxa",
+        cat_skincare: "Daryeelka Maqaarka",
+        cat_hygiene: "Nadaafadda & Jirka",
+        cat_nutrition: "Nafaqada & Dheellitirka",
+        cat_packs: "Xidhmooyinka & Barnaamijyada",
+        btn_order: "Ku dalbo WhatsApp",
+        payment_title: "Hababka Lacag-bixinta ee Jabuuti",
+        payment_desc: "Ka dalbo khadka tooska ah adigoo ku bixinaya Waafi, D-Money ama lacag caddaan ah marka laguu keeno.",
+        badge_currency: "DJF",
+        msg_prefix: "Nabadeey FARAHSAN ONLINE, waxaan rabaa inaan dalbado alaabtan : "
+      },
+      aa: {
+        nav_home: "Araca",
+        nav_products: "Ayroota",
+        nav_contact: "Nallih Xayyoow",
+        btn_whatsapp_nav: "WhatsApp-al Dooleysi",
+        search_placeholder: "Ayroot gurusa...",
+        all: "Inkoh",
+        cat_drinks: "Cabbiyya kee Dhuux",
+        cat_skincare: "Saqalat Qokol",
+        cat_hygiene: "Saytunnan kee Mogor",
+        cat_nutrition: "Macaash kee Qokol",
+        cat_packs: "Barnaamijit",
+        btn_order: "WhatsApp-al Dooleysi",
+        payment_title: "Yibuutil Lacag-Bixin Hiddoota",
+        payment_desc: "Koorah doolata Waafi, D-Money hiddon lacag caddaan gabat bicisa.",
+        badge_currency: "DJF",
+        msg_prefix: "Macaan FARAHSAN ONLINE, ta ayroot dooleysuh gura : "
+      },
+      ar: {
+        nav_home: "الرئيسية",
+        nav_products: "منتجاتنا",
+        nav_contact: "اتصل بنا",
+        btn_whatsapp_nav: "طلب عبر واتساب",
+        search_placeholder: "ابحث عن منتج...",
+        all: "الكل",
+        cat_drinks: "المشروبات والهلام",
+        cat_skincare: "العناية بالبشرة",
+        cat_hygiene: "النظافة والعناية الشخصية",
+        cat_nutrition: "المكملات الغذائية",
+        cat_packs: "المجموعات والبرامج",
+        btn_order: "طلب عبر واتساب",
+        payment_title: "طرق الدفع المعتمدة في جيبوتي",
+        payment_desc: "اطلب الآن وادفع بكل سهولة عبر وافي (Waafi)، دي موني (D-Money) أو نقداً عند الاستلام.",
+        badge_currency: "فرنك",
+        msg_prefix: "مرحباً فرحسان أونلاين، أرغب بطلب المنتج التالي : "
+      },
+      en: {
+        nav_home: "Home",
+        nav_products: "Products",
+        nav_contact: "Contact",
+        btn_whatsapp_nav: "Order via WhatsApp",
+        search_placeholder: "Search for a product...",
+        all: "All",
+        cat_drinks: "Drinks & Gels",
+        cat_skincare: "Skincare",
+        cat_hygiene: "Hygiene & Body Care",
+        cat_nutrition: "Nutrition & Supplements",
+        cat_packs: "Packs & Routines",
+        btn_order: "Order via WhatsApp",
+        payment_title: "Trusted Payment Methods in Djibouti",
+        payment_desc: "Order online and pay seamlessly with Waafi, D-Money, or Cash on Delivery.",
+        badge_currency: "DJF",
+        msg_prefix: "Hello FARAHSAN ONLINE, I would like to order: "
+      }
+    };
+
+    // Langues supportées & métadonnées d'affichage
+    const langInfo = {
+      fr: { name: "Français", flag: "🇫🇷", dir: "ltr" },
+      so: { name: "Soomaali", flag: "🇩🇯", dir: "ltr" },
+      aa: { name: "Qafar", flag: "🇩🇯", dir: "ltr" },
+      ar: { name: "العربية", flag: "🇸🇦", dir: "rtl" },
+      en: { name: "English", flag: "🇬🇧", dir: "ltr" }
+    };
+
+    // Catégories mapping vers les clés i18n
+    const categoryKeyMap = {
+      'Boissons & Pulpes': 'cat_drinks',
+      'Soins de la Peau': 'cat_skincare',
+      'Hygiène & Corps': 'cat_hygiene',
+      'Nutrition & Compléments': 'cat_nutrition',
+      'Packs & Programmes': 'cat_packs'
+    };
+
+    // BASE DE DONNÉES EXACTE DES PRODUITS FOREVER LIVING
     const products = [
       // --- Boissons & Pulpes ---
       { name: "Forever Aloe Vera Gel", size: "1 Liter", category: "Boissons & Pulpes", image: "Forever Aloe vera Gel 1 Liter.jpg" },
@@ -465,22 +667,153 @@
       { name: "Forever Test Touch", size: "Set", category: "Packs & Programmes", image: "Forever Test Touch Set.jpg" }
     ];
 
-    // État
+    // ÉTAT GLOBAL DE L'APPLICATION
+    let currentLang = localStorage.getItem('farhasan_lang') || 'fr';
+    if (!i18n[currentLang]) currentLang = 'fr';
+
     let selectedCategory = 'all';
     let searchQuery = '';
 
-    // Éléments du DOM
+    // ÉLÉMENTS DU DOM
     const grid = document.getElementById('productsGrid');
     const totalBadge = document.getElementById('totalBadge');
     const displayedCountEl = document.getElementById('displayedCount');
     const noResultsState = document.getElementById('noResultsState');
     const searchInput = document.getElementById('searchInput');
+    const langDropdown = document.getElementById('langDropdown');
+    const langMenuBtn = document.getElementById('langMenuBtn');
+    const langChevron = document.getElementById('langChevron');
+    const currentLangFlag = document.getElementById('currentLangFlag');
+    const currentLangName = document.getElementById('currentLangName');
 
-    // Initialisation
-    totalBadge.textContent = products.length;
-    renderProducts();
+    // INITIALISATION AU CHARGEMENT
+    window.addEventListener('DOMContentLoaded', () => {
+      applyLanguage(currentLang);
+      totalBadge.textContent = products.length;
+      renderProducts();
+    });
 
-    // Filtre par catégorie
+    // ==================== GESTION DU SÉLECTEUR DE LANGUE ====================
+    function toggleLangDropdown() {
+      const isExpanded = !langDropdown.classList.contains('hidden');
+      if (isExpanded) {
+        closeLangDropdown();
+      } else {
+        openLangDropdown();
+      }
+    }
+
+    function openLangDropdown() {
+      langDropdown.classList.remove('hidden');
+      langMenuBtn.setAttribute('aria-expanded', 'true');
+      langChevron.classList.add('rotate-180');
+    }
+
+    function closeLangDropdown() {
+      langDropdown.classList.add('hidden');
+      langMenuBtn.setAttribute('aria-expanded', 'false');
+      langChevron.classList.remove('rotate-180');
+    }
+
+    // Fermeture si clic à l'extérieur
+    document.addEventListener('click', (e) => {
+      const wrapper = document.getElementById('langSelectorWrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        closeLangDropdown();
+      }
+    });
+
+    // Fermeture avec Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLangDropdown();
+    });
+
+    // CHANGEMENT DE LANGUE
+    function changeLanguage(lang) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('farhasan_lang', lang);
+      closeLangDropdown();
+      applyLanguage(lang);
+      renderProducts();
+    }
+
+    // APPLICATION DE LA LANGUE DANS TOUTE L'INTERFACE
+    function applyLanguage(lang) {
+      const texts = i18n[lang];
+      const info = langInfo[lang];
+
+      // Mise à jour de la balise HTML (lang et direction RTL pour arabe)
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', info.dir);
+
+      // Bouton du sélecteur
+      currentLangFlag.textContent = info.flag;
+      currentLangName.textContent = info.name;
+
+      // Badges de sélection dans le dropdown
+      ['fr', 'so', 'aa', 'ar', 'en'].forEach(l => {
+        const check = document.getElementById(`check-${l}`);
+        if (check) {
+          if (l === lang) check.classList.remove('hidden');
+          else check.classList.add('hidden');
+        }
+      });
+
+      // Mettre à jour tous les éléments simples avec data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (texts[key]) {
+          el.textContent = texts[key];
+        }
+      });
+
+      // Mettre à jour le placeholder de recherche
+      if (searchInput) {
+        searchInput.placeholder = texts.search_placeholder;
+      }
+
+      // Mettre à jour les labels des catégories
+      document.querySelectorAll('.cat-label').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (texts[key]) el.textContent = texts[key];
+      });
+
+      // Boutons WhatsApp principaux
+      const headerWhatsappText = document.getElementById('headerWhatsappText');
+      if (headerWhatsappText) headerWhatsappText.textContent = texts.btn_whatsapp_nav;
+
+      const floatingBadge = document.getElementById('floatingWhatsappBadge');
+      if (floatingBadge) floatingBadge.textContent = texts.btn_order;
+
+      // Titres & descriptions spécifiques
+      const backHomeText = document.getElementById('backHomeText');
+      if (backHomeText) {
+        backHomeText.textContent = lang === 'ar' ? 'العودة للرئيسية ←' : 
+                                   lang === 'so' ? '← Ku noqo Bogga Hore' :
+                                   lang === 'aa' ? '← Aracal gaca' :
+                                   lang === 'en' ? '← Back to Home' : '← Retour Accueil';
+      }
+
+      const displayedCountLabel = document.getElementById('displayedCountLabel');
+      if (displayedCountLabel) {
+        displayedCountLabel.textContent = lang === 'ar' ? 'المنتجات المعروضة :' :
+                                          lang === 'so' ? 'Alaabta la helay :' :
+                                          lang === 'aa' ? 'Ayroota geytimte :' :
+                                          lang === 'en' ? 'Displayed articles :' : 'Article(s) trouvé(s) :';
+      }
+
+      const pageSubtitle = document.getElementById('pageSubtitle');
+      if (pageSubtitle) {
+        pageSubtitle.textContent = lang === 'ar' ? 'اكتشف مجموعتنا الكاملة من منتجات فوريفر ليفينج الأصلية في جيبوتي. اضغط على طلب عبر واتساب لتأكيد طلبك مباشرة.' :
+                                   lang === 'so' ? 'Ka hel dhammaan badeecadaha asalka ah ee Forever Living ee Jabuuti. Riix "Ku dalbo WhatsApp" si aad isla markiiba u hesho dalabkaaga.' :
+                                   lang === 'aa' ? 'Yibuutil Forever Livingih gacayuk nummahin ayroota garay. Ta ayroot WhatsApp-al dooleysi bicisa.' :
+                                   lang === 'en' ? 'Explore our authentic collection of Forever Living products in Djibouti. Click Order via WhatsApp to confirm your order instantly.' :
+                                   'Retrouvez tous les produits authentiques Forever Living à Djibouti. Cliquez pour commander directement par WhatsApp.';
+      }
+    }
+
+    // ==================== FILTRES & RECHERCHE ====================
     function setCategory(cat, btn) {
       selectedCategory = cat;
       document.querySelectorAll('.cat-btn').forEach(b => {
@@ -494,7 +827,6 @@
       renderProducts();
     }
 
-    // Filtrage réactif à la saisie
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value.toLowerCase().trim();
       renderProducts();
@@ -504,11 +836,14 @@
       searchInput.value = '';
       searchQuery = '';
       selectedCategory = 'all';
-      setCategory('all', document.querySelector('.cat-btn'));
+      const firstBtn = document.querySelector('.cat-btn');
+      setCategory('all', firstBtn);
     }
 
-    // Fonction de rendu dynamique des articles
+    // ==================== RENDU DYNAMIQUE DES PRODUITS ====================
     function renderProducts() {
+      const texts = i18n[currentLang];
+
       const filtered = products.filter(p => {
         const matchCat = (selectedCategory === 'all') || (p.category === selectedCategory);
         const matchSearch = !searchQuery || 
@@ -527,14 +862,21 @@
       }
 
       noResultsState.classList.add('hidden');
+
       grid.innerHTML = filtered.map(product => {
-        // Encodage strict conforme aux règles
+        // Chemin d'image strictement conforme
         const imagePath = `Image forever/${encodeURIComponent(product.image)}`;
-        const orderText = encodeURIComponent(`Bonjour FARAHSAN ONLINE, je souhaite commander le produit : ${product.name} (${product.size})`);
+        
+        // Texte WhatsApp multilingue
+        const orderText = encodeURIComponent(`${texts.msg_prefix}${product.name} (${product.size})`);
         const whatsappUrl = `https://wa.me/${CONFIG.phoneRaw}?text=${orderText}`;
 
+        // Catégorie traduite
+        const catKey = categoryKeyMap[product.category] || 'all';
+        const translatedCategory = texts[catKey] || product.category;
+
         return `
-          <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-gray-100 flex flex-col justify-between group">
+          <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-gray-100 flex flex-col justify-between group transition-all">
             
             <!-- Image & Repli avec assets/logo.png -->
             <div class="relative aspect-[4/3] bg-gray-50 flex items-center justify-center p-3 overflow-hidden">
@@ -545,8 +887,8 @@
                    onerror="this.onerror=null;this.src='assets/logo.png';">
               
               <!-- Badges de catégorie & contenance -->
-              <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-brand-green/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">
-                ${product.category}
+              <span class="absolute top-3 left-3 rtl:left-auto rtl:right-3 px-2.5 py-0.5 rounded-full bg-brand-green/90 text-white text-[10px] font-bold uppercase tracking-wider shadow">
+                ${translatedCategory}
               </span>
             </div>
 
@@ -557,7 +899,7 @@
                   <span class="px-2 py-0.5 rounded-md bg-gray-100 text-gray-700 font-semibold">${product.size}</span>
                   <span class="text-brand-green font-bold flex items-center gap-1">
                     <span class="w-1.5 h-1.5 rounded-full bg-brand-green"></span>
-                    En stock
+                    ${currentLang === 'ar' ? 'متوفر' : currentLang === 'so' ? 'Diyaar ah' : currentLang === 'aa' ? 'Geytimta' : 'En stock'}
                   </span>
                 </div>
                 <h3 class="font-bold text-sm sm:text-base text-gray-900 leading-snug group-hover:text-brand-green transition-colors">
@@ -574,7 +916,7 @@
                   <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                   </svg>
-                  <span>Commander via WhatsApp</span>
+                  <span>${texts.btn_order}</span>
                 </a>
               </div>
             </div>
