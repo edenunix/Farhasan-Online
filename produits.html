@@ -1,11 +1,11 @@
 <!--
 ====================================================================
 * APPLICATION   : FARAHSAN ONLINE - Boutique Officielle Djibouti
-* DÉVELOPPEUR   : Aden.Code
-* VERSION       : 2.1.0 (Header Harmonized & Clean Navigation)
+* DÉVELOPPEUR   : ADEN AHMED ADEN
+* VERSION       : 2.2.0 (Production & GitHub Pages Ready)
 * SÉCURITÉ      : CSP, Anti-XSS Sanitization, Anti-Clickjacking, Anti-Tabnabbing
 * I18N          : 5 Langues (FR, SO, AA, AR [RTL + Cairo Font], EN) + Persistance
-* POWERED BY    : Aden.Code | © 2026 FARAHSAN ONLINE. Tous droits réservés.
+* POWERED BY    : ADEN AHMED ADEN | © 2026 FARAHSAN ONLINE. Tous droits réservés.
 ====================================================================
 -->
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer-when-downgrade">
 
-  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="icon" type="image/png" href="./assets/logo.png">
 
   <!-- Google Fonts: Cairo (Arabe RTL), Plus Jakarta Sans & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,16 +103,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
-        <!-- Brand Logo -->
+        <!-- Brand Logo (Chemin relatif sécurisé GitHub Pages) -->
         <a href="index.html" class="flex items-center gap-3 group focus:outline-none shrink-0" aria-label="Accueil FARAHSAN ONLINE">
-          <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='assets/logo.png';">
+          <img src="./assets/logo.png" alt="FARAHSAN ONLINE" class="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null;this.src='assets/logo.png';">
           <div class="flex flex-col">
             <span class="font-serif font-bold text-lg sm:text-xl md:text-2xl tracking-wider text-brand-green">FARAHSAN</span>
             <span class="text-[9px] sm:text-[10px] tracking-[0.25em] font-semibold text-brand-gold -mt-1 uppercase">ONLINE • DJIBOUTI</span>
           </div>
         </a>
 
-        <!-- Desktop Navigation Links (EXACTEMENT LES 4 LIENS HARMONISÉS) -->
+        <!-- Desktop Navigation Links (4 liens clairs & harmonisés) -->
         <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-700">
           <a href="index.html" class="hover:text-brand-green transition-colors py-1" data-i18n="nav_home">
             Accueil
@@ -390,7 +390,7 @@
         <!-- Colonne 1 : Marque -->
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <img src="assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 w-auto object-contain bg-white rounded-lg p-1" onerror="this.onerror=null;this.src='assets/logo.png';">
+            <img src="./assets/logo.png" alt="FARAHSAN ONLINE" class="h-12 w-auto object-contain bg-white rounded-lg p-1" onerror="this.onerror=null;this.src='assets/logo.png';">
             <div class="flex flex-col">
               <span class="font-serif font-bold text-xl text-white tracking-wider">FARAHSAN</span>
               <span class="text-[9px] tracking-[0.2em] font-semibold text-brand-gold uppercase">ONLINE • DJIBOUTI</span>
@@ -412,7 +412,7 @@
           </ul>
         </div>
 
-        <!-- Colonne 3 : Contact Direct -->
+        <!-- Colonne 3 : Contact Direct (Avec E-mail Officiel & Icône Stylisée) -->
         <div>
           <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-wider" data-i18n="nav_contact">Contact</h4>
           <div class="space-y-3 text-sm text-gray-400">
@@ -427,6 +427,13 @@
             <p class="flex items-center gap-2">
               <span>💬</span>
               <a href="https://wa.me/25377297705" target="_blank" rel="noopener noreferrer" class="hover:text-[#25D366] font-semibold text-white">WhatsApp (+253 77 29 77 05)</a>
+            </p>
+            <!-- Lien E-mail Officiel -->
+            <p class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <a href="mailto:contact@farahsan.com" class="hover:text-white font-medium transition-colors">contact@farahsan.com</a>
             </p>
             <p class="text-xs text-gray-500 pt-1">
               Disponibilité 7j/7 pour vos commandes & conseils.
@@ -488,7 +495,8 @@
 /**
  * ====================================================================
  * FARAHSAN ONLINE - Architecture & Moteur Principal
- * Développeur : Aden.Code
+ * Développeur : ADEN AHMED ADEN
+ * Powered by  : Aden.Code
  * Sécurité    : Sanitization XSS, CSP Compliance, No-Opener Hardening
  * © 2026 FARAHSAN ONLINE. Powered by Aden.Code
  * ====================================================================
@@ -1510,7 +1518,7 @@
       noResultsState.classList.add('hidden');
 
       grid.innerHTML = filtered.map(product => {
-        // Résolution de sécurité de l'image
+        // Résolution de sécurité de l'image (Chemin relatif GitHub Pages)
         const resolvedImage = imageAliases[product.image] || product.image;
         const imagePath = `Image forever/${encodeURIComponent(resolvedImage)}`;
         
