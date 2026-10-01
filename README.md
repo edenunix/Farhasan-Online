@@ -3,7 +3,7 @@
 > Boutique en ligne spécialisée dans les produits naturels d'Aloe Vera et de bien-être à Djibouti, certifiés **Forever Living Products**.
 
 ---
-
+🔗 **Lien Direct du Site :** [https://edenunix.github.io/Farhasan-Online/](https://edenunix.github.io/Farhasan-Online/)
 ## ✨ Fonctionnalités Clés
 
 - **Catalogue Complet** : Gamme officielle Forever Living (Boissons & Gels, Nutrition & Compléments, Soins & Beauté, Hygiène & Quotidien, Packs & Programmes).
