@@ -1,192 +1,364 @@
-# 🌿 FARAHSAN ONLINE — Boutique Officielle Djibouti
-
-
+# 🌿 FARAHSAN ONLINE — Official Djibouti Store
 
 <p align="center">
-  <strong>Beauté naturelle · Bien-être · Aloe Vera</strong>
+  <img src="images/farahsan-online-banner.png" alt="Farahsan Online — Natural Beauty & Wellness" width="100%">
 </p>
 
 <p align="center">
-  Une expérience e-commerce dédiée aux produits naturels Forever Living Products à Djibouti.
+  <strong>Natural Beauty · Wellness · Aloe Vera</strong>
+</p>
+
+<p align="center">
+  A multilingual e-commerce platform dedicated to Forever Living Products and natural wellness in Djibouti.
 </p>
 
 <p align="center">
   <a href="https://edenunix.github.io/Farhasan-Online/">
-    <strong>🌐 VISITER LA BOUTIQUE</strong>
+    <strong>🌐 VISIT THE OFFICIAL STORE</strong>
+  </a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/edenunix/Farhasan-Online">
+    <strong>💻 SOURCE CODE</strong>
   </a>
 </p>
 
 ---
 
-## 📌 Présentation du projet
+## 📌 1. Project Overview
 
-**FARAHSAN ONLINE** est une boutique e-commerce spécialisée dans la commercialisation et la présentation de produits naturels d'Aloe Vera et de bien-être de **Forever Living Products**, destinée au marché djiboutien.
+**FARAHSAN ONLINE** is an e-commerce platform specializing in natural Aloe Vera, beauty, personal care, and wellness products from **Forever Living Products**, serving customers in Djibouti.
 
-La plateforme facilite la découverte des produits, la navigation dans les différentes catégories et la prise de commande grâce à WhatsApp et aux moyens de paiement locaux.
+The platform is designed to make product discovery and ordering easier through a multilingual interface, locally relevant payment information, WhatsApp assistance, and delivery information.
 
-Le projet met l'accent sur l'accessibilité, le multilinguisme, une expérience utilisateur simple et l'adaptation aux habitudes de consommation à Djibouti.
+The project combines a customer-facing online store with a structured development workspace for its web, backend, and database components.
 
-## ✨ Fonctionnalités principales
+### Project Information
 
-### 🛍️ Catalogue et commerce en ligne
-- Catalogue de produits Forever Living Products.
-- Catégories : boissons et gels, nutrition et compléments, soins et beauté, hygiène et quotidien, packs et programmes.
-- Présentation des produits avec leurs visuels.
-- Navigation organisée pour faciliter la découverte des articles.
+| Information | Details |
+|---|---|
+| Project | FARAHSAN ONLINE |
+| Industry | E-commerce / Beauty / Wellness |
+| Market | Djibouti |
+| Product range | Forever Living Products |
+| Languages | French, Somali, Afar, Arabic, English |
+| Website | GitHub Pages |
+| Repository | GitHub |
+| Status | Online platform / ongoing development |
 
-### 🌍 Multilinguisme — i18n
-La plateforme prend en charge cinq langues :
-- 🇫🇷 Français
-- 🇸🇴 Soomaali
-- 🇩🇯 Qafar
-- 🇸🇦 العربية
-- 🇬🇧 English
+---
 
-Fonctionnalités linguistiques :
-- Interface multilingue.
-- Conservation de la langue sélectionnée avec `localStorage`.
-- Support RTL pour l'interface arabe.
-- Police Cairo pour l'affichage en arabe.
+## ✨ 2. Core Features
 
-### 💳 Paiements adaptés à Djibouti
+### 🛍️ E-commerce & Product Catalog
 
-La boutique présente plusieurs moyens de paiement locaux :
+- Product catalog dedicated to Forever Living Products.
+- Organized product categories:
+  - Drinks and Aloe Vera Gels
+  - Nutrition and Supplements
+  - Beauty and Skincare
+  - Personal Care and Hygiene
+  - Packs and Wellness Programs
+- Product imagery and organized navigation.
+- Interactive product discovery.
+- Product filtering and shopping cart functionality as provided by the storefront.
 
-| Moyen de paiement | Opérateur |
+### 🌍 Multilingual Experience — i18n
+
+Five integrated languages:
+
+| Language | Language |
+|---|---|
+| 🇫🇷 French | Français |
+| 🇸🇴 Somali | Soomaali |
+| 🇩🇯 Afar | Qafar |
+| 🇸🇦 Arabic | العربية |
+| 🇬🇧 English | English |
+
+Internationalization features:
+
+- Multilingual interface.
+- Language preference persistence using `localStorage`.
+- Right-to-left (RTL) layout support for Arabic.
+- Cairo typography for Arabic content.
+- Language-aware interface presentation.
+
+### 💳 Local Payment Options
+
+The platform presents payment options adapted to the Djiboutian market.
+
+| Payment Method | Provider |
 |---|---|
 | Waafi | Salaam African Bank |
 | D-Money | Djibouti Telecom |
 | BCI Pay | BCI-MR |
-| Cash | Paiement à la livraison |
+| Cash | Cash on Delivery |
 
-### 📲 Commande et assistance WhatsApp
-- Accès direct à l'assistance officielle.
-- Contact WhatsApp : **+253 77 29 77 05**.
-- Facilitation des échanges avec les clients pour les commandes et les renseignements.
+### 📲 WhatsApp Ordering & Customer Support
 
-### 🚚 Livraison
-- Informations relatives à la livraison à Djibouti.
-- Livraison à Djibouti-ville et Balbala.
+- Direct access to official WhatsApp assistance.
+- Customer communication for product information and orders.
+- WhatsApp contact: **+253 77 29 77 05**.
 
-### 🔐 Sécurité et bonnes pratiques
+### 🚚 Local Delivery
+
+- Delivery information for Djibouti.
+- Service information covering Djibouti City and Balbala.
+
+### 🔐 Security & Web Best Practices
+
+The project includes security-related web configurations and practices:
+
 - Content Security Policy (CSP).
-- Protection contre certaines attaques XSS.
-- Protection contre l'intégration dans des frames avec `X-Frame-Options: DENY`.
-- Protection contre le tabnabbing avec `rel="noopener noreferrer"` sur les liens externes concernés.
-
-### ⚡ Déploiement et compatibilité
-- Hébergement sur GitHub Pages.
-- Utilisation de chemins relatifs pour les ressources.
-- Gestion des chemins d'images, notamment `./assets/logo.png` et `Image forever/`.
-- Fallback automatique pour les images.
+- XSS mitigation practices.
+- Clickjacking protection through `X-Frame-Options: DENY`.
+- External link protection with `rel="noopener noreferrer"`.
+- Controlled resource paths and image fallback handling.
 
 ---
 
-## 🖥️ Aperçu de la plateforme
+## 🏗️ 3. Technical Architecture
 
-<p align="center">
-  <img src="images/farahsan-online-banner.png" alt="Présentation visuelle de Farahsan Online" width="100%">
-</p>
-
-**Site officiel :** [https://edenunix.github.io/Farhasan-Online/](https://edenunix.github.io/Farhasan-Online/)
-
-**Code source :** [GitHub — Farhasan-Online](https://github.com/edenunix/Farhasan-Online)
-
----
-
-## 🧰 Technologies et outils
-
-| Technologie / outil | Utilisation |
-|---|---|
-| HTML | Structure des pages |
-| CSS | Présentation et mise en page |
-| JavaScript | Interactions et fonctionnalités |
-| i18n | Gestion des cinq langues |
-| localStorage | Persistance de la langue sélectionnée |
-| Git & GitHub | Gestion du code source |
-| GitHub Pages | Hébergement et déploiement |
-
----
-
-## 📁 Structure du projet
+The repository is organized as a **pnpm monorepo**, with separate workspace locations for applications and shared packages.
 
 ```text
 Farhasan-Online/
 │
-├── index.html              # Page d'accueil et présentation
-├── produits.html           # Catalogue interactif, filtres et panier
+├── apps/                     # Application workspaces
 │
-├── assets/                 # Ressources graphiques
-│   ├── logo.png
-│   ├── logo.jpeg
-│   └── hero_aloe.jpg
+├── packages/                 # Shared packages
 │
-├── Image forever/          # Photos des produits Forever Living
+├── assets/                   # Storefront visual assets
 │
-├── images/                 # Visuels de présentation du projet
-│   └── farahsan-online-banner.png
+├── Image forever/            # Forever Living product images
 │
-├── package.json
+├── images/                   # Project presentation images
+│
+├── index.html                # Storefront entry page
+├── produits.html             # Product catalog page
+│
+├── package.json              # Root workspace configuration
+├── pnpm-workspace.yaml       # pnpm workspace definitions
+├── tsconfig.base.json        # Shared TypeScript configuration
 └── README.md
 ```
 
+### Workspace Organization
+
+The root workspace defines two main groups:
+
+- `apps/*` — application workspaces.
+- `packages/*` — shared packages.
+
+The root scripts expose separate development commands for:
+
+- Backend application: `@farhasan/backend`
+- Web application: `@farhasan/web`
+- Database package: `@farhasan/database`
+
 ---
 
-## 🚀 Accéder au projet
+## 🧰 4. Technologies & Development Tools
 
-### 🌐 Version en ligne
+### Core Development Stack
 
-La boutique est accessible directement depuis :
+| Technology / Tool | Purpose |
+|---|---|
+| Node.js | JavaScript runtime |
+| TypeScript | Typed JavaScript development |
+| HTML5 | Web page structure |
+| CSS3 | Styling and responsive presentation |
+| JavaScript | Interactive functionality |
+| pnpm | Package management and monorepo workspaces |
+| pnpm Workspaces | Application and package organization |
+| Prettier | Code formatting |
+| TypeScript Compiler | Type checking and compilation |
+| Git | Version control |
+| GitHub | Source code hosting and collaboration |
+| GitHub Pages | Public website hosting |
 
-**https://edenunix.github.io/Farhasan-Online/**
+### Frontend & User Experience
 
-### 💻 Installation locale
+| Technology | Purpose |
+|---|---|
+| HTML / CSS / JavaScript | Storefront interface |
+| i18n | Multilingual interface |
+| localStorage | Language preference persistence |
+| Cairo Font | Arabic typography |
+| RTL | Right-to-left Arabic layout |
 
-1. Cloner le dépôt :
+### Backend & Data Workspace
+
+The repository exposes dedicated backend and database workspace commands:
+
+- Backend development through the `@farhasan/backend` workspace.
+- Database operations through the `@farhasan/database` workspace.
+- Database generation and schema synchronization commands.
+- Shared TypeScript configuration.
+
+*Specific backend frameworks, database engines, and ORM packages should be documented from their individual workspace dependencies.*
+
+### Development Environment
+
+| Component | Version / Configuration |
+|---|---|
+| Node.js | `>=20.0.0` |
+| pnpm | `11.24.0` |
+| TypeScript | `^5.5.4` |
+| Prettier | `^3.3.3` |
+| rimraf | `^6.0.1` |
+| Project version | `1.2.0` |
+
+---
+
+## 🛠️ 5. Development Commands
+
+The root `package.json` provides the following scripts:
+
+| Command | Description |
+|---|---|
+| `pnpm dev` | Start application workspaces in parallel |
+| `pnpm dev:backend` | Start backend development |
+| `pnpm dev:web` | Start web development |
+| `pnpm build` | Build all workspace packages |
+| `pnpm lint` | Run workspace lint scripts |
+| `pnpm typecheck` | Run TypeScript checks |
+| `pnpm db:generate` | Generate database resources |
+| `pnpm db:push` | Synchronize database schema |
+| `pnpm clean` | Clean generated build and dependency directories |
+
+### Installation
+
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/edenunix/Farhasan-Online.git
 ```
 
-2. Accéder au dossier :
+**2. Enter the project directory**
 
 ```bash
 cd Farhasan-Online
 ```
 
-3. Ouvrir `index.html` dans un navigateur pour consulter la version statique du site.
+**3. Enable Corepack**
 
-*Remarque : les commandes de développement supplémentaires dépendent des scripts disponibles dans `package.json`.*
+```bash
+corepack enable
+```
+
+**4. Install dependencies**
+
+```bash
+pnpm install
+```
+
+**5. Start development**
+
+```bash
+pnpm dev
+```
+
+### Run Individual Workspaces
+
+Backend:
+
+```bash
+pnpm dev:backend
+```
+
+Web:
+
+```bash
+pnpm dev:web
+```
+
+### Build & Quality Checks
+
+```bash
+pnpm build
+pnpm lint
+pnpm typecheck
+```
+
+### Database Commands
+
+```bash
+pnpm db:generate
+pnpm db:push
+```
+
+*Note: Database commands require the corresponding workspace and database configuration to be available.*
 
 ---
 
-## 🎯 Objectifs du projet
+## 🚀 6. Deployment & Hosting
 
-- Développer une présence e-commerce adaptée au marché djiboutien.
-- Faciliter l'accès aux produits naturels et de bien-être.
-- Proposer une interface accessible dans cinq langues.
-- Intégrer les moyens de paiement utilisés localement.
-- Simplifier les échanges entre les clients et le service commercial.
-- Mettre en place une expérience de navigation adaptée aux appareils mobiles et aux ordinateurs.
+### Public Storefront
+
+The public storefront is hosted using GitHub Pages.
+
+**Live Website:**
+
+https://edenunix.github.io/Farhasan-Online/
+
+### Repository
+
+https://github.com/edenunix/Farhasan-Online
+
+### Deployment Considerations
+
+- GitHub Pages hosting for the public storefront.
+- Relative asset paths for deployment compatibility.
+- Product image organization.
+- Automatic image fallback handling.
+- Workspace build and validation scripts for development.
 
 ---
 
-## 👨‍💻 Développeur & propriété
-
-**Développeur :** ADEN AHMED ADEN
-
-**Powered by :** Aden.Code
-
-**Contact officiel :**
-- Email : contact@farahsan.com
-- WhatsApp : +253 77 29 77 05
-
-**Statut :** Projet réalisé — version en ligne disponible.
+## 🖥️ 7. Project Preview
 
 <p align="center">
-  © 2026 FARAHSAN ONLINE. Tous droits réservés.
+  <img src="images/farahsan-online-banner.png" alt="Farahsan Online Platform Preview" width="100%">
+</p>
+
+### Official Resources
+
+- 🌐 [Visit the online store](https://edenunix.github.io/Farhasan-Online/)
+- 💻 [Explore the GitHub repository](https://github.com/edenunix/Farhasan-Online)
+
+---
+
+## 🎯 8. Project Objectives
+
+- Build a digital commerce experience adapted to Djibouti.
+- Improve access to natural beauty and wellness products.
+- Provide a multilingual customer experience.
+- Present locally relevant payment options.
+- Simplify customer communication and ordering.
+- Organize web, backend, and database development.
+- Maintain a maintainable and scalable project structure.
+
+---
+
+## 👨‍💻 9. Developer & Ownership
+
+**Developer:** ADEN AHMED ADEN
+
+**Development Brand:** Aden.Code
+
+**Official Contact:**
+
+- Email: contact@farahsan.com
+- WhatsApp: +253 77 29 77 05
+
+**Project Status:** Public storefront online — development workspace maintained.
+
+---
+
+<p align="center">
+  <strong>🌿 FARAHSAN ONLINE — Naturally Better.</strong>
 </p>
 
 <p align="center">
-  <strong>🌿 FARAHSAN ONLINE — Naturellement meilleur.</strong>
+  © 2026 FARAHSAN ONLINE. All rights reserved.
 </p>
