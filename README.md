@@ -1,8 +1,6 @@
 # 🌿 FARAHSAN ONLINE — Boutique Officielle Djibouti
 
-<p align="center">
-  <img src="images/farahsan-online-banner.png" alt="Farahsan Online — Boutique officielle" width="100%">
-</p>
+
 
 <p align="center">
   <strong>Beauté naturelle · Bien-être · Aloe Vera</strong>
