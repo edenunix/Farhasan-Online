@@ -35,76 +35,171 @@
 
 ---
 📌 1. Project Overview
+
 FARAHSAN ONLINE is an e-commerce platform specializing in natural Aloe Vera, beauty, personal care, and wellness products from Forever Living Products, serving customers in Djibouti.
 
 The platform is designed to make product discovery and ordering easier through a multilingual interface, locally relevant payment information, WhatsApp assistance, and delivery information.
 
 The project combines a customer-facing online store with a structured development workspace for its web, backend, and database components.
-Project Information
-Information	Details
-Project	FARAHSAN ONLINE
-Industry	E-commerce / Beauty / Wellness
-Market	Djibouti
-Product range	Forever Living Products
-Languages	French, Somali, Afar, Arabic, English
-Website	GitHub Pages
-Repository	GitHub
-Status	Online platform / ongoing development
 
+Project Information
+
+Information
+
+Details
+
+Project
+
+FARAHSAN ONLINE
+
+Industry
+
+E-commerce / Beauty / Wellness
+
+Market
+
+Djibouti
+
+Product range
+
+Forever Living Products
+
+Languages
+
+French, Somali, Afar, Arabic, English
+
+Website
+
+GitHub Pages
+
+Repository
+
+GitHub
+
+Status
+
+Online platform / ongoing development
 
 ✨ 2. Core Features
-🛍️ E-commerce & Product Catalog
-- Product catalog dedicated to Forever Living Products.
-- Organized product categories:
-  - Drinks and Aloe Vera Gels
-  - Nutrition and Supplements
-  - Beauty and Skincare
-  - Personal Care and Hygiene
-  - Packs and Wellness Programs
-- Product imagery and organized navigation.
-- Interactive product discovery.
-- Product filtering and shopping cart functionality as provided by the storefront.
-🌍 Multilingual Experience — i18n
-Five integrated languages:
-Language	Language
-🇫🇷 French	Français
-🇸🇴 Somali	Soomaali
-🇩🇯 Afar	Qafar
-🇸🇦 Arabic	العربية
-🇬🇧 English	English
 
+🛍️ E-commerce & Product Catalog
+
+Product catalog dedicated to Forever Living Products.
+
+Organized product categories:
+
+Drinks and Aloe Vera Gels
+
+Nutrition and Supplements
+
+Beauty and Skincare
+
+Personal Care and Hygiene
+
+Packs and Wellness Programs
+
+Product imagery and organized navigation.
+
+Interactive product discovery.
+
+Product filtering and shopping cart functionality as provided by the storefront.
+
+🌍 Multilingual Experience — i18n
+
+Five integrated languages:
+
+Language
+
+Language
+
+🇫🇷 French
+
+Français
+
+🇸🇴 Somali
+
+Soomaali
+
+🇩🇯 Afar
+
+Qafar
+
+🇸🇦 Arabic
+
+العربية
+
+🇬🇧 English
+
+English
 
 Internationalization features:
-- Multilingual interface.
-- Language preference persistence using localStorage.
-- Right-to-left (RTL) layout support for Arabic.
-- Cairo typography for Arabic content.
-- Language-aware interface presentation.
-💳 Local Payment Options
-The platform presents payment options adapted to the Djiboutian market.
-Payment Method	Provider
-Waafi	Salaam African Bank
-D-Money	Djibouti Telecom
-BCI Pay	BCI-MR
-Cash	Cash on Delivery
 
+Multilingual interface.
+
+Language preference persistence using localStorage.
+
+Right-to-left (RTL) layout support for Arabic.
+
+Cairo typography for Arabic content.
+
+Language-aware interface presentation.
+
+💳 Local Payment Options
+
+The platform presents payment options adapted to the Djiboutian market.
+
+Payment Method
+
+Provider
+
+Waafi
+
+Salaam African Bank
+
+D-Money
+
+Djibouti Telecom
+
+BCI Pay
+
+BCI-MR
+
+Cash
+
+Cash on Delivery
 
 📲 WhatsApp Ordering & Customer Support
-- Direct access to official WhatsApp assistance.
-- Customer communication for product information and orders.
-- WhatsApp contact: +253 77 29 77 05.
+
+Direct access to official WhatsApp assistance.
+
+Customer communication for product information and orders.
+
+WhatsApp contact: +253 77 29 77 05.
+
 🚚 Local Delivery
-- Delivery information for Djibouti.
-- Service information covering Djibouti City and Balbala.
+
+Delivery information for Djibouti.
+
+Service information covering Djibouti City and Balbala.
+
 🔐 Security & Web Best Practices
+
 The project includes security-related web configurations and practices:
-- Content Security Policy (CSP).
-- XSS mitigation practices.
-- Clickjacking protection through X-Frame-Options: DENY.
-- External link protection with rel="noopener noreferrer".
-- Controlled resource paths and image fallback handling.
+
+Content Security Policy (CSP).
+
+XSS mitigation practices.
+
+Clickjacking protection through X-Frame-Options: DENY.
+
+External link protection with rel="noopener noreferrer".
+
+Controlled resource paths and image fallback handling.
+
 🏗️ 3. Technical Architecture
+
 The repository is organized as a pnpm monorepo, with separate workspace locations for applications and shared packages.
+
 Farhasan-Online/
 │
 ├── apps/                     # Application workspaces
@@ -124,132 +219,310 @@ Farhasan-Online/
 ├── pnpm-workspace.yaml       # pnpm workspace definitions
 ├── tsconfig.base.json        # Shared TypeScript configuration
 └── README.md
-Workspace Organization
-The root workspace defines two main groups:
-- apps/* — application workspaces.
-- packages/* — shared packages.
-The root scripts expose separate development commands for:
-- Backend application: @farhasan/backend
-- Web application: @farhasan/web
-- Database package: @farhasan/database
-🧰 4. Technologies & Development Tools
-Core Development Stack
-Technology / Tool	Purpose
-Node.js	JavaScript runtime
-TypeScript	Typed JavaScript development
-HTML5	Web page structure
-CSS3	Styling and responsive presentation
-JavaScript	Interactive functionality
-pnpm	Package management and monorepo workspaces
-pnpm Workspaces	Application and package organization
-Prettier	Code formatting
-TypeScript Compiler	Type checking and compilation
-Git	Version control
-GitHub	Source code hosting and collaboration
-GitHub Pages	Public website hosting
 
+Workspace Organization
+
+The root workspace defines two main groups:
+
+apps/* — application workspaces.
+
+packages/* — shared packages.
+
+The root scripts expose separate development commands for:
+
+Backend application: @farhasan/backend
+
+Web application: @farhasan/web
+
+Database package: @farhasan/database
+
+🧰 4. Technologies & Development Tools
+
+Core Development Stack
+
+Technology / Tool
+
+Purpose
+
+Node.js
+
+JavaScript runtime
+
+TypeScript
+
+Typed JavaScript development
+
+HTML5
+
+Web page structure
+
+CSS3
+
+Styling and responsive presentation
+
+JavaScript
+
+Interactive functionality
+
+pnpm
+
+Package management and monorepo workspaces
+
+pnpm Workspaces
+
+Application and package organization
+
+Prettier
+
+Code formatting
+
+TypeScript Compiler
+
+Type checking and compilation
+
+Git
+
+Version control
+
+GitHub
+
+Source code hosting and collaboration
+
+GitHub Pages
+
+Public website hosting
 
 Frontend & User Experience
-Technology	Purpose
-HTML / CSS / JavaScript	Storefront interface
-i18n	Multilingual interface
-localStorage	Language preference persistence
-Cairo Font	Arabic typography
-RTL	Right-to-left Arabic layout
 
+Technology
+
+Purpose
+
+HTML / CSS / JavaScript
+
+Storefront interface
+
+i18n
+
+Multilingual interface
+
+localStorage
+
+Language preference persistence
+
+Cairo Font
+
+Arabic typography
+
+RTL
+
+Right-to-left Arabic layout
 
 Backend & Data Workspace
-The repository exposes dedicated backend and database workspace commands:
-- Backend development through the @farhasan/backend workspace.
-- Database operations through the @farhasan/database workspace.
-- Database generation and schema synchronization commands.
-- Shared TypeScript configuration.
-Specific backend frameworks, database engines, and ORM packages should be documented from their individual workspace dependencies.
-Development Environment
-Component	Version / Configuration
-Node.js	>=20.0.0
-pnpm	11.24.0
-TypeScript	^5.5.4
-Prettier	^3.3.3
-rimraf	^6.0.1
-Project version	1.2.0
 
+The repository exposes dedicated backend and database workspace commands:
+
+Backend development through the @farhasan/backend workspace.
+
+Database operations through the @farhasan/database workspace.
+
+Database generation and schema synchronization commands.
+
+Shared TypeScript configuration.
+
+Specific backend frameworks, database engines, and ORM packages should be documented from their individual workspace dependencies.
+
+Development Environment
+
+Component
+
+Version / Configuration
+
+Node.js
+
+>=20.0.0
+
+pnpm
+
+11.24.0
+
+TypeScript
+
+^5.5.4
+
+Prettier
+
+^3.3.3
+
+rimraf
+
+^6.0.1
+
+Project version
+
+1.2.0
 
 🛠️ 5. Development Commands
-The root package.json provides the following scripts:
-Command	Description
-pnpm dev	Start application workspaces in parallel
-pnpm dev:backend	Start backend development
-pnpm dev:web	Start web development
-pnpm build	Build all workspace packages
-pnpm lint	Run workspace lint scripts
-pnpm typecheck	Run TypeScript checks
-pnpm db:generate	Generate database resources
-pnpm db:push	Synchronize database schema
-pnpm clean	Clean generated build and dependency directories
 
+The root package.json provides the following scripts:
+
+Command
+
+Description
+
+pnpm dev
+
+Start application workspaces in parallel
+
+pnpm dev:backend
+
+Start backend development
+
+pnpm dev:web
+
+Start web development
+
+pnpm build
+
+Build all workspace packages
+
+pnpm lint
+
+Run workspace lint scripts
+
+pnpm typecheck
+
+Run TypeScript checks
+
+pnpm db:generate
+
+Generate database resources
+
+pnpm db:push
+
+Synchronize database schema
+
+pnpm clean
+
+Clean generated build and dependency directories
 
 Installation
+
 1. Clone the repository
+
 git clone https://github.com/edenunix/Farhasan-Online.git
+
 2. Enter the project directory
+
 cd Farhasan-Online
+
 3. Enable Corepack
+
 corepack enable
+
 4. Install dependencies
+
 pnpm install
+
 5. Start development
+
 pnpm dev
+
 Run Individual Workspaces
+
 Backend:
+
 pnpm dev:backend
+
 Web:
+
 pnpm dev:web
+
 Build & Quality Checks
+
 pnpm build
 pnpm lint
 pnpm typecheck
+
 Database Commands
+
 pnpm db:generate
 pnpm db:push
+
 Note: Database commands require the corresponding workspace and database configuration to be available.
+
 🚀 6. Deployment & Hosting
+
 Public Storefront
+
 The public storefront is hosted using GitHub Pages.
 
 Live Website:
 
 https://edenunix.github.io/Farhasan-Online/
+
 Repository
+
 https://github.com/edenunix/Farhasan-Online
+
 Deployment Considerations
-- GitHub Pages hosting for the public storefront.
-- Relative asset paths for deployment compatibility.
-- Product image organization.
-- Automatic image fallback handling.
-- Workspace build and validation scripts for development.
+
+GitHub Pages hosting for the public storefront.
+
+Relative asset paths for deployment compatibility.
+
+Product image organization.
+
+Automatic image fallback handling.
+
+Workspace build and validation scripts for development.
+
 🖥️ 7. Project Preview
-<p align="center">   <img src="images/farahsan-online-banner.png" alt="Farahsan Online Platform Preview" width="100%"> </p>
+
+<p align="center">
+  <img src="images/farahsan-online-banner.png" alt="Farahsan Online Platform Preview" width="100%">
+</p>
+
 Official Resources
-- 🌐 Visit the online store
-- 💻 Explore the GitHub repository
+
+🌐 Visit the online store
+
+💻 Explore the GitHub repository
+
 🎯 8. Project Objectives
-- Build a digital commerce experience adapted to Djibouti.
-- Improve access to natural beauty and wellness products.
-- Provide a multilingual customer experience.
-- Present locally relevant payment options.
-- Simplify customer communication and ordering.
-- Organize web, backend, and database development.
-- Maintain a maintainable and scalable project structure.
+
+Build a digital commerce experience adapted to Djibouti.
+
+Improve access to natural beauty and wellness products.
+
+Provide a multilingual customer experience.
+
+Present locally relevant payment options.
+
+Simplify customer communication and ordering.
+
+Organize web, backend, and database development.
+
+Maintain a maintainable and scalable project structure.
+
 👨‍💻 9. Developer & Ownership
+
 Developer: ADEN AHMED ADEN
 
 Development Brand: Aden.Code
 
 Official Contact:
-- Email: contact@farahsan.com
-- WhatsApp: +253 77 29 77 05
-Project Status: Public storefront online — development workspace maintained.
-<p align="center">   <strong>🌿 FARAHSAN ONLINE — Naturally Better.</strong> </p>
 
-<p align="center">   © 2026 FARAHSAN ONLINE. All rights reserved. </p>
+Email: contact@farahsan.com
+
+WhatsApp: +253 77 29 77 05
+
+Project Status: Public storefront online — development workspace maintained.
+
+<p align="center">
+  <strong>🌿 FARAHSAN ONLINE — Naturally Better.</strong>
+</p>
+
+<p align="center">
+  © 2026 FARAHSAN ONLINE. All rights reserved.
+</p>
