@@ -28,9 +28,7 @@
     <strong>🌐 VISIT THE OFFICIAL STORE</strong>
   </a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/edenunix/Farhasan-Online">
-    <strong>💻 SOURCE CODE</strong>
-  </a>
+
 </p>
 
 ---
