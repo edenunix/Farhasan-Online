@@ -318,7 +318,7 @@ https://github.com/edenunix/Farhasan-Online
 ## 🖥️ 7. Project Preview
 
 <p align="center">
-  <img src="images/farahsan-online-banner.png" alt="Farahsan Online Platform Preview" width="100%">
+  <img src="images/Project Preview.png" alt="Farahsan Online Platform Preview" width="100%">
 </p>
 
 ### Official Resources
