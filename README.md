@@ -15,6 +15,12 @@
 
 ---
 
+<p align="center">
+  <img src="images/farahsan-online-banner.png"
+       alt="Farahsan Online"
+       width="100%">
+</p>
+
 ## 📁 Structure du Projet
 
 ```
